@@ -1,0 +1,69 @@
+---
+title: "Extensions"
+description: "Install and manage Chrome extensions in Oxygen Atmos browser profiles"
+---
+
+## Overview
+
+Oxygen Atmos supports Chrome extensions. You can install extensions globally (available to all profiles) or per-profile.
+
+## Installing extensions
+
+<Tabs>
+  <Tab title="From Chrome Web Store">
+    <Steps>
+      <Step title="Launch a profile">
+        Start any browser profile from the dashboard.
+      </Step>
+      <Step title="Open Chrome Web Store">
+        Navigate to the Chrome Web Store in the profile browser.
+      </Step>
+      <Step title="Install the extension">
+        Find the extension and click **Add to Chrome**. The extension is installed for the current profile.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="From CRX file">
+    <Steps>
+      <Step title="Download the CRX file">
+        Obtain the `.crx` extension file.
+      </Step>
+      <Step title="Open extension manager">
+        In Oxygen Atmos, go to **Extras** → **Extensions** → **Import CRX**.
+
+        {/* Screenshot: CRX import button */}
+      </Step>
+      <Step title="Upload and assign">
+        Upload the CRX file and select which profiles should receive the extension.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Global extensions
+
+Global extensions are installed once and automatically loaded in every profile:
+
+1. Go to **Extras** → **Extensions**
+2. Click **Add Global Extension**
+3. Upload a CRX file or enter a Chrome Web Store URL
+4. The extension will load in all profiles on next launch
+
+{/* Screenshot: global extensions list */}
+
+<Info>
+  Global extensions share the same configuration across profiles. Per-profile extensions have independent settings and data.
+</Info>
+
+## Managing extensions
+
+| Action | Description |
+|---|---|
+| **Enable/Disable** | Toggle an extension on or off for specific profiles |
+| **Remove** | Uninstall the extension from a profile or globally |
+| **Update** | Update to the latest version from the source |
+| **Pin** | Pin the extension to the browser toolbar |
+
+<Warning>
+  Some extensions can leak your real identity (e.g., extensions that sync with a Google account). Use extensions carefully in antidetect workflows.
+</Warning>

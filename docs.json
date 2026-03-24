@@ -1,122 +1,162 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
+  "theme": "aspen",
+  "name": "Oxygen Atmos",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#6366f1",
+    "light": "#818cf8",
+    "dark": "#4f46e5"
   },
   "favicon": "/favicon.svg",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "appearance": {
+    "default": "dark"
+  },
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Documentation",
         "groups": [
           {
             "group": "Getting started",
+            "icon": "rocket",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "getting-started/overview",
+              "getting-started/registration",
+              "getting-started/installation"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Migration",
+            "icon": "arrow-right-arrow-left",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "migration/about-migration",
+              "migration/from-dolphin-anty"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Browser profiles",
+            "icon": "user-secret",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "browser-profiles/about-profiles",
+              "browser-profiles/mass-creation",
+              "browser-profiles/profile-transfer",
+              "browser-profiles/cookie-robot",
+              "browser-profiles/synchronizer",
+              "browser-profiles/notes"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Folders",
+            "icon": "folder",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "folders/about-folders",
+              "folders/base-actions",
+              "folders/received-profiles-folder",
+              "folders/trash-bin"
+            ]
+          },
+          {
+            "group": "Proxy",
+            "icon": "shield-halved",
+            "pages": [
+              "proxy/about-proxy",
+              "proxy/creating-proxy",
+              "proxy/editing-proxy",
+              "proxy/transfer-proxy",
+              "proxy/deleting-proxy"
+            ]
+          },
+          {
+            "group": "Extras",
+            "icon": "puzzle-piece",
+            "pages": [
+              "extras/overview",
+              "extras/extensions",
+              "extras/bookmarks",
+              "extras/start-pages"
+            ]
+          },
+          {
+            "group": "Teamwork",
+            "icon": "users",
+            "pages": [
+              "teamwork/about-teamwork",
+              "teamwork/base-actions",
+              "teamwork/team-management",
+              "teamwork/invite-to-team",
+              "teamwork/permissions-settings",
+              "teamwork/transfer-key"
+            ]
+          },
+          {
+            "group": "Additional features",
+            "icon": "gear",
+            "pages": [
+              "additional-features/video-spoofing",
+              "additional-features/settings"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "API Reference",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Getting started",
+            "icon": "code",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/introduction",
+              "api-reference/authentication",
+              "api-reference/quick-start"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Endpoints",
+            "icon": "plug",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/endpoints/profiles",
+              "api-reference/endpoints/folders",
+              "api-reference/endpoints/proxy",
+              "api-reference/endpoints/tags",
+              "api-reference/endpoints/statuses",
+              "api-reference/endpoints/browser-management"
+            ]
+          },
+          {
+            "group": "Resources",
+            "icon": "book",
+            "pages": [
+              "api-reference/error-codes",
+              "api-reference/rate-limits",
+              "api-reference/sdks"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    ]
   },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Get Help",
+        "href": "https://wallet.oxygen.tools/en"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Main Site →",
+      "href": "https://wallet.oxygen.tools/en"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/oxygenatmos",
+      "github": "https://github.com/oxygenatmos",
+      "discord": "https://discord.gg/oxygenatmos"
     }
   }
 }

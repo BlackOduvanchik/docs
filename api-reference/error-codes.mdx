@@ -1,0 +1,83 @@
+---
+title: "Error codes"
+description: "HTTP status codes and error responses from the Oxygen Atmos API"
+---
+
+<Note>
+  The API is in development. Error codes described below represent the planned specification.
+</Note>
+
+## Error response format
+
+All errors follow a consistent format:
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "PROFILE_NOT_FOUND",
+    "message": "Profile with ID 'prof_abc' was not found",
+    "status": 404
+  }
+}
+```
+
+## HTTP status codes
+
+| Code | Description |
+|---|---|
+| `200` | Success |
+| `201` | Resource created |
+| `204` | Success, no content (delete operations) |
+| `400` | Bad request — invalid parameters |
+| `401` | Unauthorized — missing or invalid API key |
+| `403` | Forbidden — insufficient permissions |
+| `404` | Not found — resource doesn't exist |
+| `409` | Conflict — resource already exists or is in use |
+| `429` | Too many requests — rate limit exceeded |
+| `500` | Internal server error |
+
+## Error codes
+
+| Code | Status | Description |
+|---|---|---|
+| `INVALID_REQUEST` | 400 | Request body is malformed or missing required fields |
+| `INVALID_PARAMETER` | 400 | A parameter value is invalid |
+| `UNAUTHORIZED` | 401 | API key is missing or invalid |
+| `FORBIDDEN` | 403 | API key doesn't have permission for this action |
+| `PROFILE_NOT_FOUND` | 404 | Profile ID doesn't exist |
+| `FOLDER_NOT_FOUND` | 404 | Folder ID doesn't exist |
+| `PROXY_NOT_FOUND` | 404 | Proxy ID doesn't exist |
+| `PROFILE_ALREADY_RUNNING` | 409 | Profile is already running |
+| `PROFILE_NOT_RUNNING` | 409 | Profile is not running (can't stop) |
+| `PROFILE_LIMIT_REACHED` | 409 | Account profile quota exceeded |
+| `RATE_LIMIT_EXCEEDED` | 429 | Too many requests — slow down |
+| `INTERNAL_ERROR` | 500 | Unexpected server error |
+
+## Handling errors
+
+<CodeGroup>
+```python Python
+import requests
+
+resp = requests.get(
+    "http://localhost:3001/api/v1/profiles/invalid_id",
+    headers={"Authorization": "Bearer YOUR_API_KEY"}
+)
+
+if not resp.ok:
+    error = resp.json()["error"]
+    print(f"Error {error['code']}: {error['message']}")
+```
+
+```javascript JavaScript
+const resp = await fetch("http://localhost:3001/api/v1/profiles/invalid_id", {
+  headers: { "Authorization": "Bearer YOUR_API_KEY" }
+});
+
+if (!resp.ok) {
+  const { error } = await resp.json();
+  console.error(`Error ${error.code}: ${error.message}`);
+}
+```
+</CodeGroup>

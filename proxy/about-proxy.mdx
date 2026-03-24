@@ -1,0 +1,58 @@
+---
+title: "About proxy"
+description: "Understand proxy management in Oxygen Atmos for network identity isolation"
+---
+
+## Overview
+
+Proxies are essential for antidetect browsing. Each browser profile should use a unique proxy to ensure that its network identity (IP address, geolocation) is isolated from other profiles. Oxygen Atmos includes a built-in proxy manager for organizing and assigning proxies.
+
+## Supported proxy types
+
+| Type | Description |
+|---|---|
+| **HTTP** | Standard HTTP proxy |
+| **HTTPS** | Encrypted HTTP proxy |
+| **SOCKS4** | SOCKS protocol v4 |
+| **SOCKS5** | SOCKS protocol v5 with authentication |
+| **SSH** | SSH tunnel as proxy |
+
+## Proxy manager
+
+The proxy manager is accessible from the sidebar under **Proxy**. It displays all your saved proxies with status information:
+
+{/* Screenshot: proxy manager list view */}
+
+| Column | Description |
+|---|---|
+| **Name** | Custom label for the proxy |
+| **Type** | HTTP, SOCKS5, etc. |
+| **Host:Port** | Proxy server address |
+| **Status** | Connection check result (active/dead) |
+| **Assigned to** | Number of profiles using this proxy |
+| **Country** | Detected geolocation |
+
+## Proxy and profiles
+
+Each profile can have **one proxy** assigned. When you start a profile, all traffic routes through its assigned proxy. If no proxy is assigned, the profile uses your direct internet connection.
+
+<Warning>
+  Running profiles without a proxy exposes your real IP address. Always assign a proxy for production use.
+</Warning>
+
+## Bulk proxy check
+
+Select multiple proxies and click **Check** to verify connectivity in bulk. Dead proxies are flagged in the status column.
+
+{/* Screenshot: bulk proxy check results */}
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Create a proxy" icon="plus" href="/proxy/creating-proxy">
+    Add new proxies to your proxy manager.
+  </Card>
+  <Card title="Transfer proxies" icon="arrow-right" href="/proxy/transfer-proxy">
+    Send proxies to team members.
+  </Card>
+</CardGroup>

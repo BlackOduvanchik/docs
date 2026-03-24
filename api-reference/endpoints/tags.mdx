@@ -1,0 +1,106 @@
+---
+title: "Tags"
+description: "API endpoints for managing profile tags"
+---
+
+<Note>
+  The API is in development. Endpoints described below represent the planned specification.
+</Note>
+
+## List tags
+
+```
+GET /api/v1/tags
+```
+
+**Response**
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "tag_abc",
+      "name": "facebook",
+      "color": "#1877F2",
+      "profile_count": 15
+    }
+  ]
+}
+```
+
+---
+
+## Create tag
+
+```
+POST /api/v1/tags
+```
+
+**Request body**
+
+```json
+{
+  "name": "campaign-q1",
+  "color": "#10B981"
+}
+```
+
+---
+
+## Update tag
+
+```
+PATCH /api/v1/tags/{tag_id}
+```
+
+**Request body**
+
+```json
+{
+  "name": "campaign-q2",
+  "color": "#F59E0B"
+}
+```
+
+---
+
+## Delete tag
+
+```
+DELETE /api/v1/tags/{tag_id}
+```
+
+Removes the tag from all profiles. Returns `204 No Content`.
+
+---
+
+## Assign tags to profiles
+
+```
+POST /api/v1/tags/{tag_id}/profiles
+```
+
+**Request body**
+
+```json
+{
+  "profile_ids": ["prof_abc", "prof_def"]
+}
+```
+
+---
+
+## Remove tag from profiles
+
+```
+DELETE /api/v1/tags/{tag_id}/profiles
+```
+
+**Request body**
+
+```json
+{
+  "profile_ids": ["prof_abc"]
+}
+```

@@ -1,0 +1,149 @@
+---
+title: "Browser management"
+description: "API endpoints for starting and stopping browser profile instances"
+---
+
+<Note>
+  The API is in development. Endpoints described below represent the planned specification.
+</Note>
+
+## Start profile
+
+```
+POST /api/v1/profiles/{profile_id}/start
+```
+
+Launches a browser instance for the specified profile.
+
+**Query parameters**
+
+| Parameter | Type | Description |
+|---|---|---|
+| `headless` | boolean | Run in headless mode (default: `false`) |
+
+**Response**
+
+```json
+{
+  "success": true,
+  "data": {
+    "profile_id": "prof_abc123",
+    "status": "running",
+    "debug_port": 9222,
+    "ws_endpoint": "ws://127.0.0.1:9222/devtools/browser/abc-def-123"
+  }
+}
+```
+
+Use the `ws_endpoint` to connect automation tools:
+
+<CodeGroup>
+```javascript Puppeteer
+const browser = await puppeteer.connect({
+  browserWSEndpoint: data.ws_endpoint
+});
+```
+
+```python Playwright
+browser = playwright.chromium.connect_over_cdp(data["ws_endpoint"])
+```
+
+```python Selenium
+from selenium import webdriver
+
+options = webdriver.ChromeOptions()
+options.debugger_address = f"127.0.0.1:{data['debug_port']}"
+driver = webdriver.Chrome(options=options)
+```
+</CodeGroup>
+
+---
+
+## Stop profile
+
+```
+POST /api/v1/profiles/{profile_id}/stop
+```
+
+Closes the browser instance and saves session data.
+
+**Response**
+
+```json
+{
+  "success": true,
+  "data": {
+    "profile_id": "prof_abc123",
+    "status": "stopped"
+  }
+}
+```
+
+---
+
+## Get profile status
+
+```
+GET /api/v1/profiles/{profile_id}/status
+```
+
+**Response**
+
+```json
+{
+  "success": true,
+  "data": {
+    "profile_id": "prof_abc123",
+    "status": "running",
+    "debug_port": 9222,
+    "ws_endpoint": "ws://127.0.0.1:9222/devtools/browser/abc-def-123",
+    "started_at": "2024-01-20T14:30:00Z",
+    "uptime_seconds": 3600
+  }
+}
+```
+
+---
+
+## List running profiles
+
+```
+GET /api/v1/profiles/running
+```
+
+Returns all currently running browser instances.
+
+**Response**
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "profile_id": "prof_abc",
+      "name": "Profile 1",
+      "debug_port": 9222,
+      "started_at": "2024-01-20T14:30:00Z"
+    }
+  ]
+}
+```
+
+---
+
+## Stop all profiles
+
+```
+POST /api/v1/profiles/stop-all
+```
+
+Closes all running browser instances. Returns the count of stopped profiles.
+
+```json
+{
+  "success": true,
+  "data": {
+    "stopped_count": 5
+  }
+}
+```

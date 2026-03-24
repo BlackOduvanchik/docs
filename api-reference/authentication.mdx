@@ -1,0 +1,71 @@
+---
+title: "Authentication"
+description: "Authenticate with the Oxygen Atmos API using API keys"
+---
+
+## Overview
+
+The Oxygen Atmos API uses API key authentication. Include your API key in the `Authorization` header of every request.
+
+<Note>
+  API authentication details will be finalized when the API launches. The examples below show the planned authentication flow.
+</Note>
+
+## Get your API key
+
+<Steps>
+  <Step title="Open settings">
+    In the Oxygen Atmos app, go to **Settings** → **API**.
+  </Step>
+  <Step title="Generate an API key">
+    Click **Generate API Key**. Copy the key immediately — it won't be shown again.
+  </Step>
+  <Step title="Store securely">
+    Save the key in an environment variable or secrets manager.
+  </Step>
+</Steps>
+
+## Using the API key
+
+Include the key in the `Authorization` header:
+
+<CodeGroup>
+```bash cURL
+curl -X GET http://localhost:3001/api/v1/profiles \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+```python Python
+import requests
+
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY"
+}
+
+response = requests.get(
+    "http://localhost:3001/api/v1/profiles",
+    headers=headers
+)
+```
+
+```javascript JavaScript
+const response = await fetch("http://localhost:3001/api/v1/profiles", {
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY"
+  }
+});
+
+const data = await response.json();
+```
+</CodeGroup>
+
+## Security best practices
+
+<Warning>
+  Never expose your API key in client-side code, public repositories, or logs.
+</Warning>
+
+- Store API keys in **environment variables** (`OXYGEN_API_KEY`)
+- Rotate keys periodically
+- Use separate keys for development and production workflows
+- Revoke compromised keys immediately in **Settings** → **API**

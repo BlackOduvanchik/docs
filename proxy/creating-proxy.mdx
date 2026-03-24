@@ -1,0 +1,65 @@
+---
+title: "Creating proxy"
+description: "Add new proxies to Oxygen Atmos — single or bulk import"
+---
+
+## Add a single proxy
+
+<Steps>
+  <Step title="Open proxy manager">
+    Click **Proxy** in the sidebar, then click **Add Proxy**.
+
+    {/* Screenshot: Add Proxy button */}
+  </Step>
+  <Step title="Fill in proxy details">
+    | Field | Description |
+    |---|---|
+    | **Name** | A label for this proxy (optional) |
+    | **Type** | HTTP, HTTPS, SOCKS4, SOCKS5, or SSH |
+    | **Host** | Proxy server address |
+    | **Port** | Proxy server port |
+    | **Username** | Authentication username (if required) |
+    | **Password** | Authentication password (if required) |
+
+    {/* Screenshot: proxy creation form */}
+  </Step>
+  <Step title="Check connection">
+    Click **Check Proxy** to verify the proxy is working. You'll see the detected IP and country.
+  </Step>
+  <Step title="Save">
+    Click **Save** to add the proxy to your list.
+  </Step>
+</Steps>
+
+## Bulk import
+
+To add multiple proxies at once:
+
+<Steps>
+  <Step title="Click Bulk Import">
+    In the proxy manager, click **Bulk Import**.
+
+    {/* Screenshot: bulk import button */}
+  </Step>
+  <Step title="Paste proxy list">
+    Paste your proxies, one per line. Supported formats:
+
+    ```text
+    host:port:username:password
+    host:port
+    username:password@host:port
+    socks5://host:port:username:password
+    http://username:password@host:port
+    ```
+  </Step>
+  <Step title="Select proxy type">
+    Choose the proxy type for all imported proxies (HTTP, SOCKS5, etc.).
+  </Step>
+  <Step title="Import">
+    Click **Import** to add all proxies to your list.
+  </Step>
+</Steps>
+
+<Info>
+  Imported proxies are automatically checked for connectivity. Dead proxies are flagged but still saved — you can re-check them later.
+</Info>

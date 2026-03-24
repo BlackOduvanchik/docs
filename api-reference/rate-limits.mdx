@@ -1,0 +1,57 @@
+---
+title: "Rate limits"
+description: "API rate limiting — request quotas and throttling behavior"
+---
+
+<Note>
+  The API is in development. Rate limits described below represent the planned specification.
+</Note>
+
+## Default limits
+
+| Endpoint group | Limit | Window |
+|---|---|---|
+| **Profile CRUD** | 100 requests | 60 seconds |
+| **Browser start/stop** | 20 requests | 60 seconds |
+| **Proxy CRUD** | 100 requests | 60 seconds |
+| **Tags / Statuses** | 100 requests | 60 seconds |
+| **Bulk operations** | 10 requests | 60 seconds |
+
+## Rate limit headers
+
+Every response includes rate limit information:
+
+```
+X-RateLimit-Limit: 100
+X-RateLimit-Remaining: 95
+X-RateLimit-Reset: 1706000000
+```
+
+| Header | Description |
+|---|---|
+| `X-RateLimit-Limit` | Max requests per window |
+| `X-RateLimit-Remaining` | Requests remaining in current window |
+| `X-RateLimit-Reset` | Unix timestamp when the window resets |
+
+## Exceeding the limit
+
+When you exceed the rate limit, the API returns `429 Too Many Requests`:
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "RATE_LIMIT_EXCEEDED",
+    "message": "Rate limit exceeded. Retry after 15 seconds.",
+    "status": 429,
+    "retry_after": 15
+  }
+}
+```
+
+## Best practices
+
+- Implement **exponential backoff** when receiving 429 responses
+- Cache responses where possible to reduce request count
+- Use **bulk endpoints** for batch operations instead of individual calls
+- Monitor `X-RateLimit-Remaining` to stay within limits proactively

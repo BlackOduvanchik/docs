@@ -1,0 +1,54 @@
+---
+title: "Video spoofing"
+description: "Spoof webcam and video device fingerprints in browser profiles"
+---
+
+## Overview
+
+Video spoofing lets you replace your real webcam feed with a virtual video source in browser profiles. This is useful for identity verification, video calls, and platforms that check webcam availability.
+
+## How it works
+
+When video spoofing is enabled, Oxygen Atmos intercepts the browser's media device enumeration and replaces it with a virtual video device. Websites see a webcam device but receive the spoofed feed instead of your real camera.
+
+## Enable video spoofing
+
+<Steps>
+  <Step title="Open profile editor">
+    Click **Edit** on a profile in the dashboard.
+
+    {/* Screenshot: profile edit button */}
+  </Step>
+  <Step title="Go to Advanced settings">
+    Navigate to the **Advanced** tab in the profile editor.
+
+    {/* Screenshot: advanced settings tab */}
+  </Step>
+  <Step title="Enable Video Spoofing">
+    Toggle **Video Spoofing** to on.
+
+    {/* Screenshot: video spoofing toggle */}
+  </Step>
+  <Step title="Configure source">
+    Choose the video source:
+
+    | Source | Description |
+    |---|---|
+    | **Image** | Display a static image as webcam feed |
+    | **Video file** | Play a video file as webcam feed |
+    | **Virtual camera** | Use a virtual camera app (OBS, ManyCam) |
+  </Step>
+  <Step title="Save">
+    Click **Save**. The spoofed webcam will be active next time you launch the profile.
+  </Step>
+</Steps>
+
+<Note>
+  Video spoofing affects the `navigator.mediaDevices.enumerateDevices()` API response. Platforms that check for real hardware may detect virtual devices depending on the spoofing method used.
+</Note>
+
+## Use cases
+
+- **Identity verification** — complete KYC checks that require a webcam
+- **Video conferencing** — join calls with a spoofed feed
+- **Platform checks** — pass device enumeration checks on antibot systems

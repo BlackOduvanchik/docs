@@ -1,33 +1,51 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "Introduction"
+description: "Oxygen Atmos API — programmatically manage browser profiles, proxies, and automation"
 ---
 
+## Oxygen Atmos API
+
+The Oxygen Atmos API lets you automate browser profile management, proxy configuration, and browser lifecycle operations. Use it to integrate Oxygen Atmos into your automation pipelines, build custom tools, or manage profiles programmatically.
+
 <Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
+  The API is currently in development. This documentation describes the planned endpoints and will be updated as the API becomes available.
 </Note>
 
-## Welcome
+## Base URL
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
-
-## Authentication
-
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
-
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
 ```
+http://localhost:3001/api/v1
+```
+
+The API runs locally alongside the Oxygen Atmos desktop application.
+
+## What you can do
+
+<CardGroup cols={2}>
+  <Card title="Manage profiles" icon="user-secret" href="/api-reference/endpoints/profiles">
+    Create, read, update, and delete browser profiles programmatically.
+  </Card>
+  <Card title="Control browsers" icon="play" href="/api-reference/endpoints/browser-management">
+    Start and stop browser instances via API calls.
+  </Card>
+  <Card title="Manage proxies" icon="shield-halved" href="/api-reference/endpoints/proxy">
+    Add, update, and remove proxies from your account.
+  </Card>
+  <Card title="Organize with folders" icon="folder" href="/api-reference/endpoints/folders">
+    Create folders and move profiles between them.
+  </Card>
+</CardGroup>
+
+## Quick links
+
+<CardGroup cols={3}>
+  <Card title="Authentication" icon="key" href="/api-reference/authentication">
+    Set up API authentication.
+  </Card>
+  <Card title="Quick start" icon="rocket" href="/api-reference/quick-start">
+    Make your first API call in 2 minutes.
+  </Card>
+  <Card title="Error codes" icon="triangle-exclamation" href="/api-reference/error-codes">
+    Handle errors correctly.
+  </Card>
+</CardGroup>

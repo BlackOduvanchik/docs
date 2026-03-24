@@ -1,0 +1,117 @@
+---
+title: "Folders"
+description: "API endpoints for managing folders — create, list, update, delete"
+---
+
+<Note>
+  The API is in development. Endpoints described below represent the planned specification.
+</Note>
+
+## List folders
+
+```
+GET /api/v1/folders
+```
+
+**Response**
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "fold_abc",
+      "name": "Facebook Accounts",
+      "profile_count": 25,
+      "created_at": "2024-01-10T08:00:00Z"
+    }
+  ]
+}
+```
+
+---
+
+## Get folder
+
+```
+GET /api/v1/folders/{folder_id}
+```
+
+Returns folder details and a list of profile IDs inside it.
+
+---
+
+## Create folder
+
+```
+POST /api/v1/folders
+```
+
+**Request body**
+
+```json
+{
+  "name": "New Folder"
+}
+```
+
+**Response** — `201 Created`
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "fold_new123",
+    "name": "New Folder",
+    "profile_count": 0
+  }
+}
+```
+
+---
+
+## Update folder
+
+```
+PATCH /api/v1/folders/{folder_id}
+```
+
+**Request body**
+
+```json
+{
+  "name": "Renamed Folder"
+}
+```
+
+---
+
+## Delete folder
+
+```
+DELETE /api/v1/folders/{folder_id}
+```
+
+**Query parameters**
+
+| Parameter | Type | Description |
+|---|---|---|
+| `move_profiles` | boolean | Move profiles to default folder (default: `true`) |
+
+Returns `204 No Content` on success.
+
+---
+
+## Move profile to folder
+
+```
+POST /api/v1/folders/{folder_id}/profiles
+```
+
+**Request body**
+
+```json
+{
+  "profile_ids": ["prof_abc", "prof_def"]
+}
+```

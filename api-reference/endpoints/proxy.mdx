@@ -1,0 +1,129 @@
+---
+title: "Proxy"
+description: "API endpoints for managing proxies — create, list, update, delete, check"
+---
+
+<Note>
+  The API is in development. Endpoints described below represent the planned specification.
+</Note>
+
+## List proxies
+
+```
+GET /api/v1/proxies
+```
+
+**Response**
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "prx_abc",
+      "name": "US Proxy 1",
+      "type": "http",
+      "host": "proxy.example.com",
+      "port": 8080,
+      "country": "US",
+      "status": "active",
+      "assigned_profiles": 3
+    }
+  ]
+}
+```
+
+---
+
+## Create proxy
+
+```
+POST /api/v1/proxies
+```
+
+**Request body**
+
+```json
+{
+  "name": "US Proxy 1",
+  "type": "http",
+  "host": "proxy.example.com",
+  "port": 8080,
+  "username": "user",
+  "password": "pass"
+}
+```
+
+Supported types: `http`, `https`, `socks4`, `socks5`, `ssh`
+
+---
+
+## Update proxy
+
+```
+PATCH /api/v1/proxies/{proxy_id}
+```
+
+**Request body** — only include fields to update:
+
+```json
+{
+  "name": "Renamed Proxy",
+  "host": "new-proxy.example.com"
+}
+```
+
+---
+
+## Delete proxy
+
+```
+DELETE /api/v1/proxies/{proxy_id}
+```
+
+Returns `204 No Content`. Profiles assigned to this proxy will have their proxy cleared.
+
+---
+
+## Check proxy
+
+```
+POST /api/v1/proxies/{proxy_id}/check
+```
+
+Tests proxy connectivity and returns status.
+
+**Response**
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "prx_abc",
+    "status": "active",
+    "ip": "203.0.113.42",
+    "country": "US",
+    "latency_ms": 120
+  }
+}
+```
+
+---
+
+## Bulk import proxies
+
+```
+POST /api/v1/proxies/bulk
+```
+
+**Request body**
+
+```json
+{
+  "type": "http",
+  "proxies": [
+    "host1:port1:user1:pass1",
+    "host2:port2:user2:pass2"
+  ]
+}
+```

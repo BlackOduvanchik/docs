@@ -1,0 +1,60 @@
+---
+title: "SDKs & libraries"
+description: "Official and community SDKs for the Oxygen Atmos API"
+---
+
+<Note>
+  SDKs are in development and will be released alongside the API. This page will be updated with installation instructions and usage examples.
+</Note>
+
+## Planned SDKs
+
+| Language | Package | Status |
+|---|---|---|
+| **Python** | `oxygen-atmos` | Coming soon |
+| **JavaScript/TypeScript** | `@oxygen-atmos/sdk` | Coming soon |
+| **Go** | `github.com/oxygenatmos/go-sdk` | Planned |
+
+## Python (preview)
+
+```python
+from oxygen_atmos import OxygenAtmos
+
+client = OxygenAtmos(api_key="YOUR_API_KEY")
+
+# List profiles
+profiles = client.profiles.list()
+
+# Start a profile
+session = client.profiles.start("prof_abc123")
+print(session.ws_endpoint)
+
+# Stop a profile
+client.profiles.stop("prof_abc123")
+```
+
+## JavaScript/TypeScript (preview)
+
+```typescript
+import { OxygenAtmos } from '@oxygen-atmos/sdk';
+
+const client = new OxygenAtmos({ apiKey: 'YOUR_API_KEY' });
+
+// List profiles
+const profiles = await client.profiles.list();
+
+// Start a profile
+const session = await client.profiles.start('prof_abc123');
+console.log(session.wsEndpoint);
+
+// Stop a profile
+await client.profiles.stop('prof_abc123');
+```
+
+## Community resources
+
+Community-built tools and integrations will be listed here as they become available. If you're building a tool on top of the Oxygen Atmos API, let us know.
+
+<Info>
+  Want to contribute an SDK or integration? Reach out to us via the support channels linked in the footer.
+</Info>

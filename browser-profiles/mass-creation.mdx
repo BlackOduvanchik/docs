@@ -1,0 +1,71 @@
+---
+title: "Mass creation"
+description: "Create multiple browser profiles at once with bulk configuration options"
+---
+
+## Overview
+
+Mass creation lets you generate dozens or hundreds of browser profiles in a single operation. Each profile gets a unique fingerprint, and you can assign proxies, tags, and folders in bulk.
+
+## Create profiles in bulk
+
+<Steps>
+  <Step title="Open mass creation">
+    In the main dashboard, click **New Profile** → **Mass Creation**.
+
+    {/* Screenshot: mass creation menu entry */}
+  </Step>
+  <Step title="Set the quantity">
+    Enter the number of profiles to create (e.g., 50).
+  </Step>
+  <Step title="Configure base settings">
+    Set shared parameters for all profiles:
+
+    - **Operating system** — Windows, macOS, or Linux
+    - **Browser version** — latest or specific version
+    - **Naming pattern** — e.g., `Profile_[n]` where `[n]` is auto-incremented
+
+    {/* Screenshot: mass creation configuration form */}
+  </Step>
+  <Step title="Assign proxies">
+    Choose a proxy assignment strategy:
+
+    | Strategy | Description |
+    |---|---|
+    | **None** | No proxy assigned |
+    | **Round-robin** | Cycle through a proxy list |
+    | **Random** | Randomly assign from a proxy list |
+    | **One-to-one** | Map each profile to a specific proxy |
+
+    {/* Screenshot: proxy assignment strategy selector */}
+  </Step>
+  <Step title="Select destination folder">
+    Choose a folder to place the new profiles in, or leave empty for the default folder.
+  </Step>
+  <Step title="Generate">
+    Click **Create** to generate all profiles. A progress bar will show the creation status.
+
+    {/* Screenshot: mass creation progress bar */}
+  </Step>
+</Steps>
+
+<Note>
+  Mass creation speed depends on the number of profiles and your subscription tier. Free tier is limited to 10 profiles per batch.
+</Note>
+
+## Proxy list format
+
+When using round-robin or one-to-one assignment, paste your proxies in any of these formats:
+
+```text
+host:port:username:password
+host:port
+username:password@host:port
+socks5://host:port:username:password
+```
+
+## Tips
+
+- Use **naming patterns** to keep profiles organized (e.g., `FB_Farm_{n}`, `Amazon_{n}`)
+- Assign **tags** during mass creation to group profiles by campaign or purpose
+- Pre-create a **proxy list** before mass creation for faster setup

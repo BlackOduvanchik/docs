@@ -1,0 +1,122 @@
+---
+title: "Quick start"
+description: "Make your first Oxygen Atmos API call in 2 minutes"
+---
+
+## Prerequisites
+
+- Oxygen Atmos desktop app running
+- API key generated (see [Authentication](/api-reference/authentication))
+
+## Your first API call
+
+<Steps>
+  <Step title="Verify the API is running">
+    ```bash
+    curl http://localhost:3001/api/v1/health
+    ```
+
+    Expected response:
+
+    ```json
+    {
+      "status": "ok",
+      "version": "1.0.0"
+    }
+    ```
+  </Step>
+  <Step title="List your profiles">
+    <CodeGroup>
+    ```bash cURL
+    curl http://localhost:3001/api/v1/profiles \
+      -H "Authorization: Bearer YOUR_API_KEY"
+    ```
+
+    ```python Python
+    import requests
+
+    resp = requests.get(
+        "http://localhost:3001/api/v1/profiles",
+        headers={"Authorization": "Bearer YOUR_API_KEY"}
+    )
+    print(resp.json())
+    ```
+
+    ```javascript JavaScript
+    const resp = await fetch("http://localhost:3001/api/v1/profiles", {
+      headers: { "Authorization": "Bearer YOUR_API_KEY" }
+    });
+    const profiles = await resp.json();
+    console.log(profiles);
+    ```
+    </CodeGroup>
+  </Step>
+  <Step title="Start a browser profile">
+    <CodeGroup>
+    ```bash cURL
+    curl -X POST http://localhost:3001/api/v1/profiles/{profile_id}/start \
+      -H "Authorization: Bearer YOUR_API_KEY"
+    ```
+
+    ```python Python
+    resp = requests.post(
+        f"http://localhost:3001/api/v1/profiles/{profile_id}/start",
+        headers={"Authorization": "Bearer YOUR_API_KEY"}
+    )
+    print(resp.json())
+    ```
+    </CodeGroup>
+
+    Response:
+
+    ```json
+    {
+      "success": true,
+      "data": {
+        "profile_id": "abc123",
+        "status": "running",
+        "debug_port": 9222,
+        "ws_endpoint": "ws://127.0.0.1:9222/devtools/browser/..."
+      }
+    }
+    ```
+  </Step>
+  <Step title="Connect with automation tools">
+    Use the `ws_endpoint` from the response to connect with Puppeteer, Playwright, or Selenium:
+
+    <CodeGroup>
+    ```javascript Puppeteer
+    const puppeteer = require('puppeteer-core');
+
+    const browser = await puppeteer.connect({
+      browserWSEndpoint: 'ws://127.0.0.1:9222/devtools/browser/...'
+    });
+
+    const page = await browser.newPage();
+    await page.goto('https://example.com');
+    ```
+
+    ```python Playwright
+    from playwright.sync_api import sync_playwright
+
+    with sync_playwright() as p:
+        browser = p.chromium.connect_over_cdp(
+            "ws://127.0.0.1:9222/devtools/browser/..."
+        )
+        page = browser.new_page()
+        page.goto("https://example.com")
+    ```
+    </CodeGroup>
+  </Step>
+</Steps>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Endpoints" icon="plug" href="/api-reference/endpoints/profiles">
+    Explore all available API endpoints.
+  </Card>
+  <Card title="Error handling" icon="triangle-exclamation" href="/api-reference/error-codes">
+    Learn how to handle API errors.
+  </Card>
+</CardGroup>

@@ -1,0 +1,91 @@
+---
+title: "About profiles"
+description: "Understand browser profiles — isolated browser environments with unique digital fingerprints"
+---
+
+## What is a browser profile
+
+A browser profile is an isolated browser instance with its own unique digital fingerprint, cookies, local storage, and browsing history. Each profile behaves as a completely separate browser — websites cannot link profiles to each other or to your real identity.
+
+{/* Screenshot: profile list in the main dashboard */}
+
+## Fingerprint components
+
+Every profile generates a unique combination of browser parameters:
+
+| Parameter | Description |
+|---|---|
+| **User-Agent** | Browser and OS identification string |
+| **Screen resolution** | Display dimensions and color depth |
+| **WebGL** | GPU renderer and vendor hash |
+| **Canvas** | Canvas rendering fingerprint |
+| **Audio** | AudioContext fingerprint |
+| **Fonts** | Installed font list |
+| **Timezone** | Geographic timezone setting |
+| **Language** | Browser language and locale |
+| **Platform** | OS platform identifier |
+| **WebRTC** | WebRTC leak protection settings |
+
+<Info>
+  Fingerprints are generated automatically when you create a profile. You can also manually adjust individual parameters in the profile editor.
+</Info>
+
+## Profile states
+
+| State | Description |
+|---|---|
+| **New** | Just created, never launched |
+| **Running** | Browser window is currently open |
+| **Stopped** | Browser was closed, data saved |
+| **Shared** | Transferred to or received from another user |
+
+## Creating a profile
+
+<Steps>
+  <Step title="Click New Profile">
+    In the main dashboard, click the **New Profile** button in the top-right corner.
+
+    {/* Screenshot: New Profile button location */}
+  </Step>
+  <Step title="Configure fingerprint">
+    Set the operating system, browser version, and other fingerprint parameters. Use **Auto** to generate random values or customize manually.
+
+    {/* Screenshot: fingerprint configuration form */}
+  </Step>
+  <Step title="Assign a proxy">
+    Select a proxy from your proxy list or add a new one. This determines the IP address and geolocation for the profile.
+
+    {/* Screenshot: proxy assignment dropdown */}
+  </Step>
+  <Step title="Save and launch">
+    Click **Create** to save the profile. Click the **Start** button next to the profile to launch the browser.
+
+    {/* Screenshot: profile row with Start button */}
+  </Step>
+</Steps>
+
+## Profile actions
+
+Right-click a profile or use the action menu to access:
+
+- **Start** / **Stop** — launch or close the browser
+- **Edit** — modify fingerprint and proxy settings
+- **Clone** — duplicate the profile with a new fingerprint
+- **Export** — export profile data as JSON
+- **Delete** — permanently remove the profile
+- **Transfer** — send the profile to another user
+
+<Warning>
+  Deleting a profile is irreversible. Deleted profiles are moved to the [Trash Bin](/folders/trash-bin) and can be restored within 30 days.
+</Warning>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Mass creation" icon="clone" href="/browser-profiles/mass-creation">
+    Create multiple profiles at once with bulk settings.
+  </Card>
+  <Card title="Cookie Robot" icon="cookie" href="/browser-profiles/cookie-robot">
+    Automatically warm up profiles by visiting websites.
+  </Card>
+</CardGroup>

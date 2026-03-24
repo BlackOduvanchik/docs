@@ -1,0 +1,67 @@
+---
+title: "Installation"
+description: "Download and install Oxygen Atmos antidetect browser on Windows, macOS, or Linux"
+---
+
+## System requirements
+
+| Requirement | Minimum | Recommended |
+|---|---|---|
+| **OS** | Windows 10, macOS 11, Ubuntu 20.04 | Windows 11, macOS 14, Ubuntu 22.04 |
+| **RAM** | 4 GB | 8 GB+ |
+| **Disk** | 2 GB free space | SSD with 10 GB+ |
+| **CPU** | Dual-core | Quad-core+ |
+
+## Download
+
+<Steps>
+  <Step title="Log in to your account">
+    Open [wallet.oxygen.tools/en](https://wallet.oxygen.tools/en) and sign in.
+  </Step>
+  <Step title="Download the installer">
+    Navigate to the **Downloads** section in your dashboard and select the installer for your operating system.
+
+    {/* Screenshot: download page with OS selector */}
+  </Step>
+  <Step title="Run the installer">
+    <Tabs>
+      <Tab title="Windows">
+        Run the `.exe` installer and follow the on-screen instructions. Oxygen Atmos will be installed to `C:\Program Files\Oxygen Atmos` by default.
+      </Tab>
+      <Tab title="macOS">
+        Open the `.dmg` file and drag Oxygen Atmos to your Applications folder.
+      </Tab>
+      <Tab title="Linux">
+        ```bash
+        # Install the .deb package
+        sudo dpkg -i oxygen-atmos_latest_amd64.deb
+        sudo apt-get install -f
+        ```
+      </Tab>
+    </Tabs>
+  </Step>
+  <Step title="Launch and sign in">
+    Open Oxygen Atmos and log in with your account credentials. The browser will sync your profiles and settings.
+
+    {/* Screenshot: login screen in the desktop app */}
+  </Step>
+</Steps>
+
+## Auto-updates
+
+Oxygen Atmos updates automatically. When a new version is available, you'll see an update prompt on launch. You can also check for updates manually in **Settings** → **About**.
+
+<Warning>
+  Do not run multiple instances of the installer simultaneously. Close any running Oxygen Atmos processes before updating.
+</Warning>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Create a profile" icon="user-plus" href="/browser-profiles/about-profiles">
+    Set up your first browser profile with a unique fingerprint.
+  </Card>
+  <Card title="Migrating from another browser?" icon="arrow-right-arrow-left" href="/migration/about-migration">
+    Import your profiles from Dolphin Anty or other antidetect browsers.
+  </Card>
+</CardGroup>

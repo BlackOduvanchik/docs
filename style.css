@@ -1,0 +1,39 @@
+/* Constrain overall page width to ~1460px (Polymarket-style) */
+:root {
+  --max-page-width: 1460px;
+}
+
+/* Constrain all major layout containers */
+body > div,
+#__next,
+main,
+header,
+nav,
+#navbar {
+  max-width: var(--max-page-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Target Mintlify's Tailwind width utilities */
+.max-w-screen-2xl {
+  max-width: var(--max-page-width) !important;
+}
+
+.max-w-\\[1536px\\] {
+  max-width: var(--max-page-width) !important;
+}
+
+/* Fallback: catch any container wider than our target */
+[class*="max-w-screen"],
+[class*="max-w-7xl"],
+[class*="max-w-8xl"] {
+  max-width: var(--max-page-width) !important;
+}
+
+/* Ensure the outermost wrapper is constrained */
+body > div:first-child {
+  max-width: var(--max-page-width);
+  margin-left: auto;
+  margin-right: auto;
+}

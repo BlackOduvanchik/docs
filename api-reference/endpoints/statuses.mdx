@@ -1,0 +1,96 @@
+---
+title: "Statuses"
+description: "API endpoints for managing custom profile statuses"
+---
+
+<Note>
+  The API is in development. Endpoints described below represent the planned specification.
+</Note>
+
+## List statuses
+
+```
+GET /api/v1/statuses
+```
+
+**Response**
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "stat_abc",
+      "name": "Active",
+      "color": "#10B981",
+      "profile_count": 30
+    },
+    {
+      "id": "stat_def",
+      "name": "Banned",
+      "color": "#EF4444",
+      "profile_count": 5
+    }
+  ]
+}
+```
+
+---
+
+## Create status
+
+```
+POST /api/v1/statuses
+```
+
+**Request body**
+
+```json
+{
+  "name": "Under Review",
+  "color": "#F59E0B"
+}
+```
+
+---
+
+## Update status
+
+```
+PATCH /api/v1/statuses/{status_id}
+```
+
+**Request body**
+
+```json
+{
+  "name": "Suspended",
+  "color": "#EF4444"
+}
+```
+
+---
+
+## Delete status
+
+```
+DELETE /api/v1/statuses/{status_id}
+```
+
+Removes the status from all profiles. Returns `204 No Content`.
+
+---
+
+## Assign status to profile
+
+```
+PUT /api/v1/profiles/{profile_id}/status
+```
+
+**Request body**
+
+```json
+{
+  "status_id": "stat_abc"
+}
+```
