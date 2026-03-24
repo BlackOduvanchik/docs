@@ -1,0 +1,54 @@
+---
+title: "About wallet manager"
+description: "Central hub for managing hundreds of crypto wallets — balances, tags, filters, and bulk operations"
+---
+
+## What is the wallet manager
+
+The wallet manager is the core module of Oxygen Atmos. Every workflow starts here — importing wallets, tracking balances, organizing with tags, and preparing wallets for transfers or browser profile creation.
+
+<Frame caption="Wallet manager interface">
+  <img src="/images/placeholder.png" />
+</Frame>
+
+## Key capabilities
+
+| Feature | Description |
+|---|---|
+| **Balance tracking** | Real-time balances across all imported wallets, filterable by tags and sortable by metrics |
+| **Bulk management** | Import, edit, and tag hundreds of wallets at once |
+| **Flexible import** | Add wallets one by one, as a list, or from CSV/XLS/XLSX files |
+| **Tag system** | Group wallets by campaign, activity, or any custom criteria |
+| **Filters and sorting** | Quickly find wallets by tag, alias, balance, or type |
+
+<Note>
+  Wallets can be imported using either a **private key** (full control) or a **public address** (balance monitoring only).
+</Note>
+
+## How it works
+
+Wallets imported into the manager store their data locally on your machine. All sensitive data — private keys, API keys, and settings — is encrypted and never sent to external servers.
+
+From the wallet manager you can:
+
+- Track balances across all wallets in one view
+- Create browser profiles linked to specific wallets
+- Initiate transfers via the [transfer module](/transfers/about-transfers)
+- Schedule tasks through the [task manager](/task-manager/about-task-manager)
+
+## Quick links
+
+<CardGroup cols={2}>
+  <Card title="Import wallets" icon="file-import" href="/wallet-manager/import-wallets">
+    Add wallets by private key, list, or file upload.
+  </Card>
+  <Card title="Edit wallets" icon="pen-to-square" href="/wallet-manager/edit-wallets">
+    Update withdrawal addresses, aliases, and tags.
+  </Card>
+  <Card title="Tags" icon="tags" href="/wallet-manager/tags">
+    Organize wallets with color-coded tags.
+  </Card>
+  <Card title="Filters and sorting" icon="filter" href="/wallet-manager/filters">
+    Find and sort wallets by any criteria.
+  </Card>
+</CardGroup>

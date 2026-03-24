@@ -1,0 +1,72 @@
+---
+title: "CEX withdrawal"
+description: "Withdraw tokens from exchange accounts to your wallets automatically"
+---
+
+## Overview
+
+CEX withdrawal lets you automatically send tokens from connected exchange accounts directly to wallets in your manager. Ideal for distributing funds across hundreds of wallets without manual work.
+
+<Frame caption="CEX withdrawal interface">
+  <img src="/images/placeholder.png" />
+</Frame>
+
+## Parameters
+
+| Parameter | Description |
+|---|---|
+| **Network** | Blockchain network for the withdrawal |
+| **Token** | Token to withdraw |
+| **Exchange** | One or more exchange accounts. When multiple are selected, Oxygen Atmos picks a random source for each wallet |
+| **Wallets** | Destination wallets (searchable by address, alias, or tag) |
+| **Withdrawal amount** | Min and max amount in the selected token |
+| **Balance threshold** | Only withdraw to wallets with balance below this value |
+
+<Note>
+  The **balance threshold** is useful for topping up wallets. For example, setting it to `0.05 ETH` ensures tokens are only sent to wallets holding less than 0.05 ETH.
+</Note>
+
+For each selected exchange, you can view:
+- **Token** — current balance of the selected token
+- **Fee** — withdrawal fee on the exchange
+- **Min. withdrawal** — minimum withdrawal amount set by the exchange
+
+## Execute a withdrawal
+
+<Steps>
+  <Step title="Ensure exchanges are connected">
+    Add exchange API keys in the [Accounts](/exchange-accounts/about-exchange-accounts) tab.
+  </Step>
+  <Step title="Configure parameters">
+    Set the network, token, exchange, wallets, amounts, and config.
+
+    <Frame caption="CEX withdrawal parameters">
+      <img src="/images/placeholder.png" />
+    </Frame>
+  </Step>
+  <Step title="Preview">
+    Click **Preview**. Review the list of wallets with their withdrawal amounts. You can edit individual amounts if needed.
+  </Step>
+  <Step title="Review summary">
+    At the bottom, check the total wallet count, withdrawal sum, fees, and estimated completion time.
+  </Step>
+  <Step title="Launch or defer">
+    - Click **Launch** to execute immediately
+    - Click **Defer** to schedule as a [task](/task-manager/about-task-manager)
+
+    <Frame caption="Preview and launch">
+      <img src="/images/placeholder.png" />
+    </Frame>
+  </Step>
+  <Step title="Track progress">
+    Go to the **Task Manager** in the left panel to monitor execution.
+  </Step>
+</Steps>
+
+## Templates
+
+Save your withdrawal configuration for quick reuse:
+
+1. Configure all parameters
+2. Click the **save icon** in the Template area and enter a name
+3. Next time, select your saved template to auto-fill all parameters

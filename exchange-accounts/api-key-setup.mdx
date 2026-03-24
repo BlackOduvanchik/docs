@@ -1,0 +1,142 @@
+---
+title: "API key setup"
+description: "Create API keys on Binance, OKX, MEXC, and Bitget for use with Oxygen Atmos"
+---
+
+## Overview
+
+Each exchange requires an API key with specific permissions for Oxygen Atmos to read balances and execute withdrawals. Follow the guide for your exchange below.
+
+<Warning>
+  When setting IP restrictions, use the IP address of the **proxy** assigned to the exchange account in Oxygen Atmos, or your own IP if no proxy is used.
+</Warning>
+
+## Binance
+
+<Steps>
+  <Step title="Open API Management">
+    Go to your Binance account **Settings** → **Account** → **API Management**.
+
+    <Frame caption="Binance API Management">
+      <img src="/images/placeholder.png" />
+    </Frame>
+  </Step>
+  <Step title="Create API key">
+    Click **Create API** → select **System generated** → enter a name → complete verification.
+  </Step>
+  <Step title="Configure permissions">
+    Click **Edit restrictions** on the created key and enable:
+
+    - **Enable Reading**
+    - **Enable Spot & Margin Trading**
+    - **Enable Withdrawals**
+
+    Add your proxy IP or personal IP to the allowed list.
+  </Step>
+  <Step title="Complete verification">
+    Confirm the changes. Your API key and secret are available in the key details.
+  </Step>
+</Steps>
+
+## OKX
+
+<Steps>
+  <Step title="Open API settings">
+    Hover over your account icon → select **API**.
+
+    <Frame caption="OKX API settings">
+      <img src="/images/placeholder.png" />
+    </Frame>
+  </Step>
+  <Step title="Create API key">
+    Click **Create API Key** and fill in:
+
+    | Field | Value |
+    |---|---|
+    | **Name** | Any label for the key |
+    | **Account** | Select the account holding your funds (usually **Main Account**) |
+    | **Purpose** | Trading API |
+    | **IP address** | Your proxy or personal IP (optional) |
+  </Step>
+  <Step title="Configure permissions">
+    Under **Access**, enable:
+
+    - **Withdrawal**
+    - **Trade**
+  </Step>
+  <Step title="Set passphrase">
+    Create a **passphrase** — you'll need it when adding the account to Oxygen Atmos.
+  </Step>
+  <Step title="Complete verification">
+    Confirm creation. API credentials are in the **Info** section of the created key.
+  </Step>
+</Steps>
+
+## MEXC
+
+<Steps>
+  <Step title="Open API Management">
+    Hover over your account icon → select **API Management**.
+
+    <Frame caption="MEXC API Management">
+      <img src="/images/placeholder.png" />
+    </Frame>
+  </Step>
+  <Step title="Configure permissions">
+    Enable the following:
+
+    **Spot:**
+    - View Account Details
+    - View Order Details
+    - Trade
+    - View Deposit/Withdrawal Details
+    - Withdraw
+
+    **Transfer:**
+    - Read transfer information
+    - Transfer
+
+    **Futures:**
+    - View Account Details
+  </Step>
+  <Step title="Set name and IP">
+    Enter a **name** in the Notes field. Add your proxy or personal IP (optional).
+  </Step>
+  <Step title="Complete verification">
+    Confirm creation. API credentials appear in the popup after verification.
+  </Step>
+</Steps>
+
+## Bitget
+
+<Steps>
+  <Step title="Open API Keys">
+    Hover over your account icon → select **API Keys**.
+
+    <Frame caption="Bitget API Keys">
+      <img src="/images/placeholder.png" />
+    </Frame>
+  </Step>
+  <Step title="Create API key">
+    Click **Create API Key** and fill in:
+
+    | Field | Value |
+    |---|---|
+    | **Note** | Label for the key |
+    | **Passphrase** | Create a passphrase (required for Oxygen Atmos) |
+    | **IP address** | Your proxy or personal IP (**required** for withdrawal permissions) |
+  </Step>
+  <Step title="Configure permissions">
+    Enable:
+
+    **Spot:**
+    - Trade
+
+    **Wallet:**
+    - Transfer
+    - Withdraw
+  </Step>
+  <Step title="Complete verification">
+    Confirm creation. API credentials are available in the key details.
+  </Step>
+</Steps>

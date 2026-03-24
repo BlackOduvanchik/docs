@@ -1,0 +1,40 @@
+---
+title: "About transfers"
+description: "Automate token withdrawals from exchanges and wallets with flexible configuration"
+---
+
+## Overview
+
+The transfer module provides two tools for moving tokens:
+
+- **CEX withdrawal** — withdraw tokens from connected exchange accounts to your wallets
+- **Wallet withdrawal** — send tokens from your wallets to other addresses
+
+Both tools support templates, preview before execution, and deferred task scheduling via the [task manager](/task-manager/about-task-manager).
+
+<Frame caption="Transfer module interface">
+  <img src="/images/placeholder.png" />
+</Frame>
+
+## Capabilities
+
+| Feature | CEX withdrawal | Wallet withdrawal |
+|---|---|---|
+| Flexible amount configuration | Yes | Yes |
+| Balance checks | Yes | Yes |
+| Fee comparison across exchanges | Yes | — |
+| Percentage-based withdrawal | — | Yes |
+| Send to linked addresses | — | Yes |
+| Send to a single address | — | Yes |
+| Templates | Yes | Yes |
+
+## Quick links
+
+<CardGroup cols={2}>
+  <Card title="CEX withdrawal" icon="building-columns" href="/transfers/cex-withdrawal">
+    Withdraw from exchanges to your wallets.
+  </Card>
+  <Card title="Wallet withdrawal" icon="wallet" href="/transfers/wallet-withdrawal">
+    Send tokens from wallets to any address.
+  </Card>
+</CardGroup>

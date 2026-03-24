@@ -1,0 +1,76 @@
+---
+title: "About exchange accounts"
+description: "Connect exchange accounts via API to track balances and automate withdrawals"
+---
+
+## Overview
+
+The exchange accounts module lets you connect crypto exchange accounts via API. Once connected, you can track real-time balances and use exchanges as withdrawal sources in the [transfer module](/transfers/about-transfers).
+
+<Frame caption="Exchange accounts interface">
+  <img src="/images/placeholder.png" />
+</Frame>
+
+**Supported exchanges:** Binance, OKX, MEXC, Bitget
+
+<Note>
+  Oxygen Atmos only shows token balances that are **available for withdrawal** — tokens locked in futures positions, staking, or farming are excluded.
+</Note>
+
+## Account limits
+
+| Condition | Limit per exchange |
+|---|---|
+| Less than 500 profiles | 1 account |
+| 500 or more profiles | 5 accounts |
+
+## Add an exchange account
+
+<Steps>
+  <Step title="Create API keys">
+    Generate API keys on your exchange. See [API key setup](/exchange-accounts/api-key-setup) for step-by-step guides for each exchange.
+  </Step>
+  <Step title="Open the accounts tab">
+    Navigate to the **Accounts** tab in the left panel.
+  </Step>
+  <Step title="Add account">
+    Click **Add Account** and select your exchange.
+
+    <Frame caption="Add exchange account dialog">
+      <img src="/images/placeholder.png" />
+    </Frame>
+  </Step>
+  <Step title="Enter API credentials">
+    Fill in the fields:
+
+    | Field | Description |
+    |---|---|
+    | **Alias** | Display name for the account |
+    | **API Key** | Your exchange API key |
+    | **Secret Key** | Your exchange secret key |
+    | **Passphrase** | Required for OKX and Bitget only |
+    | **Proxy** | Optional — assign a proxy for API requests |
+  </Step>
+  <Step title="Confirm">
+    Click **Add Account**. The account appears in the list with its current balances.
+  </Step>
+</Steps>
+
+## Edit API keys
+
+To update credentials for a connected account:
+
+1. Click the **edit icon** next to the exchange account
+2. Update the **alias**, **API key**, **secret key**, or **passphrase**
+3. Click **Save Changes**
+
+## Quick links
+
+<CardGroup cols={2}>
+  <Card title="API key setup" icon="key" href="/exchange-accounts/api-key-setup">
+    Step-by-step guides for Binance, OKX, MEXC, and Bitget.
+  </Card>
+  <Card title="CEX withdrawal" icon="arrow-right-from-bracket" href="/transfers/cex-withdrawal">
+    Withdraw tokens from exchanges to your wallets.
+  </Card>
+</CardGroup>

@@ -1,0 +1,129 @@
+---
+title: "Import wallets"
+description: "Add wallets to the manager — one by one, as a list, or from a file"
+---
+
+## Import methods
+
+There are three ways to import wallets into the wallet manager:
+
+- **One by one** — manual entry for individual wallets
+- **As a list** — paste multiple wallets in a structured format
+- **From a file** — upload CSV, XLS, or XLSX files
+
+<Note>
+  All import methods work with both **private keys** and **public addresses**. If you want to monitor balances without granting withdrawal access, use the wallet's public address instead of the private key.
+</Note>
+
+## Add one wallet
+
+<Steps>
+  <Step title="Open the import dialog">
+    Click **Add Wallet** in the top-right corner.
+
+    <Frame caption="Add wallet button">
+      <img src="/images/placeholder.png" />
+    </Frame>
+  </Step>
+  <Step title="Select mode">
+    Choose **One by One**.
+  </Step>
+  <Step title="Choose wallet type">
+    Select the blockchain type for your wallet.
+  </Step>
+  <Step title="Enter wallet data">
+    Fill in the fields:
+
+    | Field | Description | Required |
+    |---|---|---|
+    | **Private key or address** | The wallet's private key or public address | Yes |
+    | **Withdrawal address** | Destination address for outgoing transfers | No |
+    | **Alias** | Display name for the wallet | No |
+    | **Tags** | One or more tags for organization | No |
+  </Step>
+  <Step title="Confirm">
+    Click **Add Wallet** to import.
+  </Step>
+</Steps>
+
+## Add wallets as a list
+
+Paste wallets line by line using this format:
+
+```text
+private_key:withdrawal_address:alias
+```
+
+Each wallet goes on a new line. Example:
+
+```text
+private_key1:0xabc...123:Farm_01
+private_key2:0xdef...456:Farm_02
+private_key3:0x789...abc:Farm_03
+```
+
+<Steps>
+  <Step title="Open the import dialog">
+    Click **Add Wallet** in the top-right corner.
+  </Step>
+  <Step title="Select mode">
+    Choose **As a List**.
+  </Step>
+  <Step title="Choose wallet type">
+    Select the blockchain type.
+  </Step>
+  <Step title="Assign tags (optional)">
+    Select one or more tags to apply to all imported wallets.
+  </Step>
+  <Step title="Paste wallet data">
+    Paste your list into the text field.
+
+    <Frame caption="List import interface">
+      <img src="/images/placeholder.png" />
+    </Frame>
+  </Step>
+  <Step title="Confirm">
+    Click **Add Wallets** to import all entries.
+  </Step>
+</Steps>
+
+## Add wallets from a file
+
+Supported formats: **CSV**, **XLS**, **XLSX**. You can download a template directly from the import dialog.
+
+<Steps>
+  <Step title="Open the import dialog">
+    Click **Add Wallet** in the top-right corner.
+  </Step>
+  <Step title="Select mode">
+    Choose **From File**.
+  </Step>
+  <Step title="Choose wallet type">
+    Select the blockchain type.
+  </Step>
+  <Step title="Assign tags (optional)">
+    Select tags to apply to all imported wallets.
+  </Step>
+  <Step title="Download the template">
+    Choose a template format (CSV, XLS, or XLSX). The file saves to your desktop.
+  </Step>
+  <Step title="Fill in the template">
+    Open the template and fill in the columns:
+
+    | Column | Description |
+    |---|---|
+    | `wallet_key_or_address` | Private key or public address |
+    | `withdraw_address` | Destination address for transfers |
+    | `alias` | Display name for the wallet |
+  </Step>
+  <Step title="Upload the file">
+    Click **Next**, then drag and drop your file into the import area or select it via the file browser.
+
+    <Frame caption="File upload area">
+      <img src="/images/placeholder.png" />
+    </Frame>
+  </Step>
+  <Step title="Confirm">
+    Click **Import** to add all wallets from the file.
+  </Step>
+</Steps>

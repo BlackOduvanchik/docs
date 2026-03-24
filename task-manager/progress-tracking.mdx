@@ -1,0 +1,82 @@
+---
+title: "Progress tracking"
+description: "Monitor task execution, view logs, and recover from failed operations"
+---
+
+## View task progress
+
+<Steps>
+  <Step title="Open the task">
+    In the **Task Manager**, find the task in the **Running** or **Archive** section and click **Open**.
+  </Step>
+  <Step title="View progress">
+    The progress view shows real-time execution status.
+
+    <Frame caption="Task progress view">
+      <img src="/images/placeholder.png" />
+    </Frame>
+  </Step>
+  <Step title="View logs">
+    Click **Logs** at the top to see detailed execution logs. Click any log entry to expand details.
+  </Step>
+  <Step title="Close">
+    Press **X** or **ESC** to exit.
+  </Step>
+</Steps>
+
+## Progress menu reference
+
+| Element | Description |
+|---|---|
+| **Completion %** | Overall task progress |
+| **Logs** | Detailed execution logs |
+| **Config** | Thread count, delays, retries (read-only for running tasks) |
+| **Action rows** | Per-wallet status and amounts |
+| **Status** | Current state of each wallet operation |
+| **Transaction link** | View transaction in a block explorer |
+| **Wallets** | Progress counter (completed / total) |
+| **Transactions** | Transaction progress counter |
+| **Total withdrawal** | Sum of all withdrawals |
+| **Total fees** | Sum of all fees |
+| **Use as template** | Copy settings or wallets for a new task |
+
+## Error recovery
+
+### Retry failed operations
+
+When a task has the status **Partially completed**, click **Retry Failed** to re-run the task for wallets with status **Queued** or **Error**.
+
+<Frame caption="Retry failed button">
+  <img src="/images/placeholder.png" />
+</Frame>
+
+### Use templates for targeted fixes
+
+When some wallets fail due to insufficient native token balance, you can create a targeted top-up task:
+
+<Steps>
+  <Step title="Open the template menu">
+    In the task's progress view, click the **template icon** in the bottom-right corner.
+  </Step>
+  <Step title="Copy failed wallets">
+    Select **Copy wallets with errors**.
+
+    <Frame caption="Template options">
+      <img src="/images/placeholder.png" />
+    </Frame>
+  </Step>
+  <Step title="Choose a module">
+    Select **CEX Withdrawal** (or the appropriate module).
+  </Step>
+  <Step title="Configure and launch">
+    Set up parameters to send the native token to the failed wallets, then launch the new task.
+  </Step>
+</Steps>
+
+### Template options
+
+| Option | Description |
+|---|---|
+| **Use as template** | Copy all task parameters to create a new task |
+| **Copy all wallets** | Copy all wallets from the task for use in a new one |
+| **Copy wallets with errors** | Copy only wallets with **Error** status |

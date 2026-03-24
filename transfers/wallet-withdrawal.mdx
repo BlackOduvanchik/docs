@@ -1,0 +1,65 @@
+---
+title: "Wallet withdrawal"
+description: "Send tokens from your wallets to linked addresses or a single destination"
+---
+
+## Overview
+
+Wallet withdrawal lets you send tokens from your wallets in bulk — either to each wallet's linked withdrawal address or to a single common address.
+
+<Frame caption="Wallet withdrawal interface">
+  <img src="/images/placeholder.png" />
+</Frame>
+
+## Parameters
+
+| Parameter | Description |
+|---|---|
+| **Network** | Blockchain network for the transfer |
+| **Tokens** | One or more tokens to send (multiple selection supported) |
+| **Withdrawal method** | How much to withdraw (see below) |
+| **Wallets** | Source wallets (searchable by address, alias, or tag) |
+| **Single withdrawal address** | Optional — send all tokens to one address instead of linked addresses |
+
+### Withdrawal methods
+
+| Method | Description |
+|---|---|
+| **Leave %** | Keep a percentage of the token balance after withdrawal |
+| **Leave X tokens** | Keep a fixed token amount after withdrawal |
+
+## Execute a withdrawal
+
+<Steps>
+  <Step title="Ensure wallets are imported">
+    Add wallets in the [Wallet Manager](/wallet-manager/about-wallet-manager).
+  </Step>
+  <Step title="Configure parameters">
+    Set the network, tokens, withdrawal method, source wallets, and optional single address.
+
+    <Frame caption="Wallet withdrawal parameters">
+      <img src="/images/placeholder.png" />
+    </Frame>
+  </Step>
+  <Step title="Preview">
+    Click **Preview**. Review the wallet list and edit individual amounts if needed.
+  </Step>
+  <Step title="Review summary">
+    Check the total wallet count, withdrawal sum, fees, and estimated time at the bottom.
+  </Step>
+  <Step title="Launch or defer">
+    - Click **Launch** to execute immediately
+    - Click **Defer** to schedule as a [task](/task-manager/about-task-manager)
+  </Step>
+  <Step title="Track progress">
+    Go to the **Task Manager** to monitor execution.
+  </Step>
+</Steps>
+
+## Templates
+
+Save your withdrawal configuration for quick reuse:
+
+1. Configure all parameters
+2. Click the **save icon** in the Template area and enter a name
+3. Select your saved template next time to auto-fill all parameters

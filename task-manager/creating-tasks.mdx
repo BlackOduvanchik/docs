@@ -1,0 +1,71 @@
+---
+title: "Creating tasks"
+description: "Schedule deferred tasks and configure withdrawal parameters before execution"
+---
+
+## Create a deferred task
+
+<Steps>
+  <Step title="Open a transfer module">
+    Navigate to any module under **Tools** in the left panel (e.g., **CEX Withdrawal**).
+  </Step>
+  <Step title="Configure parameters">
+    Set up your withdrawal or transfer parameters.
+  </Step>
+  <Step title="Preview">
+    Click **Preview** to review the operation.
+  </Step>
+  <Step title="Defer the task">
+    Click **Defer** instead of Launch.
+
+    <Frame caption="Defer task dialog">
+      <img src="/images/placeholder.png" />
+    </Frame>
+  </Step>
+  <Step title="Set schedule">
+    In the popup, select the **date and time** for execution.
+
+    <Warning>
+      The application and your device must remain active for the task to execute at the scheduled time.
+    </Warning>
+  </Step>
+  <Step title="Confirm">
+    Click **Defer**. The task appears in the **Pending** section of the Task Manager.
+  </Step>
+</Steps>
+
+## Edit a pending task
+
+<Steps>
+  <Step title="Open the task">
+    In the **Task Manager**, find the task in the **Pending** section and click **Open**.
+  </Step>
+  <Step title="Modify parameters">
+    Edit any parameters as needed. Changes are saved automatically when you close the editor.
+
+    <Frame caption="Task editing menu">
+      <img src="/images/placeholder.png" />
+    </Frame>
+  </Step>
+  <Step title="Close">
+    Press **X** or **ESC** to exit. Changes are saved automatically.
+  </Step>
+</Steps>
+
+## Editing menu reference
+
+| Element | Description |
+|---|---|
+| **Scheduled time** | Date and time for the launch |
+| **Logs** | View task logs |
+| **Config** | Thread count, delays, and retry settings (editable) |
+| **Action rows** | Per-wallet details with editable withdrawal amounts |
+| **Status** | Current status for each wallet |
+| **Wallet count** | Total wallets in the task |
+| **Total withdrawal** | Sum of all withdrawal amounts |
+| **Total fees** | Sum of all fees |
+| **Estimated time** | Expected completion time |
+| **Use as template** | Copy settings to create a new task |
+| **Schedule** | Change the scheduled launch time |
+| **Cancel** | Cancel the task and move to archive |
+| **Launch** | Start immediately without waiting for the schedule |

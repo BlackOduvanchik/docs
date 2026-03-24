@@ -1,39 +1,158 @@
-/* Constrain overall page width to ~1460px (Polymarket-style) */
-:root {
-  --max-page-width: 1460px;
+/* ── Page width constraint ── */
+/* Mintlify handles its own layout widths; no overrides needed */
+
+/* ── Transparent navbar with blur ── */
+/* Target the opaque background fill div inside #navbar */
+#navbar > div[class*="bg-background"] {
+  background: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
 }
 
-/* Constrain all major layout containers */
-body > div,
-#__next,
-main,
-header,
-nav,
-#navbar {
-  max-width: var(--max-page-width);
-  margin-left: auto;
-  margin-right: auto;
+/* Dark mode: Mintlify uses .dark class on html */
+.dark #navbar > div[class*="bg-background"] {
+  background: rgba(11, 12, 16, 0.4) !important;
 }
 
-/* Target Mintlify's Tailwind width utilities */
-.max-w-screen-2xl {
-  max-width: var(--max-page-width) !important;
+/* ── Animated blurred circle blobs ── */
+body {
+  position: relative;
+  overflow-x: hidden;
 }
 
-.max-w-\\[1536px\\] {
-  max-width: var(--max-page-width) !important;
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(600px circle at var(--blob1-x, 20%) var(--blob1-y, 30%),
+      rgba(99, 102, 241, 0.12) 0%, transparent 70%),
+    radial-gradient(500px circle at var(--blob2-x, 75%) var(--blob2-y, 60%),
+      rgba(129, 140, 248, 0.10) 0%, transparent 70%),
+    radial-gradient(450px circle at var(--blob3-x, 50%) var(--blob3-y, 80%),
+      rgba(79, 70, 229, 0.08) 0%, transparent 70%);
+  filter: blur(40px);
+  animation: blob-drift 20s ease-in-out infinite alternate;
 }
 
-/* Fallback: catch any container wider than our target */
-[class*="max-w-screen"],
-[class*="max-w-7xl"],
-[class*="max-w-8xl"] {
-  max-width: var(--max-page-width) !important;
+/* Blob 1 — large indigo, drifts top-left area */
+@property --blob1-x {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 20%;
+}
+@property --blob1-y {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 30%;
 }
 
-/* Ensure the outermost wrapper is constrained */
-body > div:first-child {
-  max-width: var(--max-page-width);
-  margin-left: auto;
-  margin-right: auto;
+/* Blob 2 — medium light indigo, drifts right area */
+@property --blob2-x {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 75%;
+}
+@property --blob2-y {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 60%;
+}
+
+/* Blob 3 — smaller dark indigo, drifts bottom-center */
+@property --blob3-x {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+@property --blob3-y {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 80%;
+}
+
+@keyframes blob-drift {
+  0% {
+    --blob1-x: 20%;
+    --blob1-y: 30%;
+    --blob2-x: 75%;
+    --blob2-y: 60%;
+    --blob3-x: 50%;
+    --blob3-y: 80%;
+  }
+  25% {
+    --blob1-x: 35%;
+    --blob1-y: 20%;
+    --blob2-x: 60%;
+    --blob2-y: 45%;
+    --blob3-x: 30%;
+    --blob3-y: 70%;
+  }
+  50% {
+    --blob1-x: 45%;
+    --blob1-y: 40%;
+    --blob2-x: 80%;
+    --blob2-y: 30%;
+    --blob3-x: 65%;
+    --blob3-y: 60%;
+  }
+  75% {
+    --blob1-x: 25%;
+    --blob1-y: 50%;
+    --blob2-x: 70%;
+    --blob2-y: 75%;
+    --blob3-x: 40%;
+    --blob3-y: 45%;
+  }
+  100% {
+    --blob1-x: 30%;
+    --blob1-y: 25%;
+    --blob2-x: 65%;
+    --blob2-y: 55%;
+    --blob3-x: 55%;
+    --blob3-y: 75%;
+  }
+}
+
+/* ── Sidebar nested group vertical line ── */
+li[data-group-tag] > ul {
+  position: relative;
+  margin-left: 0.75rem;
+}
+
+li[data-group-tag] > ul::before {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 1px;
+}
+
+.dark li[data-group-tag] > ul::before {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+html:not(.dark) li[data-group-tag] > ul::before {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Light theme — softer blobs */
+[data-theme="light"] body::before,
+:root:not([data-theme="dark"]) body::before {
+  background:
+    radial-gradient(600px circle at var(--blob1-x, 20%) var(--blob1-y, 30%),
+      rgba(99, 102, 241, 0.06) 0%, transparent 70%),
+    radial-gradient(500px circle at var(--blob2-x, 75%) var(--blob2-y, 60%),
+      rgba(129, 140, 248, 0.05) 0%, transparent 70%),
+    radial-gradient(450px circle at var(--blob3-x, 50%) var(--blob3-y, 80%),
+      rgba(79, 70, 229, 0.04) 0%, transparent 70%);
+  filter: blur(40px);
 }

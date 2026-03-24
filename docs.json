@@ -15,6 +15,9 @@
   "appearance": {
     "default": "dark"
   },
+  "background": {
+    "decoration": "gradient"
+  },
   "navigation": {
     "tabs": [
       {
@@ -30,74 +33,116 @@
             ]
           },
           {
-            "group": "Migration",
-            "icon": "arrow-right-arrow-left",
+            "group": "Guides",
             "pages": [
-              "migration/about-migration",
-              "migration/from-dolphin-anty"
-            ]
-          },
-          {
-            "group": "Browser profiles",
-            "icon": "user-secret",
-            "pages": [
-              "browser-profiles/about-profiles",
-              "browser-profiles/mass-creation",
-              "browser-profiles/profile-transfer",
-              "browser-profiles/cookie-robot",
-              "browser-profiles/synchronizer",
-              "browser-profiles/notes"
-            ]
-          },
-          {
-            "group": "Folders",
-            "icon": "folder",
-            "pages": [
-              "folders/about-folders",
-              "folders/base-actions",
-              "folders/received-profiles-folder",
-              "folders/trash-bin"
-            ]
-          },
-          {
-            "group": "Proxy",
-            "icon": "shield-halved",
-            "pages": [
-              "proxy/about-proxy",
-              "proxy/creating-proxy",
-              "proxy/editing-proxy",
-              "proxy/transfer-proxy",
-              "proxy/deleting-proxy"
-            ]
-          },
-          {
-            "group": "Extras",
-            "icon": "puzzle-piece",
-            "pages": [
-              "extras/overview",
-              "extras/extensions",
-              "extras/bookmarks",
-              "extras/start-pages"
-            ]
-          },
-          {
-            "group": "Teamwork",
-            "icon": "users",
-            "pages": [
-              "teamwork/about-teamwork",
-              "teamwork/base-actions",
-              "teamwork/team-management",
-              "teamwork/invite-to-team",
-              "teamwork/permissions-settings",
-              "teamwork/transfer-key"
-            ]
-          },
-          {
-            "group": "Additional features",
-            "icon": "gear",
-            "pages": [
-              "additional-features/video-spoofing",
-              "additional-features/settings"
+              {
+                "group": "Migration",
+                "icon": "arrow-right-arrow-left",
+                "pages": [
+                  "migration/about-migration",
+                  "migration/from-dolphin-anty"
+                ]
+              },
+              {
+                "group": "Wallet manager",
+                "icon": "wallet",
+                "pages": [
+                  "wallet-manager/about-wallet-manager",
+                  "wallet-manager/import-wallets",
+                  "wallet-manager/edit-wallets",
+                  "wallet-manager/tags",
+                  "wallet-manager/filters"
+                ]
+              },
+              {
+                "group": "Exchange accounts",
+                "icon": "building-columns",
+                "pages": [
+                  "exchange-accounts/about-exchange-accounts",
+                  "exchange-accounts/api-key-setup"
+                ]
+              },
+              {
+                "group": "Transfers",
+                "icon": "arrow-right-arrow-left",
+                "pages": [
+                  "transfers/about-transfers",
+                  "transfers/cex-withdrawal",
+                  "transfers/wallet-withdrawal"
+                ]
+              },
+              {
+                "group": "Task manager",
+                "icon": "list-check",
+                "pages": [
+                  "task-manager/about-task-manager",
+                  "task-manager/creating-tasks",
+                  "task-manager/progress-tracking"
+                ]
+              },
+              {
+                "group": "Browser profiles",
+                "icon": "user-secret",
+                "pages": [
+                  "browser-profiles/about-profiles",
+                  "browser-profiles/mass-creation",
+                  "browser-profiles/profile-transfer",
+                  "browser-profiles/cookie-robot",
+                  "browser-profiles/synchronizer",
+                  "browser-profiles/notes"
+                ]
+              },
+              {
+                "group": "Folders",
+                "icon": "folder",
+                "pages": [
+                  "folders/about-folders",
+                  "folders/base-actions",
+                  "folders/received-profiles-folder",
+                  "folders/trash-bin"
+                ]
+              },
+              {
+                "group": "Proxy",
+                "icon": "shield-halved",
+                "pages": [
+                  "proxy/about-proxy",
+                  "proxy/creating-proxy",
+                  "proxy/editing-proxy",
+                  "proxy/transfer-proxy",
+                  "proxy/deleting-proxy"
+                ]
+              },
+              {
+                "group": "Extras",
+                "icon": "puzzle-piece",
+                "pages": [
+                  "extras/overview",
+                  "extras/extensions",
+                  "extras/bookmarks",
+                  "extras/start-pages"
+                ]
+              },
+              {
+                "group": "Teamwork",
+                "icon": "users",
+                "pages": [
+                  "teamwork/about-teamwork",
+                  "teamwork/base-actions",
+                  "teamwork/team-management",
+                  "teamwork/invite-to-team",
+                  "teamwork/permissions-settings",
+                  "teamwork/transfer-key"
+                ]
+              },
+              {
+                "group": "Additional features",
+                "icon": "gear",
+                "pages": [
+                  "additional-features/video-spoofing",
+                  "additional-features/settings"
+                ]
+              }
             ]
           }
         ]
@@ -148,7 +193,7 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Main Site →",
+      "label": "Main Site",
       "href": "https://wallet.oxygen.tools/en"
     }
   },
