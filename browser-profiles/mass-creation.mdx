@@ -53,6 +53,16 @@ Mass creation lets you generate dozens or hundreds of browser profiles in a sing
   Mass creation speed depends on the number of profiles and your subscription tier. Free tier is limited to 10 profiles per batch.
 </Note>
 
+## Supported proxy types
+
+| Type | Description |
+|---|---|
+| **HTTP** | Standard HTTP proxy |
+| **HTTPS** | Encrypted HTTP proxy |
+| **SOCKS4** | SOCKS protocol v4 |
+| **SOCKS5** | SOCKS protocol v5 with authentication |
+| **SSH** | SSH tunnel as proxy |
+
 ## Proxy list format
 
 When using round-robin or one-to-one assignment, paste your proxies in any of these formats:
@@ -67,5 +77,4 @@ socks5://host:port:username:password
 ## Tips
 
 - Use **naming patterns** to keep profiles organized (e.g., `FB_Farm_{n}`, `Amazon_{n}`)
-- Assign **tags** during mass creation to group profiles by campaign or purpose
-- Pre-create a **proxy list** before mass creation for faster setup
+- Assign [tags](/extras/tags) during mass creation to group profiles by campaign or purpose

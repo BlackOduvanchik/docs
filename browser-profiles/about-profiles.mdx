@@ -73,10 +73,21 @@ Right-click a profile or use the action menu to access:
 - **Clone** — duplicate the profile with a new fingerprint
 - **Export** — export profile data as JSON
 - **Delete** — permanently remove the profile
-- **Transfer** — send the profile to another user
+- **Delete** — permanently remove the profile
+
+## Proxy settings
+
+Each profile can have **one proxy** assigned. When you launch a profile, all traffic routes through its proxy. To change a profile's proxy:
+
+1. Open the profile editor
+2. In the **Proxy** section, click **Change**
+3. Select a different proxy or enter new proxy details
+4. Save the profile
+
+Supported proxy types: **HTTP**, **HTTPS**, **SOCKS4**, **SOCKS5**, **SSH**.
 
 <Warning>
-  Deleting a profile is irreversible. Deleted profiles are moved to the [Trash Bin](/folders/trash-bin) and can be restored within 30 days.
+  Running profiles without a proxy exposes your real IP address. Always assign a proxy for production use.
 </Warning>
 
 ## Next steps
@@ -85,7 +96,7 @@ Right-click a profile or use the action menu to access:
   <Card title="Mass creation" icon="clone" href="/browser-profiles/mass-creation">
     Create multiple profiles at once with bulk settings.
   </Card>
-  <Card title="Cookie Robot" icon="cookie" href="/browser-profiles/cookie-robot">
-    Automatically warm up profiles by visiting websites.
+  <Card title="Notes" icon="note-sticky" href="/browser-profiles/notes">
+    Add notes to profiles for quick reference.
   </Card>
 </CardGroup>

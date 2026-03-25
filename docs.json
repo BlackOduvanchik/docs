@@ -9,8 +9,9 @@
   },
   "favicon": "/favicon.svg",
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/images/atmos_logo/atmos_full_black.svg",
+    "dark": "/images/atmos_logo/atmos_full_white.svg",
+    "height": 40
   },
   "appearance": {
     "default": "dark"
@@ -50,7 +51,6 @@
                   "wallet-manager/about-wallet-manager",
                   "wallet-manager/import-wallets",
                   "wallet-manager/edit-wallets",
-                  "wallet-manager/tags",
                   "wallet-manager/filters"
                 ]
               },
@@ -86,31 +86,7 @@
                 "pages": [
                   "browser-profiles/about-profiles",
                   "browser-profiles/mass-creation",
-                  "browser-profiles/profile-transfer",
-                  "browser-profiles/cookie-robot",
-                  "browser-profiles/synchronizer",
                   "browser-profiles/notes"
-                ]
-              },
-              {
-                "group": "Folders",
-                "icon": "folder",
-                "pages": [
-                  "folders/about-folders",
-                  "folders/base-actions",
-                  "folders/received-profiles-folder",
-                  "folders/trash-bin"
-                ]
-              },
-              {
-                "group": "Proxy",
-                "icon": "shield-halved",
-                "pages": [
-                  "proxy/about-proxy",
-                  "proxy/creating-proxy",
-                  "proxy/editing-proxy",
-                  "proxy/transfer-proxy",
-                  "proxy/deleting-proxy"
                 ]
               },
               {
@@ -118,28 +94,15 @@
                 "icon": "puzzle-piece",
                 "pages": [
                   "extras/overview",
-                  "extras/extensions",
+                  "extras/tags",
                   "extras/bookmarks",
                   "extras/start-pages"
                 ]
               },
               {
-                "group": "Teamwork",
-                "icon": "users",
-                "pages": [
-                  "teamwork/about-teamwork",
-                  "teamwork/base-actions",
-                  "teamwork/team-management",
-                  "teamwork/invite-to-team",
-                  "teamwork/permissions-settings",
-                  "teamwork/transfer-key"
-                ]
-              },
-              {
-                "group": "Additional features",
+                "group": "Settings",
                 "icon": "gear",
                 "pages": [
-                  "additional-features/video-spoofing",
                   "additional-features/settings"
                 ]
               }

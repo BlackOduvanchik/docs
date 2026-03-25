@@ -144,6 +144,22 @@ html:not(.dark) li[data-group-tag] > ul::before {
   background: rgba(0, 0, 0, 0.1);
 }
 
+/* ── Larger navbar logo ── */
+#navbar img[alt*="logo" i],
+#navbar img[alt*="Logo" i],
+#navbar a[href="/"] img,
+#navbar [class*="logo"] img {
+  max-height: 1.75rem !important;
+  height: 1.75rem !important;
+}
+
+/* ── Mobile: stack CardGroup into single column ── */
+@media (max-width: 640px) {
+  [class*="grid"][class*="gap"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* Light theme — softer blobs */
 [data-theme="light"] body::before,
 :root:not([data-theme="dark"]) body::before {

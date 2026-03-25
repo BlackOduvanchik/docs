@@ -31,6 +31,25 @@ Configure default values for new profiles:
 
 {/* Screenshot: profile defaults settings */}
 
+## Extensions
+
+Browser extensions are managed in **Settings** → **Extensions**.
+
+| Setting | Description |
+|---|---|
+| **Global extensions** | Extensions loaded automatically in every profile |
+| **Import CRX** | Upload a `.crx` file to add an extension |
+| **Enable/Disable** | Toggle an extension on or off |
+| **Remove** | Uninstall an extension globally |
+
+<Info>
+  You can also install extensions per-profile directly from the Chrome Web Store inside a running profile. Per-profile extensions have independent settings and data.
+</Info>
+
+<Warning>
+  Some extensions can leak your real identity (e.g., extensions that sync with a Google account). Use extensions carefully in antidetect workflows.
+</Warning>
+
 ## Sync settings
 
 | Setting | Description |
@@ -38,8 +57,6 @@ Configure default values for new profiles:
 | **Auto-sync** | Sync profiles after closing |
 | **Sync frequency** | How often to sync running profiles |
 | **Sync on launch** | Download latest data when opening a profile |
-
-See [Synchronizer](/browser-profiles/synchronizer) for more details.
 
 ## Updates
 
