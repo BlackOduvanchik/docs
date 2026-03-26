@@ -19,6 +19,9 @@
   "background": {
     "decoration": "gradient"
   },
+  "metadata": {
+    "og:image": "/images/atmos_docs_url_banner.png"
+  },
   "navigation": {
     "tabs": [
       {
