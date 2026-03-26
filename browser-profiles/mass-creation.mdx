@@ -5,76 +5,76 @@ description: "Create multiple browser profiles at once with bulk configuration o
 
 ## Overview
 
-Mass creation lets you generate dozens or hundreds of browser profiles in a single operation. Each profile gets a unique fingerprint, and you can assign proxies, tags, and folders in bulk.
+Mass creation lets you generate dozens or hundreds of browser profiles in a single operation. Each profile gets a unique fingerprint, and you can assign wallets, proxies, and tags in bulk. You can also import profiles from a file.
 
-## Create profiles in bulk
+## Bulk create
 
 <Steps>
-  <Step title="Open mass creation">
-    In the main dashboard, click **New Profile** → **Mass Creation**.
-
-    {/* Screenshot: mass creation menu entry */}
+  <Step title="Open bulk creation">
+    Click **New Profile** and select the bulk creation option.
   </Step>
   <Step title="Set the quantity">
-    Enter the number of profiles to create (e.g., 50).
+    Enter the number of profiles to create.
   </Step>
-  <Step title="Configure base settings">
-    Set shared parameters for all profiles:
+  <Step title="Configure options">
+    Toggle the options you need:
 
-    - **Operating system** — Windows, macOS, or Linux
-    - **Browser version** — latest or specific version
-    - **Naming pattern** — e.g., `Profile_[n]` where `[n]` is auto-incremented
+    - **Wallets** — assign wallets to profiles
+    - **Proxies** — assign proxies (one per line, applied sequentially to profiles)
 
-    {/* Screenshot: mass creation configuration form */}
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_bulk_create_1.png" alt="Bulk create — step 1 configuration" /></Frame>
   </Step>
-  <Step title="Assign proxies">
-    Choose a proxy assignment strategy:
-
-    | Strategy | Description |
-    |---|---|
-    | **None** | No proxy assigned |
-    | **Round-robin** | Cycle through a proxy list |
-    | **Random** | Randomly assign from a proxy list |
-    | **One-to-one** | Map each profile to a specific proxy |
-
-    {/* Screenshot: proxy assignment strategy selector */}
-  </Step>
-  <Step title="Select destination folder">
-    Choose a folder to place the new profiles in, or leave empty for the default folder.
-  </Step>
-  <Step title="Generate">
-    Click **Create** to generate all profiles. A progress bar will show the creation status.
-
-    {/* Screenshot: mass creation progress bar */}
+  <Step title="Review and import">
+    Review the generated profiles in the table (name, status, tags, proxy). Select a language setting. Click **Import** to create all profiles.
   </Step>
 </Steps>
 
-<Note>
-  Mass creation speed depends on the number of profiles and your subscription tier. Free tier is limited to 10 profiles per batch.
-</Note>
+## Import from file
 
-## Supported proxy types
+You can also import profiles from a **CSV** or **XLS** file.
 
-| Type | Description |
-|---|---|
-| **HTTP** | Standard HTTP proxy |
-| **HTTPS** | Encrypted HTTP proxy |
-| **SOCKS4** | SOCKS protocol v4 |
-| **SOCKS5** | SOCKS protocol v5 with authentication |
-| **SSH** | SSH tunnel as proxy |
+<Steps>
+  <Step title="Download the template">
+    In the file import dialog, download the template in your preferred format (CSV or XLS).
 
-## Proxy list format
+    <Tabs>
+      <Tab title="Step 1">
+        <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_template_1.png" alt="Import template into Google Sheets" /></Frame>
+      </Tab>
+      <Tab title="Step 2">
+        <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_template_2.png" alt="Template — column headers with descriptions" /></Frame>
+      </Tab>
+      <Tab title="Step 3">
+        <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_template_3.png" alt="Template — filled with example data" /></Frame>
+      </Tab>
+    </Tabs>
 
-When using round-robin or one-to-one assignment, paste your proxies in any of these formats:
+    <Info>
+      If you don't have Excel, import the template into Google Sheets to fill it in. This is safe for browser profiles since no sensitive data (private keys) is involved.
+    </Info>
+  </Step>
+  <Step title="Fill in the template">
+    The template includes columns for profile name, tags, proxy and more. Fill in the rows for each profile you want to create.
+  </Step>
+  <Step title="Upload and review">
+    Upload your file (drag and drop or click **Select**). Review the parsed profiles in the table, then click **Import** to create them.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_3.png" alt="File import — review and confirm" /></Frame>
+  </Step>
+</Steps>
+
+## Proxy format
+
+When assigning proxies during bulk creation or file import, use one of these formats:
 
 ```text
-host:port:username:password
-host:port
-username:password@host:port
-socks5://host:port:username:password
+protocol://host:port:user:pass
+protocol://user:pass@host:port
 ```
+
+Supported types: **HTTP** and **SOCKS5**. One proxy per line. Proxies are applied sequentially to profiles in the order they appear.
 
 ## Tips
 
-- Use **naming patterns** to keep profiles organized (e.g., `FB_Farm_{n}`, `Amazon_{n}`)
-- Assign [tags](/extras/tags) during mass creation to group profiles by campaign or purpose
+- Assign [tags](/additional-features/settings#tags) during creation to group profiles by campaign or purpose
+- Use file import for large batches where you need per-profile configuration

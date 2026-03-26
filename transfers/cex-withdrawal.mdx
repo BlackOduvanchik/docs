@@ -7,59 +7,50 @@ description: "Withdraw tokens from exchange accounts to your wallets automatical
 
 CEX withdrawal lets you automatically send tokens from connected exchange accounts directly to wallets in your manager. Ideal for distributing funds across hundreds of wallets without manual work.
 
-<Frame caption="CEX withdrawal interface">
-  <img src="/images/placeholder.png" />
-</Frame>
-
 ## Parameters
 
 | Parameter | Description |
 |---|---|
-| **Network** | Blockchain network for the withdrawal |
-| **Token** | Token to withdraw |
-| **Exchange** | One or more exchange accounts. When multiple are selected, Oxygen Atmos picks a random source for each wallet |
-| **Wallets** | Destination wallets (searchable by address, alias, or tag) |
-| **Withdrawal amount** | Min and max amount in the selected token |
-| **Balance threshold** | Only withdraw to wallets with balance below this value |
+| **Chain** | Blockchain network for the withdrawal (e.g. BNB Smart Chain) |
+| **Token** | Token to withdraw (e.g. USDT) |
+| **Exchange** | Source exchange account |
+| **Wallets** | Destination wallets — click to pick from your wallet list |
+| **Withdrawal amount** | Min and max amount range in the selected token |
+| **Withdraw only if wallet balance is less than** | Toggle — only send to wallets with defined balance |
+
+<Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_cex_withdrawal_exchange_select.png" alt="CEX withdrawal setup" /></Frame>
 
 <Note>
-  The **balance threshold** is useful for topping up wallets. For example, setting it to `0.05 ETH` ensures tokens are only sent to wallets holding less than 0.05 ETH.
+  For each selected exchange, you can view the current token balance, withdrawal fee, and minimum withdrawal amount.
 </Note>
 
-For each selected exchange, you can view:
-- **Token** — current balance of the selected token
-- **Fee** — withdrawal fee on the exchange
-- **Min. withdrawal** — minimum withdrawal amount set by the exchange
+## Task config
+
+Before launching, configure the execution settings:
+
+| Setting | Description |
+|---|---|
+| **Workers** | Number of parallel withdrawal threads |
+| **Max retries** | How many times to retry a failed withdrawal |
+| **Delay between withdrawals** | Min and max delay in seconds between operations |
 
 ## Execute a withdrawal
 
 <Steps>
   <Step title="Ensure exchanges are connected">
-    Add exchange API keys in the [Accounts](/exchange-accounts/about-exchange-accounts) tab.
+    Add exchange API keys in [CEX accounts](/exchange-accounts/about-exchange-accounts).
   </Step>
   <Step title="Configure parameters">
-    Set the network, token, exchange, wallets, amounts, and config.
-
-    <Frame caption="CEX withdrawal parameters">
-      <img src="/images/placeholder.png" />
-    </Frame>
+    Set the chain, token, exchange, wallets, and amount range.
   </Step>
   <Step title="Preview">
-    Click **Preview**. Review the list of wallets with their withdrawal amounts. You can edit individual amounts if needed.
-  </Step>
-  <Step title="Review summary">
-    At the bottom, check the total wallet count, withdrawal sum, fees, and estimated completion time.
-  </Step>
-  <Step title="Launch or defer">
-    - Click **Launch** to execute immediately
-    - Click **Defer** to schedule as a [task](/task-manager/about-task-manager)
+    Click **Preview**. Review the list of wallets with their withdrawal amounts, current balances, and fees. You can edit individual amounts if needed.
 
-    <Frame caption="Preview and launch">
-      <img src="/images/placeholder.png" />
-    </Frame>
+    <Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_cex_withdrawal_preview.png" alt="CEX withdrawal preview" /></Frame>
   </Step>
-  <Step title="Track progress">
-    Go to the **Task Manager** in the left panel to monitor execution.
+  <Step title="Launch or postpone">
+    - Click **Launch** to execute immediately
+    - Click **Postpone** to pick a date and time — the task goes to the [Task Manager](/task-manager/about-task-manager) **Scheduled** tab
   </Step>
 </Steps>
 
@@ -67,6 +58,5 @@ For each selected exchange, you can view:
 
 Save your withdrawal configuration for quick reuse:
 
-1. Configure all parameters
-2. Click the **save icon** in the Template area and enter a name
-3. Next time, select your saved template to auto-fill all parameters
+- **Save during preview** — click the **save icon** near the templates field at the top of the preview screen
+- **Copy from completed task** — in the Task Manager, click the **copy icon** on a completed task. Three options: use as template, copy all wallets, or copy wallets with errors

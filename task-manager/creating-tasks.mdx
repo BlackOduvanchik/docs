@@ -1,71 +1,55 @@
 ---
 title: "Creating tasks"
-description: "Schedule deferred tasks and configure withdrawal parameters before execution"
+description: "Schedule tasks and configure withdrawal parameters before execution"
 ---
 
-## Create a deferred task
+## Create a scheduled task
+
+Tasks are created from the [transfer module](/transfers/about-transfers) — either CEX withdrawal or wallet withdrawal.
 
 <Steps>
-  <Step title="Open a transfer module">
-    Navigate to any module under **Tools** in the left panel (e.g., **CEX Withdrawal**).
-  </Step>
-  <Step title="Configure parameters">
-    Set up your withdrawal or transfer parameters.
+  <Step title="Configure a transfer">
+    Navigate to **Transfers** in the left sidebar and set up your withdrawal parameters.
   </Step>
   <Step title="Preview">
     Click **Preview** to review the operation.
   </Step>
-  <Step title="Defer the task">
-    Click **Defer** instead of Launch.
-
-    <Frame caption="Defer task dialog">
-      <img src="/images/placeholder.png" />
-    </Frame>
+  <Step title="Postpone">
+    Click **Postpone** instead of **Launch**.
   </Step>
   <Step title="Set schedule">
-    In the popup, select the **date and time** for execution.
+    Pick the **date and time** for execution.
 
     <Warning>
-      The application and your device must remain active for the task to execute at the scheduled time.
+      Your device and Oxygen Atmos must remain running for the task to execute at the scheduled time.
     </Warning>
   </Step>
   <Step title="Confirm">
-    Click **Defer**. The task appears in the **Pending** section of the Task Manager.
+    The task appears in the **Scheduled** tab of the Task Manager.
   </Step>
 </Steps>
 
-## Edit a pending task
+## Edit a scheduled task
 
-<Steps>
-  <Step title="Open the task">
-    In the **Task Manager**, find the task in the **Pending** section and click **Open**.
-  </Step>
-  <Step title="Modify parameters">
-    Edit any parameters as needed. Changes are saved automatically when you close the editor.
+In the **Scheduled** tab, click **Open** on a task to view and edit it. Changes are saved automatically when you close the editor.
 
-    <Frame caption="Task editing menu">
-      <img src="/images/placeholder.png" />
-    </Frame>
-  </Step>
-  <Step title="Close">
-    Press **X** or **ESC** to exit. Changes are saved automatically.
-  </Step>
-</Steps>
+<Frame><img src="/images/atmos_ui/task_manager/atmos_task_manager_tasks_edit_menu.png" alt="Task editing menu with numbered elements" /></Frame>
 
 ## Editing menu reference
 
-| Element | Description |
-|---|---|
-| **Scheduled time** | Date and time for the launch |
-| **Logs** | View task logs |
-| **Config** | Thread count, delays, and retry settings (editable) |
-| **Action rows** | Per-wallet details with editable withdrawal amounts |
-| **Status** | Current status for each wallet |
-| **Wallet count** | Total wallets in the task |
-| **Total withdrawal** | Sum of all withdrawal amounts |
-| **Total fees** | Sum of all fees |
-| **Estimated time** | Expected completion time |
-| **Use as template** | Copy settings to create a new task |
-| **Schedule** | Change the scheduled launch time |
-| **Cancel** | Cancel the task and move to archive |
-| **Launch** | Start immediately without waiting for the schedule |
+| # | Element | Description |
+|---|---|---|
+| 1 | **Scheduled** | Date and time task will start execution |
+| 2 | **Logs** | General task log |
+| 3 | **Config** | Workers, delays, retries (not editable on running tasks) |
+| 4 | **Action row** | Info about the action for a specific wallet |
+| 5 | **Token withdrawal amount** | Amount to be withdrawn to wallet (not editable on running tasks) |
+| 6 | **Status** | Current action status |
+| 7 | **Wallets** | Progress by completed wallets |
+| 8 | **Withdrawal amount** | Total withdrawal amount across all wallets |
+| 9 | **Fee** | Total fee across all wallets |
+| 10 | **Processing time** | Total time for completion |
+| 11 | **Use as template** | Copy menu — use as template, copy all wallets, or copy wallets with errors |
+| 12 | **Postpone** | Change scheduled date and time |
+| 13 | **Cancel** | Cancel the task |
+| 14 | **Launch** | Start execution immediately |

@@ -13,33 +13,19 @@ description: "Step-by-step guide to migrate your profiles from Dolphin Anty to O
 
 <Steps>
   <Step title="Export profiles from Dolphin Anty">
-    In Dolphin Anty, select the profiles you want to migrate. Click **Export** and save the export file to your local machine.
-
-    {/* Screenshot: Dolphin Anty profile selection and export button */}
+    In Dolphin Anty, select the profiles you want to migrate and export them.
   </Step>
-  <Step title="Open Oxygen Atmos import tool">
-    In Oxygen Atmos, navigate to **Settings** → **Import** → **From Dolphin Anty**.
-
-    {/* Screenshot: Oxygen Atmos import menu */}
-  </Step>
-  <Step title="Upload the export file">
-    Click **Choose File** and select the Dolphin Anty export file. Oxygen Atmos will parse the file and show a preview of profiles to import.
-
-    {/* Screenshot: import preview with profile list */}
+  <Step title="Import into Oxygen Atmos">
+    In Oxygen Atmos, open the migration import tool and upload the Dolphin Anty export file. Oxygen Atmos will parse the file and show a preview of profiles to import.
   </Step>
   <Step title="Configure import options">
-    Choose how to handle proxy assignments and folder structure:
+    Choose how to handle proxy assignments:
 
     - **Import proxies** — re-create proxy entries in Oxygen Atmos
-    - **Import to folder** — select a destination folder or create a new one
     - **Overwrite duplicates** — replace profiles with matching names
-
-    {/* Screenshot: import configuration options */}
   </Step>
   <Step title="Start import">
     Click **Import** and wait for the process to complete. You'll see a summary of imported profiles.
-
-    {/* Screenshot: import success summary */}
   </Step>
 </Steps>
 
@@ -52,14 +38,13 @@ description: "Step-by-step guide to migrate your profiles from Dolphin Anty to O
 | Proxy settings | Yes | Requires valid proxy credentials |
 | Profile notes | Yes | — |
 | Tags | Yes | Mapped to Oxygen Atmos tags |
-| Extensions | No | Must be added manually |
-| Bookmarks | No | Must be added manually |
+| Extensions | No | Must be added manually in Settings → Browser |
 
 ## Troubleshooting
 
 <AccordionGroup>
   <Accordion title="Import file is not recognized">
-    Make sure the file was exported from Dolphin Anty in the correct format. Oxygen Atmos supports `.json` export files from Dolphin Anty v2020+.
+    Make sure the file was exported from Dolphin Anty in a supported format.
   </Accordion>
   <Accordion title="Proxies not working after import">
     Verify that your proxy credentials are still valid. Imported proxies use the same host, port, and authentication from Dolphin Anty — if they've expired, update them in the profile editor.

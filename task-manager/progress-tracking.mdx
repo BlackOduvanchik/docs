@@ -5,78 +5,54 @@ description: "Monitor task execution, view logs, and recover from failed operati
 
 ## View task progress
 
-<Steps>
-  <Step title="Open the task">
-    In the **Task Manager**, find the task in the **Running** or **Archive** section and click **Open**.
-  </Step>
-  <Step title="View progress">
-    The progress view shows real-time execution status.
+In the **Processing** or **Archive** tab, click **Open** on a task to view execution details.
 
-    <Frame caption="Task progress view">
-      <img src="/images/placeholder.png" />
-    </Frame>
-  </Step>
-  <Step title="View logs">
-    Click **Logs** at the top to see detailed execution logs. Click any log entry to expand details.
-  </Step>
-  <Step title="Close">
-    Press **X** or **ESC** to exit.
-  </Step>
-</Steps>
+## Task logs
 
-## Progress menu reference
+Click **Logs** to see detailed execution logs with timestamped entries for each wallet operation. Each log entry shows:
 
-| Element | Description |
+- Transaction status (success, pending, error) with color-coded indicators
+- Status messages (e.g. "Transaction sent, waiting for confirmation", "Successfully transferred X to address")
+- Expandable details per step
+
+<Frame><img src="/images/atmos_ui/task_manager/atmos_task_manager_tasks_logs.png" alt="Task execution logs" /></Frame>
+
+## Task statuses
+
+| Status | Description |
 |---|---|
-| **Completion %** | Overall task progress |
-| **Logs** | Detailed execution logs |
-| **Config** | Thread count, delays, retries (read-only for running tasks) |
-| **Action rows** | Per-wallet status and amounts |
-| **Status** | Current state of each wallet operation |
-| **Transaction link** | View transaction in a block explorer |
-| **Wallets** | Progress counter (completed / total) |
-| **Transactions** | Transaction progress counter |
-| **Total withdrawal** | Sum of all withdrawals |
-| **Total fees** | Sum of all fees |
-| **Use as template** | Copy settings or wallets for a new task |
+| **Scheduled** | Waiting for scheduled launch time |
+| **Processing** | Currently executing |
+| **Queued** | Wallet waiting to be processed |
+| **Completed** | All operations finished successfully |
+| **Partially completed** | Some wallets succeeded, some failed |
+| **Failed Error** | Task failed with errors |
+| **Cancelled** | Manually cancelled |
 
 ## Error recovery
 
-### Retry failed operations
+### Restart unsuccessful
 
-When a task has the status **Partially completed**, click **Retry Failed** to re-run the task for wallets with status **Queued** or **Error**.
+When a task has the status **Partially completed**, click **Restart unsuccessful** to re-run the task only for wallets with **Queued** or **Error** status.
 
-<Frame caption="Retry failed button">
-  <img src="/images/placeholder.png" />
-</Frame>
+### Copy wallets for targeted fixes
 
-### Use templates for targeted fixes
-
-When some wallets fail due to insufficient native token balance, you can create a targeted top-up task:
+When some wallets fail (e.g. insufficient gas), you can create a targeted top-up task:
 
 <Steps>
-  <Step title="Open the template menu">
-    In the task's progress view, click the **template icon** in the bottom-right corner.
+  <Step title="Open the copy menu">
+    In the task view, click the **copy icon** in the bottom-right corner.
   </Step>
-  <Step title="Copy failed wallets">
-    Select **Copy wallets with errors**.
+  <Step title="Select an option">
+    Choose one of:
 
-    <Frame caption="Template options">
-      <img src="/images/placeholder.png" />
-    </Frame>
-  </Step>
-  <Step title="Choose a module">
-    Select **CEX Withdrawal** (or the appropriate module).
+    | Option | Description |
+    |---|---|
+    | **Use as template** | Copy all task parameters into a new task |
+    | **Copy all wallets** | Copy all wallets into a new task |
+    | **Copy wallets with errors** | Copy only error-status wallets into a new task |
   </Step>
   <Step title="Configure and launch">
-    Set up parameters to send the native token to the failed wallets, then launch the new task.
+    Set up parameters for the new task (e.g. send native token to failed wallets), then launch or postpone.
   </Step>
 </Steps>
-
-### Template options
-
-| Option | Description |
-|---|---|
-| **Use as template** | Copy all task parameters to create a new task |
-| **Copy all wallets** | Copy all wallets from the task for use in a new one |
-| **Copy wallets with errors** | Copy only wallets with **Error** status |

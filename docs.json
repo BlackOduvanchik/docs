@@ -7,7 +7,7 @@
     "light": "#818cf8",
     "dark": "#4f46e5"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.png",
   "logo": {
     "light": "/images/atmos_logo/atmos_full_black.svg",
     "dark": "/images/atmos_logo/atmos_full_white.svg",
@@ -37,14 +37,6 @@
             "group": "Guides",
             "pages": [
               {
-                "group": "Migration",
-                "icon": "arrow-right-arrow-left",
-                "pages": [
-                  "migration/about-migration",
-                  "migration/from-dolphin-anty"
-                ]
-              },
-              {
                 "group": "Wallet manager",
                 "icon": "wallet",
                 "pages": [
@@ -52,6 +44,15 @@
                   "wallet-manager/import-wallets",
                   "wallet-manager/edit-wallets",
                   "wallet-manager/filters"
+                ]
+              },
+              {
+                "group": "Browser profiles",
+                "icon": "user-secret",
+                "pages": [
+                  "browser-profiles/about-profiles",
+                  "browser-profiles/mass-creation",
+                  "browser-profiles/notes"
                 ]
               },
               {
@@ -81,66 +82,12 @@
                 ]
               },
               {
-                "group": "Browser profiles",
-                "icon": "user-secret",
-                "pages": [
-                  "browser-profiles/about-profiles",
-                  "browser-profiles/mass-creation",
-                  "browser-profiles/notes"
-                ]
-              },
-              {
-                "group": "Extras",
-                "icon": "puzzle-piece",
-                "pages": [
-                  "extras/overview",
-                  "extras/tags",
-                  "extras/bookmarks",
-                  "extras/start-pages"
-                ]
-              },
-              {
                 "group": "Settings",
                 "icon": "gear",
                 "pages": [
                   "additional-features/settings"
                 ]
               }
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API Reference",
-        "groups": [
-          {
-            "group": "Getting started",
-            "icon": "code",
-            "pages": [
-              "api-reference/introduction",
-              "api-reference/authentication",
-              "api-reference/quick-start"
-            ]
-          },
-          {
-            "group": "Endpoints",
-            "icon": "plug",
-            "pages": [
-              "api-reference/endpoints/profiles",
-              "api-reference/endpoints/folders",
-              "api-reference/endpoints/proxy",
-              "api-reference/endpoints/tags",
-              "api-reference/endpoints/statuses",
-              "api-reference/endpoints/browser-management"
-            ]
-          },
-          {
-            "group": "Resources",
-            "icon": "book",
-            "pages": [
-              "api-reference/error-codes",
-              "api-reference/rate-limits",
-              "api-reference/sdks"
             ]
           }
         ]

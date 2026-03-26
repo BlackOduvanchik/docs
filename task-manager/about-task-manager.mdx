@@ -1,33 +1,29 @@
 ---
 title: "About task manager"
-description: "Schedule, monitor, and manage deferred tasks for withdrawals and transfers"
+description: "Schedule, monitor, and manage tasks for withdrawals and transfers"
 ---
 
 ## Overview
 
-The task manager lets you create deferred tasks, track execution progress, and recover from errors for any operation in Oxygen Atmos — including CEX withdrawals, wallet transfers, and future modules.
+The task manager is the central dashboard for monitoring all scheduled and running tasks. Tasks are created from the [transfer module](/transfers/about-transfers) and tracked here across three tabs: **Scheduled**, **Processing**, and **Archive**.
 
-<Frame caption="Task manager interface">
-  <img src="/images/placeholder.png" />
-</Frame>
+<Frame><img src="/images/atmos_ui/task_manager/atmos_task_manager_tasks_dashboard.png" alt="Task manager dashboard" /></Frame>
 
-## Task states
+## Task tabs
 
-All tasks flow through three states:
+### Scheduled
 
-### Pending
-
-Scheduled tasks that haven't started yet.
+Tasks waiting to execute at a specified date and time.
 
 | Column | Description |
 |---|---|
 | **Wallets** | Total wallets in the task |
 | **Created** | When the task was created |
-| **Deferred** | Scheduled launch time |
+| **Scheduled** | Launch date and time |
 | **Cancel** | Cancel the task and move to archive |
-| **Open** | View logs and edit the task |
+| **Open** | View and edit the task |
 
-### Running
+### Processing
 
 Tasks currently being executed.
 
@@ -50,11 +46,15 @@ Completed, cancelled, or stopped tasks.
 | **Status** | Cancelled / Partially completed / Completed |
 | **Open** | View final logs |
 
+<Warning>
+  Scheduled tasks execute locally — your device and Oxygen Atmos must be running at the scheduled time.
+</Warning>
+
 ## Quick links
 
 <CardGroup cols={2}>
   <Card title="Creating tasks" icon="plus" href="/task-manager/creating-tasks">
-    Schedule and configure deferred tasks.
+    Schedule tasks and configure parameters.
   </Card>
   <Card title="Progress tracking" icon="chart-line" href="/task-manager/progress-tracking">
     Monitor execution, view logs, and recover from errors.

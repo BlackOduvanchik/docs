@@ -1,79 +1,127 @@
 ---
 title: "Settings"
-description: "Configure global Oxygen Atmos settings — appearance, sync, updates, and defaults"
+description: "Configure Oxygen Atmos — security, extensions, RPC, tags, and data export/import"
 ---
 
 ## Overview
 
-Access global settings from **Settings** in the sidebar or by pressing `Ctrl+,` (Windows/Linux) or `Cmd+,` (macOS).
+Access settings from **Settings** in the left sidebar. Settings are organized into four tabs: **Main**, **Tags**, **RPC**, and **Browser**.
 
-## General settings
+## Main
 
-| Setting | Description | Default |
-|---|---|---|
-| **Language** | Interface language | English |
-| **Theme** | Light or dark mode | System |
-| **Auto-launch** | Open Oxygen Atmos on system startup | Disabled |
-| **Close behavior** | Minimize to tray or quit on close | Minimize |
-
-{/* Screenshot: general settings panel */}
-
-## Profile defaults
-
-Configure default values for new profiles:
+<Frame><img src="/images/atmos_ui/settings/atmos_settings_main.png" alt="Settings — Main tab" /></Frame>
 
 | Setting | Description |
 |---|---|
-| **Default OS** | Operating system for new profiles |
-| **Default browser** | Browser version for new profiles |
-| **Auto-assign proxy** | Automatically assign a proxy from the list |
-| **Default folder** | Folder for new profiles |
+| **API key** | Change the API key linked to your account |
+| **Master password** | Change the master password used to encrypt all application data |
+| **PIN code** | Set or change the PIN used to confirm sensitive actions (transfers, deletions) |
+| **Language** | Interface language |
 
-{/* Screenshot: profile defaults settings */}
+### Export
 
-## Extensions
+Export your data as encrypted ZIP archives. Three categories available:
 
-Browser extensions are managed in **Settings** → **Extensions**.
+| Category | Contents |
+|---|---|
+| **Wallets** | Wallet data including tags and personalization |
+| **Accounts** | CEX account data including tags and personalization |
+| **Software settings** | RPC configuration, extensions, and other app settings |
+
+### Import
+
+Drag and drop or click **Select** to import a previously exported encrypted ZIP archive.
+
+## Tags
+
+Tags in Oxygen Atmos are **unified across wallets, browser profiles, and exchange accounts**. A tag created anywhere is available everywhere.
+
+<Frame><img src="/images/atmos_ui/settings/atmos_settings_tags.png" alt="Tags management table" /></Frame>
+
+### Tags table
+
+| Column | Description |
+|---|---|
+| **Name** | Tag name with color indicator |
+| **Count** | Total items using this tag |
+| **Browsers** | Checkbox — tag is used on browser profiles |
+| **Wallets** | Checkbox — tag is used on wallets |
+| **Accounts** | Checkbox — tag is used on exchange accounts |
+| **Extensions** | Number of profiles with extensions assigned to this tag |
+
+You can filter the table with **Colors**, **Search**, and **Show only unused**.
+
+### Create a tag
+
+Click **Add tag**, enter a **name** and choose a **color**.
+
+### Assign tags
+
+You can assign tags in several places:
+
+- **Wallet manager** — during import or when editing a wallet
+- **Browser profiles** — during creation, bulk creation, or when editing a profile
+- **Exchange accounts** — when adding or editing an account
+
+You can apply multiple tags to a single item.
+
+### Edit and delete tags
+
+- Click the **edit icon** to change a tag's name or color. Changes apply everywhere the tag is used.
+- Select one or more tags and click **Delete** to remove them.
+
+<Warning>
+  Deleted tags are automatically removed from all wallets, profiles, and accounts where they were assigned.
+</Warning>
+
+### Filter by tags
+
+Both the wallet list and the profile list support tag filtering:
+
+1. Click **Tags** above the list
+2. Select one or more tags — only items with those tags appear
+3. Click **Reset** to clear the filter
+
+## RPC
+
+Configure RPC endpoints for EVM chains.
 
 | Setting | Description |
 |---|---|
-| **Global extensions** | Extensions loaded automatically in every profile |
-| **Import CRX** | Upload a `.crx` file to add an extension |
-| **Enable/Disable** | Toggle an extension on or off |
-| **Remove** | Uninstall an extension globally |
+| **Use global proxy for all RPCs** | Route all RPC requests through a single proxy |
+| **Use proxy from wallet browser profile** | Use each profile's proxy for its RPC requests |
+| **Chain list** | Toggle chains on/off, view RPC health status |
+
+Each chain shows a health indicator (e.g. **3/3** = 3 healthy out of 3 total RPCs). You can add up to **5 custom RPC endpoints** per chain. A "Low active RPCs" warning appears when some endpoints are unresponsive.
+
+## Browser
+
+Configure browser fingerprint defaults and manage extensions.
+
+<Frame><img src="/images/atmos_ui/settings/atmos_settings_browser.png" alt="Settings — Browser tab" /></Frame>
+
+### Fingerprint settings
+
+| Setting | Description |
+|---|---|
+| **Language** | Based on IP address or set manually (e.g. English United States) |
+| **App language** | Based on "Language" setting or set independently |
+| **Timezone** | Based on IP address |
+| **Geolocation** | Ask, Allow, or Block — with "Based on IP address" toggle |
+| **WebRTC** | Block unproxied UDP or Public Interface |
+| **WebGL Metadata** | Fingerprint, System, or Disable |
+| **Noise** | Toggle Canvas, Audio, Rectangles, WebGL |
+
+### Extensions
+
+Extensions are **global** — they apply to all browser profiles.
+
+| Action | Description |
+|---|---|
+| **Add** | Install from a Chrome Web Store URL or upload a CRX/ZIP file |
+| **Update extensions** | Update all installed extensions |
+| **Delete** | Remove an extension |
 
 <Info>
-  You can also install extensions per-profile directly from the Chrome Web Store inside a running profile. Per-profile extensions have independent settings and data.
+  **Rabby Wallet** is a built-in default extension. It includes a security feature: private keys cannot be exported from Rabby manually or by any other means.
 </Info>
-
-<Warning>
-  Some extensions can leak your real identity (e.g., extensions that sync with a Google account). Use extensions carefully in antidetect workflows.
-</Warning>
-
-## Sync settings
-
-| Setting | Description |
-|---|---|
-| **Auto-sync** | Sync profiles after closing |
-| **Sync frequency** | How often to sync running profiles |
-| **Sync on launch** | Download latest data when opening a profile |
-
-## Updates
-
-| Setting | Description |
-|---|---|
-| **Auto-update** | Automatically install new versions |
-| **Update channel** | Stable or Beta |
-| **Check for updates** | Manually check for the latest version |
-
-## Data and privacy
-
-| Setting | Description |
-|---|---|
-| **Clear cache** | Remove cached data for all profiles |
-| **Export all data** | Download all your profiles, proxies, and settings as a backup |
-| **Delete account** | Permanently delete your Oxygen Atmos account and all data |
-
-<Warning>
-  Account deletion is permanent. Export your data first if you want to keep a backup.
-</Warning>

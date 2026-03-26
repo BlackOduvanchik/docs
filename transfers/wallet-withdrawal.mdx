@@ -7,26 +7,32 @@ description: "Send tokens from your wallets to linked addresses or a single dest
 
 Wallet withdrawal lets you send tokens from your wallets in bulk — either to each wallet's linked withdrawal address or to a single common address.
 
-<Frame caption="Wallet withdrawal interface">
-  <img src="/images/placeholder.png" />
-</Frame>
-
 ## Parameters
 
 | Parameter | Description |
 |---|---|
-| **Network** | Blockchain network for the transfer |
-| **Tokens** | One or more tokens to send (multiple selection supported) |
-| **Withdrawal method** | How much to withdraw (see below) |
-| **Wallets** | Source wallets (searchable by address, alias, or tag) |
-| **Single withdrawal address** | Optional — send all tokens to one address instead of linked addresses |
+| **Chain** | Blockchain network (e.g. Ethereum) |
+| **Tokens** | One or more tokens to send (multi-select) |
+| **Wallets** | Source wallets |
+| **Single withdraw address** | Optional — send all tokens to one address instead of linked addresses |
 
-### Withdrawal methods
+### Token selection
 
-| Method | Description |
+After selecting a chain, the token panel shows available tokens with their amounts. For each token you can configure the **withdrawal method** individually.
+
+<Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_evm_withdrawal_tokens_select.png" alt="Token selection with amounts and methods" /></Frame>
+
+## Task config
+
+Configure execution settings before launching:
+
+| Setting | Description |
 |---|---|
-| **Leave %** | Keep a percentage of the token balance after withdrawal |
-| **Leave X tokens** | Keep a fixed token amount after withdrawal |
+| **Workers** | Number of parallel withdrawal threads |
+| **Max retries** | How many times to retry a failed withdrawal |
+| **Delay between withdrawals** | Min and max delay in seconds |
+| **Wait for gas less than** | Only execute when gas price is below this gwei threshold |
+| **Run in random order** | Randomize the order wallets are processed |
 
 ## Execute a withdrawal
 
@@ -35,24 +41,16 @@ Wallet withdrawal lets you send tokens from your wallets in bulk — either to e
     Add wallets in the [Wallet Manager](/wallet-manager/about-wallet-manager).
   </Step>
   <Step title="Configure parameters">
-    Set the network, tokens, withdrawal method, source wallets, and optional single address.
-
-    <Frame caption="Wallet withdrawal parameters">
-      <img src="/images/placeholder.png" />
-    </Frame>
+    Set the chain, tokens, withdrawal methods, source wallets, and optional single address.
   </Step>
   <Step title="Preview">
-    Click **Preview**. Review the wallet list and edit individual amounts if needed.
+    Click **Preview**. Review per-wallet details: wallet address, withdraw address, current balance, and withdrawal amount for each token.
+
+    <Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_evm_preview.png" alt="Wallet withdrawal preview" /></Frame>
   </Step>
-  <Step title="Review summary">
-    Check the total wallet count, withdrawal sum, fees, and estimated time at the bottom.
-  </Step>
-  <Step title="Launch or defer">
+  <Step title="Launch or postpone">
     - Click **Launch** to execute immediately
-    - Click **Defer** to schedule as a [task](/task-manager/about-task-manager)
-  </Step>
-  <Step title="Track progress">
-    Go to the **Task Manager** to monitor execution.
+    - Click **Postpone** to pick a date and time — the task goes to the [Task Manager](/task-manager/about-task-manager) **Scheduled** tab
   </Step>
 </Steps>
 
@@ -60,6 +58,5 @@ Wallet withdrawal lets you send tokens from your wallets in bulk — either to e
 
 Save your withdrawal configuration for quick reuse:
 
-1. Configure all parameters
-2. Click the **save icon** in the Template area and enter a name
-3. Select your saved template next time to auto-fill all parameters
+- **Save during preview** — click the **save icon** near the templates field at the top of the preview screen
+- **Copy from completed task** — in the Task Manager, click the **copy icon** on a completed task. Three options: use as template, copy all wallets, or copy wallets with errors

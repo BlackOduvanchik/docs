@@ -7,46 +7,44 @@ description: "Add wallets to the manager — one by one, as a list, or from a fi
 
 There are three ways to import wallets into the wallet manager:
 
-- **One by one** — manual entry for individual wallets
-- **As a list** — paste multiple wallets in a structured format
-- **From a file** — upload CSV, XLS, or XLSX files
+- **Single** — manual entry for individual wallets
+- **Multiple** — paste multiple wallets in a structured format
+- **File** — upload CSV, XLS, or XLSX files
 
 <Note>
-  All import methods work with both **private keys** and **public addresses**. If you want to monitor balances without granting withdrawal access, use the wallet's public address instead of the private key.
+  Re-importing a wallet with the same private key **updates the existing entry** rather than creating a duplicate.
 </Note>
 
-## Add one wallet
+## Single import
 
 <Steps>
   <Step title="Open the import dialog">
     Click **Add Wallet** in the top-right corner.
-
-    <Frame caption="Add wallet button">
-      <img src="/images/placeholder.png" />
-    </Frame>
   </Step>
   <Step title="Select mode">
-    Choose **One by One**.
+    Choose the **Single** tab.
   </Step>
-  <Step title="Choose wallet type">
-    Select the blockchain type for your wallet.
+  <Step title="Select chain type">
+    Select **EVM** as the chain type.
   </Step>
   <Step title="Enter wallet data">
     Fill in the fields:
 
     | Field | Description | Required |
     |---|---|---|
-    | **Private key or address** | The wallet's private key or public address | Yes |
-    | **Withdrawal address** | Destination address for outgoing transfers | No |
-    | **Alias** | Display name for the wallet | No |
+    | **Private key or mnemonic** | The wallet's private key or mnemonic phrase | Yes |
+    | **Withdrawal address** | Default destination address for outgoing transfers | No |
+    | **Name** | Display name for the wallet | No |
     | **Tags** | One or more tags for organization | No |
+
+    <Frame><img src="/images/atmos_ui/wallets/atmos_wallets_import_wallet_single.png" alt="Single wallet import form" /></Frame>
   </Step>
   <Step title="Confirm">
     Click **Add Wallet** to import.
   </Step>
 </Steps>
 
-## Add wallets as a list
+## Multiple import
 
 Paste wallets line by line using this format:
 
@@ -67,27 +65,23 @@ private_key3:0x789...abc:Farm_03
     Click **Add Wallet** in the top-right corner.
   </Step>
   <Step title="Select mode">
-    Choose **As a List**.
+    Choose the **Multiple** tab.
   </Step>
-  <Step title="Choose wallet type">
-    Select the blockchain type.
+  <Step title="Select chain type">
+    Select **EVM** as the chain type.
   </Step>
   <Step title="Assign tags (optional)">
     Select one or more tags to apply to all imported wallets.
   </Step>
   <Step title="Paste wallet data">
     Paste your list into the text field.
-
-    <Frame caption="List import interface">
-      <img src="/images/placeholder.png" />
-    </Frame>
   </Step>
   <Step title="Confirm">
     Click **Add Wallets** to import all entries.
   </Step>
 </Steps>
 
-## Add wallets from a file
+## File import
 
 Supported formats: **CSV**, **XLS**, **XLSX**. You can download a template directly from the import dialog.
 
@@ -96,32 +90,34 @@ Supported formats: **CSV**, **XLS**, **XLSX**. You can download a template direc
     Click **Add Wallet** in the top-right corner.
   </Step>
   <Step title="Select mode">
-    Choose **From File**.
+    Choose the **File** tab.
   </Step>
-  <Step title="Choose wallet type">
-    Select the blockchain type.
+  <Step title="Select chain type">
+    Select **EVM** as the chain type.
   </Step>
   <Step title="Assign tags (optional)">
     Select tags to apply to all imported wallets.
   </Step>
   <Step title="Download the template">
     Choose a template format (CSV, XLS, or XLSX). The file saves to your desktop.
+
+    <Frame><img src="/images/atmos_ui/wallets/atmos_wallets_import_wallet_file_1.png" alt="File import — template download" /></Frame>
+
+    <Info>
+      If you don't have Excel, you can import the template into Google Sheets to fill it in.
+    </Info>
   </Step>
   <Step title="Fill in the template">
     Open the template and fill in the columns:
 
     | Column | Description |
     |---|---|
-    | `wallet_key_or_address` | Private key or public address |
+    | `wallet_key_or_address` | Private key or mnemonic |
     | `withdraw_address` | Destination address for transfers |
     | `alias` | Display name for the wallet |
   </Step>
   <Step title="Upload the file">
-    Click **Next**, then drag and drop your file into the import area or select it via the file browser.
-
-    <Frame caption="File upload area">
-      <img src="/images/placeholder.png" />
-    </Frame>
+    Click **Next**, then drag and drop your file into the import area or click **Select**.
   </Step>
   <Step title="Confirm">
     Click **Import** to add all wallets from the file.
