@@ -96,25 +96,43 @@ Each chain shows a health indicator (e.g. **3/3** = 3 healthy out of 3 total RPC
 
 ## Browser
 
-Configure browser fingerprint defaults and manage extensions.
+Configure browser defaults for profiles and manage extensions.
 
 <Frame><img src="/images/atmos_ui/settings/atmos_settings_browser.png" alt="Settings — Browser tab" /></Frame>
 
-### Fingerprint settings
+### Browser preferences
+
+Profiles can inherit global browser preferences or override them individually in the profile editor.
 
 | Setting | Description |
 |---|---|
-| **Language** | Based on IP address or set manually (e.g. English United States) |
-| **App language** | Based on "Language" setting or set independently |
-| **Timezone** | Based on IP address |
-| **Geolocation** | Ask, Allow, or Block — with "Based on IP address" toggle |
-| **WebRTC** | Block unproxied UDP or Public Interface |
-| **WebGL Metadata** | Fingerprint, System, or Disable |
+| **Search engine** | Default search engine for browser profiles |
+| **Language** | Based on proxy IP address or set manually (e.g. English United States) |
+| **App language** | Based on **Language** or set independently |
+| **Timezone** | Based on proxy IP address |
+| **Geolocation** | Ask, Allow, or Block, with optional proxy IP source |
+| **WebRTC** | Disable non-proxied UDP or use public interface |
+| **GPU spoofing** | Control GPU metadata and spoofing mode |
 | **Noise** | Toggle Canvas, Audio, Rectangles, WebGL |
+
+Default values:
+
+| Setting | Default |
+|---|---|
+| **Search engine** | DuckDuckGo |
+| **Language** | English (United States) |
+| **App language** | Based on selected language |
+| **Timezone** | Based on proxy IP address |
+| **Geolocation** | Ask, based on proxy IP address |
+| **WebRTC** | Disable non-proxied UDP |
+| **GPU spoofing** | Strict |
+| **Noise** | Canvas, Audio, and DOM Rectangles enabled |
+
+Profile overrides are used for fingerprint generation and browser launch.
 
 ### Extensions
 
-Extensions are **global** — they apply to all browser profiles.
+Oxygen Atmos manages extensions for [Oxidium](/browser-profiles/oxidium) profiles. Extensions can be installed globally, assigned to profile tags, or disabled.
 
 | Action | Description |
 |---|---|
@@ -122,6 +140,14 @@ Extensions are **global** — they apply to all browser profiles.
 | **Update extensions** | Update all installed extensions |
 | **Delete** | Remove an extension |
 
+| Loading mode | Description |
+|---|---|
+| **Global** | Loads in every browser profile |
+| **Tag-based** | Loads only in profiles that share at least one assigned tag with the extension |
+| **Disabled** | Does not load in any profile |
+
+Extension loading is calculated when a profile launches. Relaunch a running profile after changing extension assignment, tags, or extension files.
+
 <Info>
-  **Rabby Wallet** is a built-in default extension. It includes a security feature: private keys cannot be exported from Rabby manually or by any other means.
+  **Rabby Wallet** is a built-in extension for wallet integration. Private keys stay inside Oxygen Atmos and are not exposed to the browser runtime.
 </Info>

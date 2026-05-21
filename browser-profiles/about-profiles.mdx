@@ -1,35 +1,69 @@
 ---
 title: "About profiles"
-description: "Understand browser profiles — isolated browser environments with unique digital fingerprints"
+description: "Understand browser profiles — isolated browser identities with fingerprints, proxies, wallets, and browser settings"
 ---
 
 ## What is a browser profile
 
-A browser profile is an isolated browser instance with its own unique digital fingerprint, cookies, local storage, and browsing history. Each profile behaves as a completely separate browser — websites cannot link profiles to each other or to your real identity.
+A browser profile is a saved browser identity in Oxygen Atmos. Use profiles to separate accounts, sessions, proxies, wallets, fingerprints, cookies, local storage, extensions, and browser settings.
+
+Oxygen Atmos stores and manages the profile configuration. [Oxidium](/browser-profiles/oxidium) is the Chromium-compatible browser core that opens when you launch a profile.
 
 <Frame><img src="/images/atmos_ui/browser/atmos_browser_profiles.png" alt="Browser profiles list" /></Frame>
 
+## Profile table
+
+The Browser page shows the information you need for day-to-day work:
+
+| Column | Description |
+|---|---|
+| **Alias** | Profile name shown in the table and browser label |
+| **Fingerprint** | Browser version and fingerprint label |
+| **Tags** | Tags used for filtering and extension routing |
+| **Proxy** | Assigned proxy IP or missing proxy state |
+| **Last launch** | Last time the profile was opened |
+| **Actions** | Launch, focus, edit, and profile actions |
+
+Use search to find profiles by alias, linked wallet address, browser version, fingerprint label, proxy URL, or proxy IP. Click a tag or use the **Tags** filter to show a specific profile group.
+
+## Profile actions
+
+Common actions include:
+
+- launch a closed profile
+- focus an already running profile
+- close a running profile
+- edit profile settings
+- edit linked wallets
+- edit tags
+- edit proxy
+- edit secure notes
+- delete a profile
+
+Selected profiles can also be handled with bulk actions such as launch, close, tag editing, renaming, or deletion.
+
 ## Fingerprint components
 
-Every profile generates a unique combination of browser parameters:
+Every profile uses a coherent set of browser parameters:
 
 | Parameter | Description |
 |---|---|
-| **User-Agent** | Browser (Chrome version) and OS identification string |
+| **Browser version** | [Oxidium](/browser-profiles/oxidium) version shown as a Chrome major version for compatibility |
+| **User-Agent** | Browser and OS identification string |
+| **Client Hints** | Chromium client hint headers and JavaScript values |
 | **Screen resolution** | Display dimensions |
 | **Platform** | OS platform identifier (e.g. Windows 10.0) |
 | **Language** | Browser language and locale |
 | **Timezone** | Geographic timezone setting |
-| **Geolocation** | Based on IP address |
-| **DNS** | Based on IP address |
-| **WebRTC** | Leak protection settings (based on IP address) |
+| **Geolocation** | Permission mode and location source |
+| **WebRTC** | Network exposure policy |
 | **Canvas** | Canvas rendering noise |
 | **Audio** | AudioContext noise |
 | **Rectangles** | DOM rectangles noise |
-| **WebGL** | GPU renderer noise |
+| **WebGL** | GPU metadata and rendering behavior |
 
 <Info>
-  Fingerprints are generated automatically when you create a profile. Click **New fingerprint** to regenerate, or adjust individual parameters manually.
+  Fingerprints are generated before the profile is saved. The preview reflects the selected browser version and browser preferences.
 </Info>
 
 ## Profile states
@@ -45,13 +79,22 @@ Every profile generates a unique combination of browser parameters:
   <Step title="Click New Profile">
     Click the **New Profile** button in the top-right corner.
   </Step>
-  <Step title="Configure fingerprint">
-    Set the profile name, tags, platform (e.g. Windows), and Chrome version. Enable **Keep up to date** to auto-update the Chrome version. The preview panel on the right shows all generated fingerprint parameters.
+  <Step title="Set profile identity">
+    Enter an alias and select or create tags. Tags help filter profiles and can control which extensions load in the profile.
+  </Step>
+  <Step title="Link wallets">
+    Select wallets if the profile should use wallet integration. The built-in Rabby extension provides the browser-side wallet interface.
+  </Step>
+  <Step title="Choose browser version">
+    Select the browser version. Enable **Keep up to date** when you want Oxygen Atmos to migrate the profile to one of the latest supported versions.
+  </Step>
+  <Step title="Review fingerprint">
+    Review the generated fingerprint preview. It includes values such as user agent, platform, language, app language, timezone, geolocation, WebRTC, WebGL, and noise settings.
 
     <Frame><img src="/images/atmos_ui/browser/atmos_browser_new_profile.png" alt="Create new profile with fingerprint preview" /></Frame>
   </Step>
   <Step title="Assign a proxy (optional)">
-    Enter proxy details in the proxy fields. Supported types: **HTTP** and **SOCKS5**.
+    Enter proxy details if the profile needs a profile-specific network location. Supported types: **HTTP** and **SOCKS5**.
 
     Proxy format:
 
@@ -60,6 +103,12 @@ Every profile generates a unique combination of browser parameters:
     protocol://user:pass@host:port
     ```
   </Step>
+  <Step title="Add cookies or social tokens">
+    Add cookies, X.com tokens, or Discord tokens if they should be applied on the next browser launch.
+  </Step>
+  <Step title="Review browser preferences">
+    Use global browser defaults or override preferences for this profile when it needs a specific search engine, language, timezone, geolocation, WebRTC policy, GPU spoofing mode, or noise settings.
+  </Step>
   <Step title="Save">
     Click **Save profile**. Click the profile row to launch the browser.
   </Step>
@@ -67,10 +116,17 @@ Every profile generates a unique combination of browser parameters:
 
 ## Editing a profile
 
-You can fully edit a profile after creation with two constraints:
+You can edit profile settings after creation. Some changes apply to saved profile data immediately; runtime changes usually require closing and launching the profile again.
 
-- **Chrome version cannot be downgraded** — if a profile was created with Chrome 144, only 145+ is available
-- **Primary wallet is permanent** — a wallet assigned at creation becomes the primary wallet and cannot be unlinked. Secondary wallets can be added or removed later.
+In edit mode, a browser version cannot be downgraded. For example, if a profile was created with Chrome 144, only version 144 or newer can be selected.
+
+## Wallets in profiles
+
+Each profile can have one main wallet per wallet type. The main wallet must exist in Oxygen Atmos, have a private key, and not already be used as the main wallet in another profile.
+
+Profiles can also have additional wallets. An additional wallet requires a main wallet of the same wallet type. If the main wallet is removed, secondary wallets of that type are removed from the profile.
+
+When the profile launches, linked wallets become available for wallet workflows in the browser profile. Private keys stay inside Oxygen Atmos and are not exposed to the browser runtime.
 
 ## Proxy settings
 
@@ -78,9 +134,11 @@ Each profile has its own proxy. Supported types: **HTTP** and **SOCKS5**.
 
 To change a profile's proxy, open the profile editor and update the proxy fields.
 
-<Warning>
-  Running profiles without a proxy exposes your real IP address. Always assign a proxy for production use.
-</Warning>
+When a proxy is configured, Oxygen Atmos checks whether it works and stores location data such as country and IP when available.
+
+## Membership limit
+
+The number of usable profiles is tied to the limit in the current membership. Profiles above the membership limit are treated as excessive and cannot be used normally until the limit issue is resolved.
 
 ## Next steps
 
@@ -88,7 +146,7 @@ To change a profile's proxy, open the profile editor and update the proxy fields
   <Card title="Mass creation" icon="clone" href="/browser-profiles/mass-creation">
     Create multiple profiles at once with bulk settings.
   </Card>
-  <Card title="Notes" icon="note-sticky" href="/browser-profiles/notes">
-    Add notes to profiles for quick reference.
+  <Card title="Secure notes" icon="note-sticky" href="/browser-profiles/secure-notes">
+    Add encrypted notes to profiles for quick reference.
   </Card>
 </CardGroup>

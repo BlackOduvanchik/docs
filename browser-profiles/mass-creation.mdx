@@ -5,7 +5,9 @@ description: "Create multiple browser profiles at once with bulk configuration o
 
 ## Overview
 
-Mass creation lets you generate dozens or hundreds of browser profiles in a single operation. Each profile gets a unique fingerprint, and you can assign wallets, proxies, and tags in bulk. You can also import profiles from a file.
+Mass creation lets you generate multiple browser profiles in a single operation. Each profile gets its own fingerprint and can receive wallets, proxies, social tokens, tags, and browser preference overrides.
+
+Use bulk creation when you already have wallets in Oxygen Atmos and want to create one profile per wallet. Use file import when you need row-level control from a spreadsheet.
 
 ## Bulk create
 
@@ -13,29 +15,40 @@ Mass creation lets you generate dozens or hundreds of browser profiles in a sing
   <Step title="Open bulk creation">
     Click **New Profile** and select the bulk creation option.
   </Step>
-  <Step title="Set the quantity">
-    Enter the number of profiles to create.
-  </Step>
   <Step title="Configure options">
-    Toggle the options you need:
+    Select the input groups you need:
 
-    - **Wallets** — assign wallets to profiles
+    - **Wallets** — create profiles from selected wallets
     - **Proxies** — assign proxies (one per line, applied sequentially to profiles)
+    - **Twitter Tokens** — assign X.com tokens by row order
+    - **Discord Tokens** — assign Discord tokens by row order
 
     <Frame><img src="/images/atmos_ui/browser/atmos_browser_bulk_create_1.png" alt="Bulk create — step 1 configuration" /></Frame>
   </Step>
+  <Step title="Match rows">
+    Each selected wallet becomes one profile. Proxy lines and token lines are matched to selected wallets by row order.
+  </Step>
   <Step title="Review and import">
-    Review the generated profiles in the table (name, status, tags, proxy). Select a language setting. Click **Import** to create all profiles.
+    Review the generated profiles in the table. Oxygen Atmos checks wallets, proxy input, social tokens, and fingerprint availability before import.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_bulk_create_2.png" alt="Bulk create — profile validation preview" /></Frame>
+  </Step>
+  <Step title="Choose language">
+    Select the language setting for the generated profiles, then click **Import**.
   </Step>
 </Steps>
 
+Profiles with blocking errors must be fixed or skipped before import can continue. If no matching GPU renderer fingerprint is available, retry without GPU renderer matching when the UI offers that option.
+
 ## Import from file
 
-You can also import profiles from a **CSV** or **XLS** file.
+You can also import profiles from a **CSV**, **XLS**, **XLSX**, or **Numbers** file.
 
 <Steps>
   <Step title="Download the template">
-    In the file import dialog, download the template in your preferred format (CSV or XLS).
+    In the file import dialog, download the template in your preferred format or choose that you already have a file.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_1.png" alt="File import — download template step" /></Frame>
 
     <Tabs>
       <Tab title="Step 1">
@@ -49,19 +62,53 @@ You can also import profiles from a **CSV** or **XLS** file.
       </Tab>
     </Tabs>
 
-    <Info>
-      If you don't have Excel, import the template into Google Sheets to fill it in. This is safe for browser profiles since no sensitive data (private keys) is involved.
-    </Info>
+    <Warning>
+      If the file contains private keys, cookies, or social tokens, keep it local and do not upload it to a cloud spreadsheet editor.
+    </Warning>
   </Step>
   <Step title="Fill in the template">
-    The template includes columns for profile name, tags, proxy and more. Fill in the rows for each profile you want to create.
+    The template includes columns for profile name, tags, proxy, wallet addresses, X.com token, and Discord token.
   </Step>
-  <Step title="Upload and review">
-    Upload your file (drag and drop or click **Select**). Review the parsed profiles in the table, then click **Import** to create them.
+  <Step title="Upload the file">
+    Upload your file by dragging it into the upload area or clicking **Select**.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_2.png" alt="File import — upload file step" /></Frame>
+  </Step>
+  <Step title="Review import results">
+    Review the parsed profiles in the table, then click **Import** to create or update them.
 
     <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_3.png" alt="File import — review and confirm" /></Frame>
   </Step>
 </Steps>
+
+## File template
+
+The CSV template uses these columns:
+
+```csv
+name,tags,proxy,wallet_addresses,twitter_token,discord_token
+```
+
+Example rows:
+
+```csv
+Example Profile,{{red}} tag1,hostname:port:username:password,,,
+Example with protocol,tag2,http://username:password@hostname:port,,,
+```
+
+Tags are comma-separated. You can specify a color when creating a tag:
+
+```text
+{{red}} warmup
+```
+
+Existing tags are matched case-insensitively. If a tag does not exist, Oxygen Atmos creates it.
+
+Wallet addresses or private keys can be comma-separated. The first wallet is used as the main wallet. Additional wallets are added after the main wallet.
+
+If the main wallet is already linked to an existing profile, import updates that profile instead of creating a duplicate.
+
+The `twitter_token` column imports an X.com `auth_token` cookie. The `discord_token` column imports a Discord local storage token. Both are stored securely and applied during the next browser profile launch.
 
 ## Proxy format
 
@@ -74,7 +121,10 @@ protocol://user:pass@host:port
 
 Supported types: **HTTP** and **SOCKS5**. One proxy per line. Proxies are applied sequentially to profiles in the order they appear.
 
+If a proxy has no protocol, Oxygen Atmos auto-detects whether it works as HTTP or SOCKS5 during import. Proxy checks detect whether each proxy works, which protocol it uses, and what location data is available.
+
 ## Tips
 
 - Assign [tags](/additional-features/settings#tags) during creation to group profiles by campaign or purpose
 - Use file import for large batches where you need per-profile configuration
+- Keep proxy country, language, timezone, and geolocation settings aligned for each profile group

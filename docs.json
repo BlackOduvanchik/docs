@@ -54,8 +54,11 @@
                 "icon": "user-secret",
                 "pages": [
                   "browser-profiles/about-profiles",
+                  "browser-profiles/oxidium",
                   "browser-profiles/mass-creation",
-                  "browser-profiles/notes"
+                  "browser-profiles/secure-notes",
+                  "browser-profiles/faq",
+                  "browser-profiles/troubleshooting"
                 ]
               },
               {

@@ -1,0 +1,66 @@
+---
+title: "FAQ"
+description: "Answers to common questions about Oxygen Atmos browser profiles"
+---
+
+## Is [Oxidium](/browser-profiles/oxidium) the same as Google Chrome?
+
+No. [Oxidium](/browser-profiles/oxidium) is the Chromium-compatible browser core used by Oxygen Atmos browser profiles. Oxygen Atmos manages profiles, wallets, proxies, extensions, cookies, and settings around it.
+
+In the UI, browser versions are shown as Chrome major versions for compatibility with websites and extension tooling.
+
+## Why are some Chrome services missing?
+
+Many Google and Chrome services are reduced or disabled to avoid unnecessary communication with external cloud services and reduce background work inside browser profiles.
+
+This can affect sync, suggestions, reporting, Safe Browsing checks, and other cloud-based features.
+
+## How should I keep a profile identity consistent?
+
+Keep the full profile setup aligned:
+
+- proxy country and IP location
+- language and app language
+- timezone
+- geolocation
+- browser version
+- fingerprint
+- WebRTC policy
+- extensions
+- cookies and logged-in sessions
+
+Changing only one setting can make the profile less coherent than updating the full browser identity together.
+
+## Can I use a profile without a proxy?
+
+Yes. A profile can launch without a proxy. Use a profile-specific proxy when the profile needs a separate network location.
+
+## Which proxy protocols are supported?
+
+The profile editor supports **HTTP** and **SOCKS5**. Auto mode is used for detection and import when a proxy value has no protocol.
+
+## How are extensions loaded?
+
+Enabled global extensions load in every profile. Enabled tag-based extensions load only in profiles that share at least one assigned tag with the extension.
+
+Disabled extensions do not load in any profile.
+
+## When do extension changes apply?
+
+Extension loading is calculated when a profile launches. Relaunch a profile after changing extension assignment, tags, or extension files.
+
+## Can one wallet be the main wallet in multiple profiles?
+
+No. A wallet cannot be the main wallet for more than one profile at the same time.
+
+Each profile can have one main wallet per wallet type. Additional wallets can be linked when a main wallet of the same wallet type exists.
+
+## What happens if I exceed my membership limit?
+
+Profiles above the membership profile limit are marked as excessive and cannot be used normally until the limit issue is resolved.
+
+## Where are cookies and social tokens applied?
+
+Imported cookies and social tokens are saved as pending profile data. Oxygen Atmos applies them during the next browser profile launch.
+
+If the profile is already running, close and relaunch it.

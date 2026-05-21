@@ -1,0 +1,63 @@
+---
+title: "Troubleshooting"
+description: "Resolve common browser profile creation, launch, import, and extension issues"
+---
+
+Use this page when a browser profile cannot be created, launched, imported, or used as expected.
+
+## No fingerprint is available
+
+Fingerprint generation can fail when no matching fingerprint exists for the selected browser version, platform, architecture, and GPU renderer.
+
+Try the retry option without GPU renderer matching if the UI offers it.
+
+## Proxy check fails
+
+Check that:
+
+- host and port are correct
+- username and password are correct
+- the proxy server is online
+- your current network can reach the proxy
+- the proxy supports HTTP or SOCKS5
+
+If a proxy value has no protocol, Oxygen Atmos attempts to detect whether it works as HTTP or SOCKS5 during import.
+
+## Wallet cannot be linked
+
+The main wallet must:
+
+- exist in Oxygen Atmos
+- have a private key
+- not already be used as the main wallet in another profile
+
+Read-only wallets cannot be used as main browser wallets.
+
+## Cookies do not appear
+
+Imported cookies are applied during the next profile launch. If the profile was already running, close and relaunch it.
+
+Also verify that cookie domain, path, expiry, and secure attributes match the website.
+
+## X.com or Discord token does not apply
+
+X.com tokens are imported as an `auth_token` cookie for `.x.com`.
+
+Discord tokens are imported into local storage for:
+
+```text
+https://discord.com/
+```
+
+If the token was added while the profile was already running, close and relaunch the profile.
+
+## Extension does not load
+
+Check that:
+
+- the extension is enabled
+- it is global or shares a tag with the profile
+- the profile was relaunched after extension changes
+- the extension package is valid
+
+Extension loading is calculated when the [Oxidium](/browser-profiles/oxidium) profile launches.
