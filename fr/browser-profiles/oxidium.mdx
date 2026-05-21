@@ -1,0 +1,70 @@
+---
+title: "Oxidium"
+description: "Le core navigateur compatible Chromium utilisé par les profils Oxygen Atmos"
+---
+
+## Qu'est-ce qu'Oxidium?
+
+Oxidium est le core navigateur compatible Chromium utilisé par les profils Oxygen Atmos. Oxygen Atmos gère les données de profil, wallets, proxies, extensions, cookies et paramètres. Oxidium lance la fenêtre navigateur avec la configuration du profil appliquée.
+
+Dans l'interface Oxygen Atmos, les versions navigateur sont affichées comme des Chrome major versions pour garder la compatibilité avec les sites et les outils d'extensions.
+
+## Pourquoi c'est important
+
+Oxidium est conçu pour des workflows de profils isolés. Chaque profil lancé utilise son propre répertoire de données navigateur et reçoit son fingerprint, proxy, wallet integration, cookies, extensions et browser preferences.
+
+Cela permet à Oxygen Atmos de garder le runtime navigateur aligné avec les paramètres gérés dans l'application desktop.
+
+## Base antidetect
+
+Oxidium travaille avec le système de profils Oxygen Atmos pour contrôler les signaux d'identité navigateur:
+
+| Signal | Ce qu'Oxygen Atmos contrôle |
+|---|---|
+| **Browser version** | Version runtime compatible Chromium utilisée par le profil |
+| **User-Agent et Client Hints** | Valeurs d'identité navigateur, OS et platform |
+| **Language et app language** | Locale navigateur et comportement de langue d'interface |
+| **Timezone et geolocation** | Paramètres liés à la localisation |
+| **WebRTC** | Politique d'exposition réseau |
+| **GPU et WebGL** | GPU metadata et comportement de rendu |
+| **Noise settings** | Comportement Canvas, Audio et DOM Rectangles |
+| **Cookies et sessions** | État des sites dans le profil |
+| **Extensions** | Chargement global ou basé sur tags |
+
+Ces paramètres forment une identité navigateur cohérente. La preview du profil montre le fingerprint généré avant l'enregistrement.
+
+## Services d'arrière-plan retirés
+
+Oxidium réduit ou désactive plusieurs services Chrome et Google inutiles aux workflows Oxygen Atmos. Cela limite les communications et traitements d'arrière-plan pendant l'exécution des profils.
+
+Exemples: sync, suggestions, reporting, Safe Browsing checks et autres services dépendants de l'infrastructure Google externe.
+
+## Lancement du profil
+
+Au lancement d'un profil, Oxygen Atmos applique la configuration enregistrée et ouvre une fenêtre Oxidium pour ce profil.
+
+Pendant le lancement, Oxygen Atmos peut:
+
+- appliquer le proxy du profil
+- importer pending cookies et social tokens
+- charger les extensions correspondantes
+- exposer les wallets liés via l'extension Rabby intégrée
+- appliquer browser preferences et fingerprint settings
+
+Si le profil est déjà lancé, l'action de lancement focus la fenêtre Oxidium existante.
+
+## Intégration wallets
+
+Les wallets liés sont disponibles dans le profil navigateur via l'extension Rabby intégrée. Les private keys restent dans Oxygen Atmos et ne sont pas exposées au runtime navigateur.
+
+Chaque profil peut avoir un main wallet par type de wallet, plus des additional wallets dépendant du main wallet du même type.
+
+## Chargement des extensions
+
+Les extensions sont calculées au lancement:
+
+- les extensions globales se chargent dans tous les profils
+- les extensions basées sur tags se chargent seulement si le profil partage au moins un tag avec l'extension
+- les extensions disabled ne se chargent pas
+
+Relancez un profil actif après avoir modifié extension assignment, tags ou extension files.

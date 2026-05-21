@@ -1,0 +1,62 @@
+---
+title: "Retrait CEX"
+description: "Retirez automatiquement des tokens depuis des comptes d'exchange vers vos wallets"
+---
+
+## Vue d'ensemble
+
+CEX withdrawal permet d'envoyer automatiquement des tokens depuis des comptes d'exchange connectés directement vers les wallets de votre manager. C'est pratique pour répartir des fonds sur des centaines de wallets sans opération manuelle.
+
+## Paramètres
+
+| Paramètre | Description |
+|---|---|
+| **Chain** | Réseau blockchain du retrait, par exemple BNB Smart Chain |
+| **Token** | Token à retirer, par exemple USDT |
+| **Exchange** | Compte d'exchange source |
+| **Wallets** | Wallets de destination : cliquez pour les choisir dans votre liste |
+| **Withdrawal amount** | Plage de montant min/max dans le token sélectionné |
+| **Withdraw only if wallet balance is less than** | Option : envoyer seulement aux wallets dont le solde est inférieur au seuil défini |
+
+<Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_cex_withdrawal_exchange_select.png" alt="Configuration d'un retrait CEX" /></Frame>
+
+<Note>
+  Pour chaque exchange sélectionné, vous pouvez voir le solde actuel du token, les frais de retrait et le montant minimum de retrait.
+</Note>
+
+## Configuration de la tâche
+
+Avant de lancer l'opération, configurez les paramètres d'exécution :
+
+| Paramètre | Description |
+|---|---|
+| **Workers** | Nombre de threads de retrait en parallèle |
+| **Max retries** | Nombre de tentatives pour relancer un retrait échoué |
+| **Delay between withdrawals** | Délai min/max en secondes entre les opérations |
+
+## Exécuter un retrait
+
+<Steps>
+  <Step title="Vérifier que les exchanges sont connectés">
+    Ajoutez les clés API d'exchange dans [CEX accounts](/fr/exchange-accounts/about-exchange-accounts).
+  </Step>
+  <Step title="Configurer les paramètres">
+    Définissez la chain, le token, l'exchange, les wallets et la plage de montants.
+  </Step>
+  <Step title="Prévisualiser">
+    Cliquez sur **Preview**. Vérifiez la liste des wallets avec leurs montants de retrait, leurs soldes actuels et les frais. Vous pouvez modifier des montants individuels si nécessaire.
+
+    <Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_cex_withdrawal_preview.png" alt="Prévisualisation d'un retrait CEX" /></Frame>
+  </Step>
+  <Step title="Lancer ou reporter">
+    - Cliquez sur **Launch** pour exécuter immédiatement
+    - Cliquez sur **Postpone** pour choisir une date et une heure. La tâche ira dans l'onglet **Scheduled** du [Task Manager](/fr/task-manager/about-task-manager)
+  </Step>
+</Steps>
+
+## Templates
+
+Enregistrez votre configuration de retrait pour la réutiliser rapidement :
+
+- **Enregistrement pendant la prévisualisation** : cliquez sur l'**icône de sauvegarde** près du champ des templates en haut de l'écran de prévisualisation
+- **Copie depuis une tâche terminée** : dans le Task Manager, cliquez sur l'**icône de copie** sur une tâche terminée. Trois options sont disponibles : utiliser comme template, copier tous les wallets ou copier les wallets en erreur

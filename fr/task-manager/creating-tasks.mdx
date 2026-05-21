@@ -1,0 +1,55 @@
+---
+title: "Créer des tâches"
+description: "Planifiez des tâches et configurez les paramètres de retrait avant exécution"
+---
+
+## Créer une tâche planifiée
+
+Les tâches sont créées depuis le [module Transfers](/fr/transfers/about-transfers), soit avec CEX withdrawal, soit avec Wallet withdrawal.
+
+<Steps>
+  <Step title="Configurer un transfer">
+    Allez dans **Transfers** depuis la barre latérale gauche et configurez vos paramètres de retrait.
+  </Step>
+  <Step title="Prévisualiser">
+    Cliquez sur **Preview** pour vérifier l'opération.
+  </Step>
+  <Step title="Reporter">
+    Cliquez sur **Postpone** au lieu de **Launch**.
+  </Step>
+  <Step title="Définir le planning">
+    Choisissez la **date et l'heure** d'exécution.
+
+    <Warning>
+      Votre appareil et Oxygen Atmos doivent rester actifs pour que la tâche s'exécute à l'heure planifiée.
+    </Warning>
+  </Step>
+  <Step title="Confirmer">
+    La tâche apparaît dans l'onglet **Scheduled** du Task Manager.
+  </Step>
+</Steps>
+
+## Modifier une tâche planifiée
+
+Dans l'onglet **Scheduled**, cliquez sur **Open** sur une tâche pour la consulter et la modifier. Les changements sont enregistrés automatiquement quand vous fermez l'éditeur.
+
+<Frame><img src="/images/atmos_ui/task_manager/atmos_task_manager_tasks_edit_menu.png" alt="Menu de modification d'une tâche avec éléments numérotés" /></Frame>
+
+## Référence du menu de modification
+
+| # | Élément | Description |
+|---|---|---|
+| 1 | **Scheduled** | Date et heure de début d'exécution de la tâche |
+| 2 | **Logs** | Log général de la tâche |
+| 3 | **Config** | Workers, délais, répétitions. Non modifiable sur les tâches en cours |
+| 4 | **Action row** | Informations sur l'action pour un wallet spécifique |
+| 5 | **Token withdrawal amount** | Montant à retirer vers le wallet. Non modifiable sur les tâches en cours |
+| 6 | **Status** | Statut actuel de l'action |
+| 7 | **Wallets** | Progression par wallets terminés |
+| 8 | **Withdrawal amount** | Montant total retiré sur tous les wallets |
+| 9 | **Fee** | Frais totaux sur tous les wallets |
+| 10 | **Processing time** | Temps total d'exécution |
+| 11 | **Use as template** | Menu de copie : utiliser comme template, copier tous les wallets ou copier les wallets en erreur |
+| 12 | **Postpone** | Modifier la date et l'heure planifiées |
+| 13 | **Cancel** | Annuler la tâche |
+| 14 | **Launch** | Démarrer l'exécution immédiatement |

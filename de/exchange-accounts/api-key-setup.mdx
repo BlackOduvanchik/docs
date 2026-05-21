@@ -1,0 +1,99 @@
+---
+title: "API key setup"
+description: "API keys auf Binance, OKX, MEXC und Bitget für Oxygen Atmos erstellen"
+---
+
+## Überblick
+
+Jede Exchange benötigt einen API key mit passenden Berechtigungen, damit Oxygen Atmos Balances lesen und Withdrawals ausführen kann.
+
+<Warning>
+  Wenn Sie IP restrictions setzen, verwenden Sie die IP des **proxy**, der dem Exchange account in Oxygen Atmos zugewiesen ist, oder Ihre eigene IP, wenn kein proxy genutzt wird.
+</Warning>
+
+## Binance
+
+<Steps>
+  <Step title="API Management öffnen">
+    Öffnen Sie in Binance **Settings** → **Account** → **API Management**.
+  </Step>
+  <Step title="API key erstellen">
+    Klicken Sie auf **Create API**, wählen Sie **System generated**, geben Sie einen Namen ein und schließen Sie die Verifizierung ab.
+  </Step>
+  <Step title="Berechtigungen konfigurieren">
+    Klicken Sie auf **Edit restrictions** und aktivieren Sie:
+
+    - **Enable Reading**
+    - **Enable Spot & Margin Trading**
+    - **Enable Withdrawals**
+
+    Fügen Sie Ihre proxy IP oder persönliche IP zur erlaubten Liste hinzu.
+  </Step>
+  <Step title="Verifizierung abschließen">
+    Bestätigen Sie die Änderungen. API key und secret finden Sie in den Key-Details.
+  </Step>
+</Steps>
+
+## OKX
+
+<Steps>
+  <Step title="API settings öffnen">
+    Bewegen Sie den Cursor über Ihr Account-Icon und wählen Sie **API**.
+  </Step>
+  <Step title="API key erstellen">
+    Klicken Sie auf **Create API Key** und füllen Sie die Felder aus.
+  </Step>
+  <Step title="Berechtigungen konfigurieren">
+    Aktivieren Sie unter **Access**:
+
+    - **Withdrawal**
+    - **Trade**
+  </Step>
+  <Step title="Passphrase setzen">
+    Erstellen Sie eine **passphrase**. Sie wird beim Hinzufügen des Accounts in Oxygen Atmos benötigt.
+  </Step>
+  <Step title="Verifizierung abschließen">
+    Bestätigen Sie die Erstellung. Die API credentials stehen im Bereich **Info** des erstellten Keys.
+  </Step>
+</Steps>
+
+## MEXC
+
+<Steps>
+  <Step title="API Management öffnen">
+    Bewegen Sie den Cursor über Ihr Account-Icon und wählen Sie **API Management**.
+  </Step>
+  <Step title="Berechtigungen konfigurieren">
+    Aktivieren Sie die benötigten Spot-, Transfer- und Futures-Berechtigungen für Lesen, Trade, Transfer und Withdraw.
+  </Step>
+  <Step title="Name und IP setzen">
+    Geben Sie einen **name** im Notes-Feld ein. Fügen Sie optional Ihre proxy oder persönliche IP hinzu.
+  </Step>
+  <Step title="Verifizierung abschließen">
+    Bestätigen Sie die Erstellung. Die API credentials erscheinen nach der Verifizierung im Popup.
+  </Step>
+</Steps>
+
+## Bitget
+
+<Steps>
+  <Step title="API Keys öffnen">
+    Bewegen Sie den Cursor über Ihr Account-Icon und wählen Sie **API Keys**.
+  </Step>
+  <Step title="API key erstellen">
+    Klicken Sie auf **Create API Key** und füllen Sie Note, Passphrase und IP address aus.
+  </Step>
+  <Step title="Berechtigungen konfigurieren">
+    Aktivieren Sie:
+
+    **Spot:**
+    - Trade
+
+    **Wallet:**
+    - Transfer
+    - Withdraw
+  </Step>
+  <Step title="Verifizierung abschließen">
+    Bestätigen Sie die Erstellung. Die API credentials sind in den Key-Details verfügbar.
+  </Step>
+</Steps>

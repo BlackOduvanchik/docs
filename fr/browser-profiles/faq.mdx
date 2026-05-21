@@ -1,0 +1,66 @@
+---
+title: "FAQ"
+description: "Réponses aux questions fréquentes sur les profils navigateur Oxygen Atmos"
+---
+
+## [Oxidium](/fr/browser-profiles/oxidium) est-il Google Chrome?
+
+Non. [Oxidium](/fr/browser-profiles/oxidium) est le core navigateur compatible Chromium utilisé par les profils Oxygen Atmos. Oxygen Atmos gère autour de lui les profils, wallets, proxies, extensions, cookies et paramètres.
+
+Dans l'interface, les versions navigateur sont affichées comme des Chrome major versions pour garder la compatibilité avec les sites et les outils d'extensions.
+
+## Pourquoi certains services Chrome manquent-ils?
+
+De nombreux services Google et Chrome sont réduits ou désactivés pour éviter les communications inutiles avec des services cloud externes et réduire le travail d'arrière-plan dans les profils.
+
+Cela peut affecter sync, suggestions, reporting, Safe Browsing checks et d'autres fonctions cloud.
+
+## Comment garder une identité de profil cohérente?
+
+Gardez tous les paramètres clés alignés:
+
+- proxy country et IP location
+- language et app language
+- timezone
+- geolocation
+- browser version
+- fingerprint
+- WebRTC policy
+- extensions
+- cookies et logged-in sessions
+
+Modifier un seul paramètre peut rendre le profil moins cohérent qu'une mise à jour de l'identité navigateur complète.
+
+## Peut-on lancer un profil sans proxy?
+
+Oui. Un profil peut démarrer sans proxy. Utilisez un proxy propre au profil lorsqu'il a besoin d'une localisation réseau séparée.
+
+## Quels proxy protocols sont pris en charge?
+
+L'éditeur de profil prend en charge **HTTP** et **SOCKS5**. Auto mode est utilisé pour la détection et l'import lorsqu'une valeur proxy n'a pas de protocol.
+
+## Comment les extensions sont-elles chargées?
+
+Les extensions globales activées se chargent dans tous les profils. Les extensions tag-based activées se chargent uniquement dans les profils qui partagent au moins un tag avec l'extension.
+
+Les disabled extensions ne se chargent dans aucun profil.
+
+## Quand les changements d'extensions s'appliquent-ils?
+
+Extension loading est calculé au lancement du profil. Relancez le profil après modification de extension assignment, tags ou extension files.
+
+## Un wallet peut-il être main wallet dans plusieurs profils?
+
+Non. Un wallet ne peut pas être main wallet dans plusieurs profils en même temps.
+
+Chaque profil peut avoir un main wallet par type de wallet. Additional wallets peuvent être liés lorsqu'un main wallet du même type existe.
+
+## Que se passe-t-il si je dépasse le membership limit?
+
+Les profils au-dessus du membership profile limit sont marqués excessive et ne peuvent pas être utilisés normalement tant que le problème n'est pas résolu.
+
+## Où cookies et social tokens sont-ils appliqués?
+
+Les cookies et social tokens importés sont enregistrés comme pending profile data. Oxygen Atmos les applique au prochain lancement du profil.
+
+Si le profil est déjà lancé, fermez-le et relancez-le.

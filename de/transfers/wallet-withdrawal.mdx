@@ -1,0 +1,62 @@
+---
+title: "Wallet withdrawal"
+description: "Tokens von Wallets an verknüpfte Adressen oder ein gemeinsames Ziel senden"
+---
+
+## Überblick
+
+Wallet withdrawal sendet Tokens aus Ihren Wallets in großer Stückzahl — entweder an die verknüpfte withdrawal address jedes Wallets oder an eine gemeinsame Adresse.
+
+## Parameter
+
+| Parameter | Beschreibung |
+|---|---|
+| **Chain** | Blockchain-Netzwerk, z. B. Ethereum |
+| **Tokens** | Ein oder mehrere Tokens |
+| **Wallets** | Quell-Wallets |
+| **Single withdraw address** | Optional — alle Tokens an eine Adresse statt an verknüpfte Adressen senden |
+
+### Token-Auswahl
+
+Nach Auswahl der chain zeigt das Token-Panel verfügbare Tokens und Beträge. Für jeden Token kann die **withdrawal method** einzeln gesetzt werden.
+
+<Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_evm_withdrawal_tokens_select.png" alt="Token selection with amounts and methods" /></Frame>
+
+## Task config
+
+Konfigurieren Sie die Ausführung vor dem Start:
+
+| Einstellung | Beschreibung |
+|---|---|
+| **Workers** | Anzahl paralleler withdrawal threads |
+| **Max retries** | Wiederholungen für fehlgeschlagene Operationen |
+| **Delay between withdrawals** | Min- und Max-Verzögerung in Sekunden |
+| **Wait for gas less than** | Nur ausführen, wenn gas price unter dem gwei-Schwellenwert liegt |
+| **Run in random order** | Wallets in zufälliger Reihenfolge verarbeiten |
+
+## Withdrawal ausführen
+
+<Steps>
+  <Step title="Wallets importieren">
+    Fügen Sie Wallets im [Wallet Manager](/de/wallet-manager/about-wallet-manager) hinzu.
+  </Step>
+  <Step title="Parameter setzen">
+    Wählen Sie chain, tokens, withdrawal methods, source wallets und optional single address.
+  </Step>
+  <Step title="Preview prüfen">
+    Klicken Sie auf **Preview**. Prüfen Sie pro Wallet: wallet address, withdraw address, current balance und withdrawal amount für jeden token.
+
+    <Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_evm_preview.png" alt="Wallet withdrawal preview" /></Frame>
+  </Step>
+  <Step title="Starten oder planen">
+    - Klicken Sie auf **Launch**, um sofort auszuführen
+    - Klicken Sie auf **Postpone**, um Datum und Uhrzeit zu wählen — die Aufgabe erscheint im **Scheduled** Tab des [Task manager](/de/task-manager/about-task-manager)
+  </Step>
+</Steps>
+
+## Templates
+
+Speichern Sie withdrawal-Konfigurationen für Wiederverwendung:
+
+- **Während Preview speichern** — klicken Sie oben in der Preview auf die Save-Icon neben **Templates**
+- **Aus abgeschlossener Task kopieren** — klicken Sie im Task manager auf die Copy-Icon einer abgeschlossenen Task. Optionen: use as template, copy all wallets oder copy wallets with errors

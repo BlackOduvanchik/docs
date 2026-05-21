@@ -1,0 +1,62 @@
+---
+title: "Wallet withdrawal"
+description: "Envoyez des tokens depuis vos wallets vers des adresses liées ou une destination unique"
+---
+
+## Vue d'ensemble
+
+Wallet withdrawal permet d'envoyer des tokens depuis vos wallets en lot, soit vers l'adresse de retrait liée à chaque wallet, soit vers une même adresse commune.
+
+## Paramètres
+
+| Paramètre | Description |
+|---|---|
+| **Chain** | Réseau blockchain, par exemple Ethereum |
+| **Tokens** | Un ou plusieurs tokens à envoyer, avec sélection multiple |
+| **Wallets** | Wallets sources |
+| **Single withdraw address** | Optionnel : envoyer tous les tokens vers une seule adresse au lieu des adresses liées |
+
+### Sélection des tokens
+
+Après avoir sélectionné une chain, le panneau des tokens affiche les tokens disponibles avec leurs montants. Pour chaque token, vous pouvez configurer la **withdrawal method** individuellement.
+
+<Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_evm_withdrawal_tokens_select.png" alt="Sélection des tokens avec montants et méthodes" /></Frame>
+
+## Configuration de la tâche
+
+Configurez les paramètres d'exécution avant de lancer :
+
+| Paramètre | Description |
+|---|---|
+| **Workers** | Nombre de threads de retrait en parallèle |
+| **Max retries** | Nombre de tentatives pour relancer un retrait échoué |
+| **Delay between withdrawals** | Délai min/max en secondes |
+| **Wait for gas less than** | Exécuter seulement quand le gas price est inférieur à ce seuil en gwei |
+| **Run in random order** | Traiter les wallets dans un ordre aléatoire |
+
+## Exécuter un retrait
+
+<Steps>
+  <Step title="Vérifier que les wallets sont importés">
+    Ajoutez les wallets dans le [Wallet Manager](/fr/wallet-manager/about-wallet-manager).
+  </Step>
+  <Step title="Configurer les paramètres">
+    Définissez la chain, les tokens, les withdrawal methods, les wallets sources et l'adresse unique optionnelle.
+  </Step>
+  <Step title="Prévisualiser">
+    Cliquez sur **Preview**. Vérifiez les détails par wallet : wallet address, withdraw address, current balance et withdrawal amount pour chaque token.
+
+    <Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_evm_preview.png" alt="Prévisualisation de Wallet withdrawal" /></Frame>
+  </Step>
+  <Step title="Lancer ou reporter">
+    - Cliquez sur **Launch** pour exécuter immédiatement
+    - Cliquez sur **Postpone** pour choisir une date et une heure. La tâche ira dans l'onglet **Scheduled** du [Task Manager](/fr/task-manager/about-task-manager)
+  </Step>
+</Steps>
+
+## Templates
+
+Enregistrez votre configuration de retrait pour la réutiliser rapidement :
+
+- **Enregistrement pendant la prévisualisation** : cliquez sur l'**icône de sauvegarde** près du champ des templates en haut de l'écran de prévisualisation
+- **Copie depuis une tâche terminée** : dans le Task Manager, cliquez sur l'**icône de copie** sur une tâche terminée. Trois options sont disponibles : use as template, copy all wallets ou copy wallets with errors

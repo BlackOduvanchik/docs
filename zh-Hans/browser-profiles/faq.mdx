@@ -1,0 +1,66 @@
+---
+title: "FAQ"
+description: "关于 Oxygen Atmos 浏览器配置文件的常见问题"
+---
+
+## [Oxidium](/zh-Hans/browser-profiles/oxidium) 和 Google Chrome 一样吗？
+
+不一样。[Oxidium](/zh-Hans/browser-profiles/oxidium) 是 Oxygen Atmos 浏览器配置文件使用的 Chromium 兼容浏览器核心。Oxygen Atmos 在它外层管理配置文件、钱包、代理、扩展、cookies 和设置。
+
+在界面中，浏览器版本会显示为 Chrome 主版本，以便兼容网站和扩展工具链。
+
+## 为什么有些 Chrome 服务不存在？
+
+许多 Google 和 Chrome 服务会被减少或禁用，以避免不必要的外部云服务通信，并减少浏览器配置文件中的后台工作。
+
+这可能影响 sync、suggestions、reporting、Safe Browsing checks 和其他基于云端的功能。
+
+## 怎样保持配置文件身份一致？
+
+保持完整配置一致：
+
+- 代理国家和 IP 位置
+- language 和 app language
+- timezone
+- geolocation
+- browser version
+- fingerprint
+- WebRTC policy
+- extensions
+- cookies 和已登录会话
+
+只改一个设置，可能会让配置文件身份不如整体更新时连贯。
+
+## 可以不使用代理启动配置文件吗？
+
+可以。配置文件可以在没有代理的情况下启动。如果配置文件需要单独的网络位置，请使用配置文件专属代理。
+
+## 支持哪些代理协议？
+
+配置文件编辑器支持 **HTTP** 和 **SOCKS5**。当代理值没有协议时，检测和导入会使用 Auto mode。
+
+## 扩展是如何加载的？
+
+启用的 global extensions 会加载到每个配置文件。启用的 tag-based extensions 只会加载到与扩展至少共享一个标签的配置文件。
+
+Disabled extensions 不会加载到任何配置文件。
+
+## 扩展修改什么时候生效？
+
+扩展加载会在配置文件启动时计算。修改扩展分配、标签或扩展文件后，请重新启动配置文件。
+
+## 一个钱包可以作为多个配置文件的 main wallet 吗？
+
+不可以。同一个钱包不能同时作为多个配置文件的 main wallet。
+
+每个配置文件在每种钱包类型下可以有一个 main wallet。如果同类型 main wallet 存在，也可以绑定 additional wallets。
+
+## 如果超过 membership 限制会怎样？
+
+超过 membership 配置文件数量限制的配置文件会被标记为 excessive，在限制问题解决之前不能正常使用。
+
+## Cookies 和 social tokens 会在哪里应用？
+
+导入的 cookies 和 social tokens 会保存为待处理的配置文件数据。Oxygen Atmos 会在下次启动浏览器配置文件时应用它们。
+
+如果配置文件已经在运行，请关闭并重新启动它。

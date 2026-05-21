@@ -1,0 +1,62 @@
+---
+title: "À propos du Task Manager"
+description: "Planifiez, surveillez et gérez les tâches de retraits et de transfers"
+---
+
+## Vue d'ensemble
+
+Le Task Manager est le tableau de bord central pour suivre toutes les tâches planifiées et en cours. Les tâches sont créées depuis le [module Transfers](/fr/transfers/about-transfers) et suivies ici dans trois onglets : **Scheduled**, **Processing** et **Archive**.
+
+<Frame><img src="/images/atmos_ui/task_manager/atmos_task_manager_tasks_dashboard.png" alt="Tableau de bord du Task Manager" /></Frame>
+
+## Onglets des tâches
+
+### Scheduled
+
+Tâches en attente d'exécution à une date et une heure définies.
+
+| Colonne | Description |
+|---|---|
+| **Wallets** | Nombre total de wallets dans la tâche |
+| **Created** | Date de création de la tâche |
+| **Scheduled** | Date et heure de lancement |
+| **Cancel** | Annuler la tâche et la déplacer dans l'archive |
+| **Open** | Voir et modifier la tâche |
+
+### Processing
+
+Tâches en cours d'exécution.
+
+| Colonne | Description |
+|---|---|
+| **Wallets** | Nombre total de wallets dans la tâche |
+| **Created** | Date de création de la tâche |
+| **Running since** | Date de début de l'exécution |
+| **Stop** | Arrêter l'exécution et déplacer la tâche dans l'archive |
+| **Open** | Voir la progression et les logs en direct |
+
+### Archive
+
+Tâches terminées, annulées ou arrêtées.
+
+| Colonne | Description |
+|---|---|
+| **Wallets** | Nombre total de wallets dans la tâche |
+| **Created** | Date de création de la tâche |
+| **Status** | Cancelled / Partially completed / Completed |
+| **Open** | Voir les logs finaux |
+
+<Warning>
+  Les tâches planifiées s'exécutent localement : votre appareil et Oxygen Atmos doivent être actifs à l'heure prévue.
+</Warning>
+
+## Liens rapides
+
+<CardGroup cols={2}>
+  <Card title="Créer des tâches" icon="plus" href="/fr/task-manager/creating-tasks">
+    Planifiez des tâches et configurez les paramètres.
+  </Card>
+  <Card title="Suivi de progression" icon="chart-line" href="/fr/task-manager/progress-tracking">
+    Suivez l'exécution, consultez les logs et récupérez les erreurs.
+  </Card>
+</CardGroup>

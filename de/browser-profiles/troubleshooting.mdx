@@ -1,0 +1,63 @@
+---
+title: "Troubleshooting"
+description: "Häufige Probleme bei Erstellung, Start, Import und Extensions von Browserprofilen lösen"
+---
+
+Nutzen Sie diese Seite, wenn ein Browserprofil nicht erstellt, gestartet, importiert oder wie erwartet genutzt werden kann.
+
+## Kein fingerprint verfügbar
+
+Die Fingerprint-Generierung kann fehlschlagen, wenn kein passender Fingerprint für die gewählte Browserversion, platform, architecture und GPU renderer existiert.
+
+Wenn die UI einen Retry ohne GPU renderer matching anbietet, versuchen Sie diese Option.
+
+## Proxy check schlägt fehl
+
+Prüfen Sie:
+
+- host und port sind korrekt
+- username und password sind korrekt
+- der proxy server ist erreichbar
+- Ihr aktuelles Netzwerk kann den proxy erreichen
+- der proxy unterstützt HTTP oder SOCKS5
+
+Wenn ein proxy value kein protocol enthält, versucht Oxygen Atmos beim Import zu erkennen, ob er als HTTP oder SOCKS5 funktioniert.
+
+## Wallet kann nicht verknüpft werden
+
+Das main wallet muss:
+
+- in Oxygen Atmos existieren
+- einen private key haben
+- nicht bereits main wallet in einem anderen Profil sein
+
+Read-only wallets können nicht als main browser wallets verwendet werden.
+
+## Cookies erscheinen nicht
+
+Importierte cookies werden beim nächsten Profilstart angewendet. Wenn das Profil bereits lief, schließen und starten Sie es erneut.
+
+Prüfen Sie außerdem domain, path, expiry und secure attributes des cookies.
+
+## X.com oder Discord token wird nicht angewendet
+
+X.com tokens werden als `auth_token` cookie für `.x.com` importiert.
+
+Discord tokens werden in local storage importiert für:
+
+```text
+https://discord.com/
+```
+
+Wenn der token hinzugefügt wurde, während das Profil bereits lief, schließen und starten Sie das Profil erneut.
+
+## Extension lädt nicht
+
+Prüfen Sie:
+
+- die extension ist aktiviert
+- sie ist global oder teilt einen Tag mit dem Profil
+- das Profil wurde nach Extension-Änderungen neu gestartet
+- das extension package ist gültig
+
+Extension loading wird berechnet, wenn das [Oxidium](/de/browser-profiles/oxidium) Profil startet.

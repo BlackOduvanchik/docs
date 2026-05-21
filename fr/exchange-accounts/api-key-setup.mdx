@@ -1,0 +1,130 @@
+---
+title: "Configuration des clés API"
+description: "Créez des clés API sur Binance, OKX, MEXC et Bitget pour les utiliser avec Oxygen Atmos"
+---
+
+## Vue d'ensemble
+
+Chaque exchange nécessite une clé API avec des permissions spécifiques pour qu'Oxygen Atmos puisse lire les soldes et exécuter les retraits. Suivez le guide correspondant à votre exchange ci-dessous.
+
+<Warning>
+  Lorsque vous configurez les restrictions IP, utilisez l'adresse IP du **proxy** assigné au compte d'exchange dans Oxygen Atmos, ou votre propre IP si vous n'utilisez pas de proxy.
+</Warning>
+
+## Binance
+
+<Steps>
+  <Step title="Ouvrir API Management">
+    Allez dans votre compte Binance : **Settings** → **Account** → **API Management**.
+
+  </Step>
+  <Step title="Créer une clé API">
+    Cliquez sur **Create API** → sélectionnez **System generated** → entrez un nom → terminez la vérification.
+  </Step>
+  <Step title="Configurer les permissions">
+    Cliquez sur **Edit restrictions** sur la clé créée et activez :
+
+    - **Enable Reading**
+    - **Enable Spot & Margin Trading**
+    - **Enable Withdrawals**
+
+    Ajoutez votre IP de proxy ou votre IP personnelle à la liste autorisée.
+  </Step>
+  <Step title="Terminer la vérification">
+    Confirmez les changements. Votre API key et votre secret sont disponibles dans les détails de la clé.
+  </Step>
+</Steps>
+
+## OKX
+
+<Steps>
+  <Step title="Ouvrir les paramètres API">
+    Passez la souris sur l'icône de votre compte → sélectionnez **API**.
+
+  </Step>
+  <Step title="Créer une clé API">
+    Cliquez sur **Create API Key** et remplissez :
+
+    | Champ | Valeur |
+    |---|---|
+    | **Name** | N'importe quel libellé pour la clé |
+    | **Account** | Sélectionnez le compte qui détient vos fonds, généralement **Main Account** |
+    | **Purpose** | Trading API |
+    | **IP address** | Votre proxy ou votre IP personnelle, optionnel |
+  </Step>
+  <Step title="Configurer les permissions">
+    Sous **Access**, activez :
+
+    - **Withdrawal**
+    - **Trade**
+  </Step>
+  <Step title="Définir la passphrase">
+    Créez une **passphrase**. Vous en aurez besoin lors de l'ajout du compte dans Oxygen Atmos.
+  </Step>
+  <Step title="Terminer la vérification">
+    Confirmez la création. Les identifiants API sont dans la section **Info** de la clé créée.
+  </Step>
+</Steps>
+
+## MEXC
+
+<Steps>
+  <Step title="Ouvrir API Management">
+    Passez la souris sur l'icône de votre compte → sélectionnez **API Management**.
+
+  </Step>
+  <Step title="Configurer les permissions">
+    Activez les permissions suivantes :
+
+    **Spot :**
+    - View Account Details
+    - View Order Details
+    - Trade
+    - View Deposit/Withdrawal Details
+    - Withdraw
+
+    **Transfer :**
+    - Read transfer information
+    - Transfer
+
+    **Futures :**
+    - View Account Details
+  </Step>
+  <Step title="Définir le nom et l'IP">
+    Entrez un **nom** dans le champ Notes. Ajoutez votre proxy ou votre IP personnelle, optionnel.
+  </Step>
+  <Step title="Terminer la vérification">
+    Confirmez la création. Les identifiants API apparaissent dans la popup après vérification.
+  </Step>
+</Steps>
+
+## Bitget
+
+<Steps>
+  <Step title="Ouvrir API Keys">
+    Passez la souris sur l'icône de votre compte → sélectionnez **API Keys**.
+
+  </Step>
+  <Step title="Créer une clé API">
+    Cliquez sur **Create API Key** et remplissez :
+
+    | Champ | Valeur |
+    |---|---|
+    | **Note** | Libellé de la clé |
+    | **Passphrase** | Créez une passphrase, requise par Oxygen Atmos |
+    | **IP address** | Votre proxy ou votre IP personnelle, **obligatoire** pour les permissions de retrait |
+  </Step>
+  <Step title="Configurer les permissions">
+    Activez :
+
+    **Spot :**
+    - Trade
+
+    **Wallet :**
+    - Transfer
+    - Withdraw
+  </Step>
+  <Step title="Terminer la vérification">
+    Confirmez la création. Les identifiants API sont disponibles dans les détails de la clé.
+  </Step>
+</Steps>

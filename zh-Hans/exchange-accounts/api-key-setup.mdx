@@ -1,0 +1,126 @@
+---
+title: "API key 设置"
+description: "在 Binance、OKX、MEXC 和 Bitget 创建可用于 Oxygen Atmos 的 API keys"
+---
+
+## 概览
+
+每个交易所都要求 API key 拥有特定权限，Oxygen Atmos 才能读取余额并执行提现。请按照下方对应交易所的指南设置。
+
+<Warning>
+  设置 IP 限制时，请使用分配给 Oxygen Atmos 交易所账户的**代理** IP；如果没有使用代理，则使用你自己的 IP。
+</Warning>
+
+## Binance
+
+<Steps>
+  <Step title="打开 API Management">
+    进入 Binance 账户的 **Settings** → **Account** → **API Management**。
+  </Step>
+  <Step title="创建 API key">
+    点击 **Create API** → 选择 **System generated** → 输入名称 → 完成验证。
+  </Step>
+  <Step title="配置权限">
+    在创建好的 key 上点击 **Edit restrictions**，并启用：
+
+    - **Enable Reading**
+    - **Enable Spot & Margin Trading**
+    - **Enable Withdrawals**
+
+    将你的代理 IP 或个人 IP 添加到允许列表。
+  </Step>
+  <Step title="完成验证">
+    确认修改。API key 和 secret 可在 key 详情中查看。
+  </Step>
+</Steps>
+
+## OKX
+
+<Steps>
+  <Step title="打开 API 设置">
+    将鼠标悬停在账户图标上，选择 **API**。
+  </Step>
+  <Step title="创建 API key">
+    点击 **Create API Key** 并填写：
+
+    | 字段 | 值 |
+    |---|---|
+    | **Name** | key 的任意标签 |
+    | **Account** | 选择持有资金的账户，通常是 **Main Account** |
+    | **Purpose** | Trading API |
+    | **IP address** | 你的代理或个人 IP，可选 |
+  </Step>
+  <Step title="配置权限">
+    在 **Access** 下启用：
+
+    - **Withdrawal**
+    - **Trade**
+  </Step>
+  <Step title="设置 passphrase">
+    创建 **passphrase**。将账户添加到 Oxygen Atmos 时需要输入它。
+  </Step>
+  <Step title="完成验证">
+    确认创建。API 凭据位于已创建 key 的 **Info** 部分。
+  </Step>
+</Steps>
+
+## MEXC
+
+<Steps>
+  <Step title="打开 API Management">
+    将鼠标悬停在账户图标上，选择 **API Management**。
+  </Step>
+  <Step title="配置权限">
+    启用以下权限：
+
+    **Spot:**
+    - View Account Details
+    - View Order Details
+    - Trade
+    - View Deposit/Withdrawal Details
+    - Withdraw
+
+    **Transfer:**
+    - Read transfer information
+    - Transfer
+
+    **Futures:**
+    - View Account Details
+  </Step>
+  <Step title="设置名称和 IP">
+    在 Notes 字段输入**名称**。添加你的代理或个人 IP，可选。
+  </Step>
+  <Step title="完成验证">
+    确认创建。验证后，API 凭据会显示在弹窗中。
+  </Step>
+</Steps>
+
+## Bitget
+
+<Steps>
+  <Step title="打开 API Keys">
+    将鼠标悬停在账户图标上，选择 **API Keys**。
+  </Step>
+  <Step title="创建 API key">
+    点击 **Create API Key** 并填写：
+
+    | 字段 | 值 |
+    |---|---|
+    | **Note** | key 的标签 |
+    | **Passphrase** | 创建 passphrase，Oxygen Atmos 需要使用 |
+    | **IP address** | 你的代理或个人 IP。提现权限**必须**填写 |
+  </Step>
+  <Step title="配置权限">
+    启用：
+
+    **Spot:**
+    - Trade
+
+    **Wallet:**
+    - Transfer
+    - Withdraw
+  </Step>
+  <Step title="完成验证">
+    确认创建。API 凭据可在 key 详情中查看。
+  </Step>
+</Steps>

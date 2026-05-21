@@ -1,0 +1,153 @@
+---
+title: "Einstellungen"
+description: "Oxygen Atmos konfigurieren: Sicherheit, Extensions, RPC, Tags sowie Export und Import"
+---
+
+## Überblick
+
+Öffnen Sie **Settings** in der linken Seitenleiste. Die Einstellungen sind in vier Tabs organisiert: **Main**, **Tags**, **RPC** und **Browser**.
+
+## Main
+
+<Frame><img src="/images/atmos_ui/settings/atmos_settings_main.png" alt="Settings — Main tab" /></Frame>
+
+| Einstellung | Beschreibung |
+|---|---|
+| **API key** | Den mit dem Konto verknüpften API key ändern |
+| **Master password** | Master password für die Verschlüsselung lokaler App-Daten ändern |
+| **PIN code** | PIN für sensible Aktionen wie transfers und deletions setzen oder ändern |
+| **Language** | Interface-Sprache |
+
+### Export
+
+Daten können als verschlüsselte ZIP-Archive exportiert werden. Es gibt drei Kategorien:
+
+| Kategorie | Inhalt |
+|---|---|
+| **Wallets** | Wallet-Daten einschließlich tags und personalization |
+| **Accounts** | CEX account Daten einschließlich tags und personalization |
+| **Software settings** | RPC configuration, extensions und weitere App-Einstellungen |
+
+### Import
+
+Ziehen Sie ein zuvor exportiertes verschlüsseltes ZIP-Archiv in das Fenster oder klicken Sie auf **Select**.
+
+## Tags
+
+Tags in Oxygen Atmos sind für Wallets, Browserprofile und Exchange accounts einheitlich. Ein Tag, der an einer Stelle erstellt wird, ist überall verfügbar.
+
+<Frame><img src="/images/atmos_ui/settings/atmos_settings_tags.png" alt="Tags management table" /></Frame>
+
+### Tag-Tabelle
+
+| Spalte | Beschreibung |
+|---|---|
+| **Name** | Tag-Name mit Farbindikator |
+| **Count** | Gesamtzahl der Objekte mit diesem Tag |
+| **Browsers** | Checkbox: Tag wird in Browserprofilen verwendet |
+| **Wallets** | Checkbox: Tag wird in Wallets verwendet |
+| **Accounts** | Checkbox: Tag wird in Exchange accounts verwendet |
+| **Extensions** | Anzahl der Profile mit Extensions, die diesem Tag zugewiesen sind |
+
+Die Tabelle kann über **Colors**, **Search** und **Show only unused** gefiltert werden.
+
+### Tag erstellen
+
+Klicken Sie auf **Add tag**, geben Sie **name** ein und wählen Sie **color**.
+
+### Tags zuweisen
+
+Tags können an mehreren Stellen zugewiesen werden:
+
+- **Wallet manager** — beim Import oder Bearbeiten eines Wallets
+- **Browser profiles** — beim Erstellen, Bulk create oder Bearbeiten eines Profils
+- **Exchange accounts** — beim Hinzufügen oder Bearbeiten eines Accounts
+
+Ein Objekt kann mehrere Tags haben.
+
+### Tags bearbeiten und löschen
+
+- Klicken Sie auf die edit icon, um name oder color zu ändern. Änderungen gelten überall, wo der Tag verwendet wird.
+- Wählen Sie einen oder mehrere Tags aus und klicken Sie auf **Delete**.
+
+<Warning>
+  Gelöschte Tags werden automatisch von allen Wallets, Profilen und Accounts entfernt, denen sie zugewiesen waren.
+</Warning>
+
+### Nach Tags filtern
+
+Wallet- und Profil-Listen unterstützen Tag-Filter:
+
+1. Klicken Sie oberhalb der Liste auf **Tags**
+2. Wählen Sie einen oder mehrere Tags
+3. Klicken Sie auf **Reset**, um den Filter zu löschen
+
+## RPC
+
+Hier konfigurieren Sie RPC endpoints für EVM chains.
+
+| Einstellung | Beschreibung |
+|---|---|
+| **Use global proxy for all RPCs** | Alle RPC requests über einen proxy leiten |
+| **Use proxy from wallet browser profile** | Den proxy des Browserprofils für RPC requests des Wallets verwenden |
+| **Chain list** | Chains aktivieren/deaktivieren und RPC health status prüfen |
+
+Jede chain zeigt einen health indicator, z. B. **3/3** für 3 gesunde RPCs von 3. Pro chain können bis zu **5 custom RPC endpoints** hinzugefügt werden. `Low active RPCs` erscheint, wenn einige endpoints nicht antworten.
+
+## Browser
+
+Hier konfigurieren Sie Browser-Defaults für Profile und verwalten Extensions.
+
+<Frame><img src="/images/atmos_ui/settings/atmos_settings_browser.png" alt="Settings — Browser tab" /></Frame>
+
+### Browser preferences
+
+Profile können globale browser preferences erben oder im Profileditor überschreiben.
+
+| Einstellung | Beschreibung |
+|---|---|
+| **Search engine** | Default search engine für Browserprofile |
+| **Language** | Nach proxy IP address oder manuell |
+| **App language** | Basierend auf **Language** oder separat |
+| **Timezone** | Nach proxy IP address |
+| **Geolocation** | Ask, Allow oder Block mit optionaler proxy IP source |
+| **WebRTC** | Disable non-proxied UDP oder public interface |
+| **GPU spoofing** | GPU metadata und spoofing mode steuern |
+| **Noise** | Canvas, Audio, Rectangles und WebGL umschalten |
+
+Standardwerte:
+
+| Einstellung | Standard |
+|---|---|
+| **Search engine** | DuckDuckGo |
+| **Language** | English (United States) |
+| **App language** | Based on selected language |
+| **Timezone** | Based on proxy IP address |
+| **Geolocation** | Ask, based on proxy IP address |
+| **WebRTC** | Disable non-proxied UDP |
+| **GPU spoofing** | Strict |
+| **Noise** | Canvas, Audio und DOM Rectangles aktiviert |
+
+Profile overrides werden bei fingerprint generation und browser launch verwendet.
+
+### Extensions
+
+Oxygen Atmos verwaltet Extensions für [Oxidium](/de/browser-profiles/oxidium) Profile. Extensions können global installiert, Tags zugewiesen oder deaktiviert werden.
+
+| Aktion | Beschreibung |
+|---|---|
+| **Add** | Aus Chrome Web Store URL installieren oder CRX/ZIP hochladen |
+| **Update extensions** | Alle installierten Extensions aktualisieren |
+| **Delete** | Extension entfernen |
+
+| Loading mode | Beschreibung |
+|---|---|
+| **Global** | Lädt in allen Browserprofilen |
+| **Tag-based** | Lädt nur in Profilen, die mindestens einen Tag mit der Extension teilen |
+| **Disabled** | Lädt in keinem Profil |
+
+Extension loading wird beim Profilstart berechnet. Starten Sie ein laufendes Profil neu, nachdem Sie extension assignment, tags oder extension files geändert haben.
+
+<Info>
+  **Rabby Wallet** ist die eingebaute Extension für wallet integration. Private keys bleiben in Oxygen Atmos und werden nicht an die Browserumgebung weitergegeben.
+</Info>

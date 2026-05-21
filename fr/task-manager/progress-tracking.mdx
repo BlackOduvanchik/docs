@@ -1,0 +1,58 @@
+---
+title: "Suivi de progression"
+description: "Suivez l'exécution des tâches, consultez les logs et relancez les opérations échouées"
+---
+
+## Voir la progression d'une tâche
+
+Dans l'onglet **Processing** ou **Archive**, cliquez sur **Open** sur une tâche pour voir les détails d'exécution.
+
+## Logs de tâche
+
+Cliquez sur **Logs** pour voir les logs détaillés avec des entrées horodatées pour chaque opération de wallet. Chaque entrée affiche :
+
+- statut de transaction, par exemple succès, en attente ou erreur, avec des indicateurs colorés
+- messages de statut, par exemple "Transaction sent, waiting for confirmation" ou "Successfully transferred X to address"
+- détails déroulants pour chaque étape
+
+<Frame><img src="/images/atmos_ui/task_manager/atmos_task_manager_tasks_logs.png" alt="Logs d'exécution d'une tâche" /></Frame>
+
+## Statuts de tâche
+
+| Statut | Description |
+|---|---|
+| **Scheduled** | En attente de l'heure de lancement planifiée |
+| **Processing** | En cours d'exécution |
+| **Queued** | Wallet en attente de traitement |
+| **Completed** | Toutes les opérations sont terminées avec succès |
+| **Partially completed** | Certains wallets ont réussi, d'autres ont échoué |
+| **Failed Error** | La tâche a échoué avec des erreurs |
+| **Cancelled** | Annulée manuellement |
+
+## Récupération après erreur
+
+### Restart unsuccessful
+
+Quand une tâche a le statut **Partially completed**, cliquez sur **Restart unsuccessful** pour relancer la tâche uniquement pour les wallets avec le statut **Queued** ou **Error**.
+
+### Copier les wallets pour des corrections ciblées
+
+Quand certains wallets échouent, par exemple à cause d'un gas insuffisant, vous pouvez créer une tâche de top-up ciblée :
+
+<Steps>
+  <Step title="Ouvrir le menu de copie">
+    Dans la vue de la tâche, cliquez sur l'**icône de copie** en bas à droite.
+  </Step>
+  <Step title="Sélectionner une option">
+    Choisissez l'une des options :
+
+    | Option | Description |
+    |---|---|
+    | **Use as template** | Copier tous les paramètres de la tâche dans une nouvelle tâche |
+    | **Copy all wallets** | Copier tous les wallets dans une nouvelle tâche |
+    | **Copy wallets with errors** | Copier uniquement les wallets en erreur dans une nouvelle tâche |
+  </Step>
+  <Step title="Configurer et lancer">
+    Configurez les paramètres de la nouvelle tâche, par exemple l'envoi du token natif aux wallets échoués, puis lancez-la ou planifiez-la.
+  </Step>
+</Steps>

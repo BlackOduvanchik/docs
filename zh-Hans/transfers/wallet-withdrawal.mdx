@@ -1,0 +1,62 @@
+---
+title: "Wallet withdrawal"
+description: "从你的钱包向已绑定地址或单个目标地址发送 token"
+---
+
+## 概览
+
+Wallet withdrawal 可以批量从你的钱包发送 token，目标可以是每个钱包已绑定的 withdrawal address，也可以是一个共同的单一地址。
+
+## 参数
+
+| 参数 | 说明 |
+|---|---|
+| **Chain** | 区块链网络，例如 Ethereum |
+| **Tokens** | 一个或多个要发送的 token，多选 |
+| **Wallets** | 来源钱包 |
+| **Single withdraw address** | 可选：将所有 token 发送到一个地址，而不是已绑定地址 |
+
+### Token 选择
+
+选择 chain 后，token 面板会显示可用 token 及其数量。每个 token 都可以单独配置 **withdrawal method**。
+
+<Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_evm_withdrawal_tokens_select.png" alt="带有数量和方法的 token 选择" /></Frame>
+
+## 任务配置
+
+启动前，请配置执行设置：
+
+| 设置 | 说明 |
+|---|---|
+| **Workers** | 并行提现线程数量 |
+| **Max retries** | 提现失败后的重试次数 |
+| **Delay between withdrawals** | 提现之间的最小和最大延迟，单位为秒 |
+| **Wait for gas less than** | 仅当 gas price 低于该 gwei 阈值时执行 |
+| **Run in random order** | 随机化钱包处理顺序 |
+
+## 执行提现
+
+<Steps>
+  <Step title="确认钱包已导入">
+    在 [Wallet Manager](/zh-Hans/wallet-manager/about-wallet-manager) 中添加钱包。
+  </Step>
+  <Step title="配置参数">
+    设置 chain、tokens、withdrawal methods、source wallets 和可选的 single address。
+  </Step>
+  <Step title="预览">
+    点击 **Preview**。检查每个钱包的详情：wallet address、withdraw address、current balance，以及每个 token 的 withdrawal amount。
+
+    <Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_evm_preview.png" alt="Wallet withdrawal 预览" /></Frame>
+  </Step>
+  <Step title="启动或延后">
+    - 点击 **Launch** 立即执行
+    - 点击 **Postpone** 选择日期和时间，任务会进入 [Task Manager](/zh-Hans/task-manager/about-task-manager) 的 **Scheduled** 标签页
+  </Step>
+</Steps>
+
+## Templates
+
+保存提现配置，便于快速复用：
+
+- **预览时保存**：点击预览页面顶部 templates 字段旁边的**保存图标**
+- **从已完成任务复制**：在 Task Manager 中，点击已完成任务上的**复制图标**。有三个选项：use as template、copy all wallets 或 copy wallets with errors

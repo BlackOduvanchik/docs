@@ -1,0 +1,72 @@
+---
+title: "À propos des comptes d'exchange"
+description: "Connectez des comptes d'exchange via API pour suivre les soldes et automatiser les retraits"
+---
+
+## Vue d'ensemble
+
+Le module des comptes d'exchange permet de connecter vos comptes de plateformes crypto via API. Une fois connectés, vous pouvez suivre les soldes en temps réel et utiliser les exchanges comme sources de retrait dans le [module Transfers](/fr/transfers/about-transfers).
+
+<Frame><img src="/images/atmos_ui/cex_accounts/atmos_cex_accounts_bitget_balances.png" alt="Compte d'exchange avec soldes de tokens" /></Frame>
+
+**Exchanges pris en charge :** Binance, OKX, MEXC, Bitget
+
+<Note>
+  Oxygen Atmos affiche uniquement les soldes de tokens **disponibles au retrait**. Les tokens bloqués dans des positions futures, du staking ou du farming ne sont pas inclus.
+</Note>
+
+## Limites de comptes
+
+| Condition | Limite par exchange |
+|---|---|
+| Moins de 500 profils | 1 compte |
+| 500 profils ou plus | 5 comptes |
+
+## Ajouter un compte d'exchange
+
+<Steps>
+  <Step title="Créer des clés API">
+    Générez des clés API sur votre exchange. Consultez [Configuration des clés API](/fr/exchange-accounts/api-key-setup) pour les guides étape par étape de chaque exchange.
+  </Step>
+  <Step title="Ouvrir l'onglet des comptes">
+    Allez dans **CEX accounts** depuis la barre latérale gauche.
+  </Step>
+  <Step title="Ajouter un compte">
+    Cliquez sur **Add Account** et sélectionnez votre exchange.
+
+    <Frame><img src="/images/atmos_ui/cex_accounts/atmos_cex_accounts_adding_account.png" alt="Formulaire d'ajout d'un compte d'exchange" /></Frame>
+  </Step>
+  <Step title="Saisir les identifiants API">
+    Remplissez les champs :
+
+    | Champ | Description |
+    |---|---|
+    | **Alias** | Nom affiché pour le compte |
+    | **API Key** | Clé API de votre exchange |
+    | **API Secret** | Clé secrète de votre exchange |
+    | **Passphrase** | Requise uniquement pour OKX et Bitget |
+    | **Proxy** | Optionnel : activez-le pour assigner un proxy aux requêtes API |
+  </Step>
+  <Step title="Confirmer">
+    Cliquez sur **Add Account**. Le compte apparaît dans la liste avec ses soldes actuels.
+  </Step>
+</Steps>
+
+## Modifier les clés API
+
+Pour mettre à jour les identifiants d'un compte connecté :
+
+1. Cliquez sur l'**icône de modification** à côté du compte d'exchange
+2. Mettez à jour l'**alias**, l'**API key**, la **secret key** ou la **passphrase**
+3. Cliquez sur **Save Changes**
+
+## Liens rapides
+
+<CardGroup cols={2}>
+  <Card title="Configuration des clés API" icon="key" href="/fr/exchange-accounts/api-key-setup">
+    Guides étape par étape pour Binance, OKX, MEXC et Bitget.
+  </Card>
+  <Card title="Retrait CEX" icon="arrow-right-from-bracket" href="/fr/transfers/cex-withdrawal">
+    Retirez des tokens depuis vos exchanges vers vos wallets.
+  </Card>
+</CardGroup>

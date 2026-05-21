@@ -1,0 +1,152 @@
+---
+title: "À propos des profils"
+description: "Comprendre les profils navigateur: fingerprints, proxies, wallets et paramètres"
+---
+
+## Qu'est-ce qu'un profil navigateur?
+
+Un profil navigateur est une identité de navigateur enregistrée dans Oxygen Atmos. Il sépare accounts, sessions, proxies, wallets, fingerprints, cookies, local storage, extensions et paramètres du navigateur.
+
+Oxygen Atmos stocke et applique la configuration du profil. [Oxidium](/fr/browser-profiles/oxidium) est le core compatible Chromium qui s'ouvre au lancement du profil.
+
+<Frame><img src="/images/atmos_ui/browser/atmos_browser_profiles.png" alt="Browser profiles list" /></Frame>
+
+## Tableau des profils
+
+La page Browser affiche les informations utiles au quotidien:
+
+| Colonne | Description |
+|---|---|
+| **Alias** | Nom du profil dans le tableau et la fenêtre |
+| **Fingerprint** | Version navigateur et fingerprint label |
+| **Tags** | Tags utilisés pour filtrer et charger les extensions |
+| **Proxy** | Proxy IP assigné ou absence de proxy |
+| **Last launch** | Dernier lancement du profil |
+| **Actions** | Lancer, focus, modifier et autres actions |
+
+La recherche fonctionne par alias, adresse de wallet lié, version navigateur, fingerprint label, proxy URL ou proxy IP. Cliquez sur un tag ou utilisez le filtre **Tags** pour afficher un groupe de profils.
+
+## Actions de profil
+
+Actions courantes:
+
+- lancer un profil fermé
+- focus un profil déjà lancé
+- fermer un profil lancé
+- modifier les profile settings
+- modifier les wallets liés
+- modifier les tags
+- modifier le proxy
+- ouvrir les secure notes
+- supprimer un profil
+
+Les profils sélectionnés peuvent aussi être traités en bulk: lancement, fermeture, tags, renommage ou suppression.
+
+## Composants du fingerprint
+
+Chaque profil utilise un ensemble cohérent de paramètres navigateur:
+
+| Paramètre | Description |
+|---|---|
+| **Browser version** | Version [Oxidium](/fr/browser-profiles/oxidium), affichée comme Chrome major version |
+| **User-Agent** | Chaîne d'identification navigateur et OS |
+| **Client Hints** | Chromium Client Hints dans headers et JavaScript |
+| **Screen resolution** | Dimensions de l'écran |
+| **Platform** | Identifiant OS, par exemple Windows 10.0 |
+| **Language** | Langue et locale du navigateur |
+| **Timezone** | Fuseau horaire |
+| **Geolocation** | Mode d'autorisation et source de localisation |
+| **WebRTC** | Politique d'exposition réseau |
+| **Canvas** | Noise pour Canvas |
+| **Audio** | Noise pour AudioContext |
+| **Rectangles** | Noise pour DOM Rectangles |
+| **WebGL** | GPU metadata et comportement de rendu |
+
+<Info>
+  Le fingerprint est généré avant l'enregistrement du profil. La preview reflète la version navigateur et les préférences choisies.
+</Info>
+
+## États du profil
+
+| État | Description |
+|---|---|
+| **Running** | La fenêtre navigateur est ouverte |
+| **Not used** | Le navigateur est fermé, les données sont sauvegardées |
+
+## Créer un profil
+
+<Steps>
+  <Step title="Cliquer sur New Profile">
+    Cliquez sur **New Profile** en haut à droite.
+  </Step>
+  <Step title="Définir l'identité du profil">
+    Entrez un alias et choisissez ou créez des tags. Les tags aident à filtrer les profils et à contrôler les extensions chargées.
+  </Step>
+  <Step title="Lier des wallets">
+    Sélectionnez les wallets si le profil doit utiliser wallet integration. L'extension Rabby intégrée fournit l'interface wallet côté navigateur.
+  </Step>
+  <Step title="Choisir la version navigateur">
+    Choisissez la version navigateur. Activez **Keep up to date** si Oxygen Atmos peut migrer le profil vers une version récente prise en charge.
+  </Step>
+  <Step title="Vérifier le fingerprint">
+    Vérifiez la preview du fingerprint: user agent, platform, language, app language, timezone, geolocation, WebRTC, WebGL et noise settings.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_new_profile.png" alt="Create new profile with fingerprint preview" /></Frame>
+  </Step>
+  <Step title="Ajouter un proxy">
+    Ajoutez un proxy si le profil a besoin d'une localisation réseau propre. Types pris en charge: **HTTP** et **SOCKS5**.
+
+    Formats proxy:
+
+    ```text
+    protocol://host:port:user:pass
+    protocol://user:pass@host:port
+    ```
+  </Step>
+  <Step title="Ajouter cookies ou social tokens">
+    Ajoutez cookies, X.com tokens ou Discord tokens s'ils doivent être appliqués au prochain lancement du navigateur.
+  </Step>
+  <Step title="Vérifier les paramètres navigateur">
+    Utilisez les defaults globaux ou définissez des overrides pour search engine, language, timezone, geolocation, WebRTC policy, GPU spoofing mode ou noise settings.
+  </Step>
+  <Step title="Enregistrer">
+    Cliquez sur **Save profile**. Cliquez ensuite sur la ligne du profil pour lancer le navigateur.
+  </Step>
+</Steps>
+
+## Modifier un profil
+
+Après création, vous pouvez modifier les paramètres du profil. Certaines modifications s'appliquent immédiatement aux données enregistrées; les changements runtime nécessitent souvent de fermer puis relancer le profil.
+
+En mode édition, la version navigateur ne peut pas être rétrogradée. Si un profil a été créé avec Chrome 144, seules les versions 144 ou plus récentes sont disponibles.
+
+## Wallets dans les profils
+
+Chaque profil peut avoir un main wallet par type de wallet. Le main wallet doit exister dans Oxygen Atmos, avoir une private key et ne pas déjà être main wallet dans un autre profil.
+
+Des additional wallets peuvent être ajoutés. Un additional wallet nécessite un main wallet du même type. Si le main wallet est supprimé, les wallets secondaires de ce type sont retirés du profil.
+
+Au lancement du profil, les wallets liés deviennent disponibles dans le navigateur. Les private keys restent dans Oxygen Atmos et ne sont pas exposées au runtime navigateur.
+
+## Proxy settings
+
+Chaque profil a son propre proxy. Types pris en charge: **HTTP** et **SOCKS5**.
+
+Pour changer le proxy, ouvrez l'éditeur du profil et mettez à jour les proxy fields.
+
+Quand un proxy est configuré, Oxygen Atmos vérifie qu'il fonctionne et stocke les données de localisation disponibles, comme le pays et l'IP.
+
+## Membership limit
+
+Le nombre de profils utilisables dépend de la limite du membership actuel. Les profils au-dessus de cette limite sont marqués excessive et ne peuvent pas être utilisés normalement tant que le problème n'est pas résolu.
+
+## Étapes suivantes
+
+<CardGroup cols={2}>
+  <Card title="Création en masse" icon="clone" href="/fr/browser-profiles/mass-creation">
+    Créez plusieurs profils en un seul passage.
+  </Card>
+  <Card title="Secure notes" icon="note-sticky" href="/fr/browser-profiles/secure-notes">
+    Ajoutez des notes chiffrées aux profils.
+  </Card>
+</CardGroup>

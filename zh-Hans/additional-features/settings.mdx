@@ -1,0 +1,153 @@
+---
+title: "设置"
+description: "配置 Oxygen Atmos：安全、扩展、RPC、标签，以及数据导入导出"
+---
+
+## 概览
+
+从左侧边栏的 **Settings** 打开设置。设置分为四个标签页：**Main**、**Tags**、**RPC** 和 **Browser**。
+
+## Main
+
+<Frame><img src="/images/atmos_ui/settings/atmos_settings_main.png" alt="设置：Main 标签页" /></Frame>
+
+| 设置 | 说明 |
+|---|---|
+| **API key** | 修改与你账户关联的 API key |
+| **Master password** | 修改用于加密全部应用数据的 master password |
+| **PIN code** | 设置或修改用于确认敏感操作的 PIN，例如 transfers、deletions |
+| **Language** | 界面语言 |
+
+### Export
+
+将你的数据导出为加密 ZIP 归档。可导出三类数据：
+
+| 类别 | 内容 |
+|---|---|
+| **Wallets** | 钱包数据，包括 tags 和 personalization |
+| **Accounts** | CEX 账户数据，包括 tags 和 personalization |
+| **Software settings** | RPC 配置、extensions 和其他应用设置 |
+
+### Import
+
+拖放文件，或点击 **Select**，导入之前导出的加密 ZIP 归档。
+
+## Tags
+
+Oxygen Atmos 中的 tags 在**钱包、浏览器配置文件和交易所账户之间统一共享**。在任何位置创建的 tag 都可以在其他位置使用。
+
+<Frame><img src="/images/atmos_ui/settings/atmos_settings_tags.png" alt="Tags 管理表格" /></Frame>
+
+### Tags 表格
+
+| 列 | 说明 |
+|---|---|
+| **Name** | 带颜色指示的 tag 名称 |
+| **Count** | 使用该 tag 的项目总数 |
+| **Browsers** | 复选框：该 tag 被用于浏览器配置文件 |
+| **Wallets** | 复选框：该 tag 被用于钱包 |
+| **Accounts** | 复选框：该 tag 被用于交易所账户 |
+| **Extensions** | 分配给该 tag 的扩展所在配置文件数量 |
+
+可以使用 **Colors**、**Search** 和 **Show only unused** 筛选表格。
+
+### 创建 tag
+
+点击 **Add tag**，输入**名称**并选择**颜色**。
+
+### 分配 tags
+
+你可以在多个位置分配 tags：
+
+- **Wallet manager**：导入或编辑钱包时
+- **Browser profiles**：创建、批量创建或编辑配置文件时
+- **Exchange accounts**：添加或编辑账户时
+
+一个项目可以应用多个 tags。
+
+### 编辑和删除 tags
+
+- 点击**编辑图标**修改 tag 的名称或颜色。修改会应用到所有使用该 tag 的位置。
+- 选择一个或多个 tags，然后点击 **Delete** 删除。
+
+<Warning>
+  删除的 tags 会自动从所有已分配的钱包、配置文件和账户中移除。
+</Warning>
+
+### 按 tags 筛选
+
+钱包列表和配置文件列表都支持按 tags 筛选：
+
+1. 点击列表上方的 **Tags**
+2. 选择一个或多个 tags。只有带有这些 tags 的项目会显示
+3. 点击 **Reset** 清除筛选
+
+## RPC
+
+为 EVM chains 配置 RPC endpoints。
+
+| 设置 | 说明 |
+|---|---|
+| **Use global proxy for all RPCs** | 将所有 RPC 请求通过单一代理发送 |
+| **Use proxy from wallet browser profile** | 使用每个配置文件自己的代理发送 RPC 请求 |
+| **Chain list** | 开启或关闭 chains，并查看 RPC 健康状态 |
+
+每条 chain 都会显示健康状态，例如 **3/3** 表示 3 个 RPC 中有 3 个健康。每条 chain 最多可添加 **5 个 custom RPC endpoints**。当某些 endpoints 无响应时，会显示 "Low active RPCs" 警告。
+
+## Browser
+
+配置浏览器配置文件默认值并管理扩展。
+
+<Frame><img src="/images/atmos_ui/settings/atmos_settings_browser.png" alt="设置：Browser 标签页" /></Frame>
+
+### 浏览器偏好设置
+
+配置文件可以继承全局浏览器偏好设置，也可以在配置文件编辑器中单独覆盖。
+
+| 设置 | 说明 |
+|---|---|
+| **Search engine** | 浏览器配置文件的默认搜索引擎 |
+| **Language** | 基于代理 IP 地址，或手动设置，例如 English United States |
+| **App language** | 基于 **Language**，或独立设置 |
+| **Timezone** | 基于代理 IP 地址 |
+| **Geolocation** | Ask、Allow 或 Block，可选择使用代理 IP 作为来源 |
+| **WebRTC** | 禁用非代理 UDP，或使用 public interface |
+| **GPU spoofing** | 控制 GPU 元数据和 spoofing 模式 |
+| **Noise** | 切换 Canvas、Audio、Rectangles、WebGL |
+
+默认值：
+
+| 设置 | 默认值 |
+|---|---|
+| **Search engine** | DuckDuckGo |
+| **Language** | English (United States) |
+| **App language** | 基于所选语言 |
+| **Timezone** | 基于代理 IP 地址 |
+| **Geolocation** | Ask，基于代理 IP 地址 |
+| **WebRTC** | Disable non-proxied UDP |
+| **GPU spoofing** | Strict |
+| **Noise** | Canvas、Audio 和 DOM Rectangles 已启用 |
+
+配置文件覆盖项会用于指纹生成和浏览器启动。
+
+### Extensions
+
+Oxygen Atmos 管理 [Oxidium](/zh-Hans/browser-profiles/oxidium) 配置文件的扩展。扩展可以全局安装、分配到配置文件 tags，或禁用。
+
+| 操作 | 说明 |
+|---|---|
+| **Add** | 从 Chrome Web Store URL 安装，或上传 CRX/ZIP 文件 |
+| **Update extensions** | 更新所有已安装扩展 |
+| **Delete** | 删除扩展 |
+
+| 加载模式 | 说明 |
+|---|---|
+| **Global** | 加载到每个浏览器配置文件 |
+| **Tag-based** | 只加载到与该扩展至少共享一个指定 tag 的配置文件 |
+| **Disabled** | 不加载到任何配置文件 |
+
+扩展加载会在配置文件启动时计算。修改扩展分配、tags 或扩展文件后，请重新启动正在运行的配置文件。
+
+<Info>
+  **Rabby Wallet** 是用于钱包集成的内置扩展。私钥保留在 Oxygen Atmos 内部，不会暴露给浏览器 runtime。
+</Info>

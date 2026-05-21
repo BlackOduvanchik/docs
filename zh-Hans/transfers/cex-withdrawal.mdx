@@ -1,0 +1,62 @@
+---
+title: "CEX withdrawal"
+description: "自动从交易所账户向你的钱包提现 token"
+---
+
+## 概览
+
+CEX withdrawal 可以自动将已连接交易所账户中的 token 直接发送到管理器中的钱包。适合在无需手动操作的情况下，将资金分发到数百个钱包。
+
+## 参数
+
+| 参数 | 说明 |
+|---|---|
+| **Chain** | 提现使用的区块链网络，例如 BNB Smart Chain |
+| **Token** | 要提现的 token，例如 USDT |
+| **Exchange** | 来源交易所账户 |
+| **Wallets** | 目标钱包。点击后可从钱包列表中选择 |
+| **Withdrawal amount** | 所选 token 的最小和最大提现金额范围 |
+| **Withdraw only if wallet balance is less than** | 开关：只向低于指定余额的钱包发送 |
+
+<Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_cex_withdrawal_exchange_select.png" alt="CEX withdrawal 设置" /></Frame>
+
+<Note>
+  对于每个选中的交易所，你可以查看当前 token 余额、提现手续费和最小提现金额。
+</Note>
+
+## 任务配置
+
+启动前，请配置执行设置：
+
+| 设置 | 说明 |
+|---|---|
+| **Workers** | 并行提现线程数量 |
+| **Max retries** | 提现失败后的重试次数 |
+| **Delay between withdrawals** | 操作之间的最小和最大延迟，单位为秒 |
+
+## 执行提现
+
+<Steps>
+  <Step title="确认交易所已连接">
+    在 [CEX accounts](/zh-Hans/exchange-accounts/about-exchange-accounts) 中添加交易所 API keys。
+  </Step>
+  <Step title="配置参数">
+    设置 chain、token、exchange、wallets 和金额范围。
+  </Step>
+  <Step title="预览">
+    点击 **Preview**。检查钱包列表、各钱包提现金额、当前余额和手续费。如有需要，可以修改单个金额。
+
+    <Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_cex_withdrawal_preview.png" alt="CEX withdrawal 预览" /></Frame>
+  </Step>
+  <Step title="启动或延后">
+    - 点击 **Launch** 立即执行
+    - 点击 **Postpone** 选择日期和时间，任务会进入 [Task Manager](/zh-Hans/task-manager/about-task-manager) 的 **Scheduled** 标签页
+  </Step>
+</Steps>
+
+## Templates
+
+保存提现配置，便于快速复用：
+
+- **预览时保存**：点击预览页面顶部 templates 字段旁边的**保存图标**
+- **从已完成任务复制**：在 Task Manager 中，点击已完成任务上的**复制图标**。有三个选项：use as template、copy all wallets 或 copy wallets with errors

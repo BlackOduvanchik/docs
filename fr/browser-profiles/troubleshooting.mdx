@@ -1,0 +1,63 @@
+---
+title: "Troubleshooting"
+description: "Résoudre les problèmes fréquents de création, lancement, import et extensions des profils"
+---
+
+Utilisez cette page lorsqu'un profil navigateur ne peut pas être créé, lancé, importé ou utilisé comme prévu.
+
+## Aucun fingerprint disponible
+
+La génération du fingerprint peut échouer si aucun fingerprint ne correspond à la version navigateur, platform, architecture et GPU renderer sélectionnés.
+
+Essayez l'option retry sans GPU renderer matching si l'interface la propose.
+
+## Proxy check échoue
+
+Vérifiez que:
+
+- host et port sont corrects
+- username et password sont corrects
+- le proxy server est en ligne
+- votre réseau actuel peut atteindre le proxy
+- le proxy prend en charge HTTP ou SOCKS5
+
+Si une valeur proxy n'a pas de protocol, Oxygen Atmos tente de détecter pendant l'import si elle fonctionne en HTTP ou SOCKS5.
+
+## Wallet impossible à lier
+
+Le main wallet doit:
+
+- exister dans Oxygen Atmos
+- avoir une private key
+- ne pas déjà être main wallet dans un autre profil
+
+Les read-only wallets ne peuvent pas être utilisés comme main browser wallets.
+
+## Cookies n'apparaissent pas
+
+Les cookies importés sont appliqués au prochain lancement du profil. Si le profil était déjà lancé, fermez-le et relancez-le.
+
+Vérifiez aussi domain, path, expiry et secure attributes du cookie.
+
+## X.com ou Discord token ne s'applique pas
+
+Les X.com tokens sont importés comme cookie `auth_token` pour `.x.com`.
+
+Les Discord tokens sont importés dans local storage pour:
+
+```text
+https://discord.com/
+```
+
+Si le token a été ajouté pendant que le profil était déjà lancé, fermez et relancez le profil.
+
+## Extension ne se charge pas
+
+Vérifiez que:
+
+- l'extension est activée
+- elle est global ou partage un tag avec le profil
+- le profil a été relancé après les changements d'extensions
+- le package de l'extension est valide
+
+Extension loading est calculé au lancement du profil [Oxidium](/fr/browser-profiles/oxidium).

@@ -1,0 +1,130 @@
+---
+title: "Massenerstellung"
+description: "Mehrere Browserprofile in einem Durchgang erstellen"
+---
+
+## Überblick
+
+Massenerstellung erzeugt mehrere Browserprofile in einer Operation. Jedes Profil erhält einen eigenen fingerprint und kann Wallets, Proxies, social tokens, Tags und Browser-Preference-Overrides bekommen.
+
+Nutzen Sie **Bulk create**, wenn Wallets bereits in Oxygen Atmos importiert sind und pro Wallet ein Profil erstellt werden soll. Nutzen Sie **Import from file**, wenn jede Zeile individuell über eine Tabelle gesteuert werden soll.
+
+## Bulk create
+
+<Steps>
+  <Step title="Bulk create öffnen">
+    Klicken Sie auf **New Profile** und wählen Sie **Bulk create**.
+  </Step>
+  <Step title="Eingaben konfigurieren">
+    Wählen Sie die benötigten Datengruppen:
+
+    - **Wallets** — Profile aus ausgewählten Wallets erstellen
+    - **Proxies** — Proxies zeilenweise zuweisen
+    - **Twitter Tokens** — X.com tokens nach Zeilenreihenfolge zuweisen
+    - **Discord Tokens** — Discord tokens nach Zeilenreihenfolge zuweisen
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_bulk_create_1.png" alt="Bulk create — step 1 configuration" /></Frame>
+  </Step>
+  <Step title="Zeilen zuordnen">
+    Jedes ausgewählte Wallet wird ein Profil. Proxy- und Token-Zeilen werden nach Reihenfolge zugeordnet.
+  </Step>
+  <Step title="Preview prüfen">
+    Prüfen Sie die generierten Profile in der Tabelle. Oxygen Atmos prüft Wallets, proxy input, social tokens und fingerprint availability vor dem Import.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_bulk_create_2.png" alt="Bulk create — profile validation preview" /></Frame>
+  </Step>
+  <Step title="Sprache wählen">
+    Wählen Sie die Spracheinstellung für die erzeugten Profile und klicken Sie auf **Import**.
+  </Step>
+</Steps>
+
+Profile mit blockierenden Fehlern müssen vor dem Import korrigiert oder übersprungen werden. Wenn kein passender GPU renderer fingerprint verfügbar ist, nutzen Sie den Retry ohne GPU matching, wenn die UI diese Option anbietet.
+
+## Import from file
+
+Profile können auch aus **CSV**, **XLS**, **XLSX** oder **Numbers** importiert werden.
+
+<Steps>
+  <Step title="Vorlage herunterladen">
+    Laden Sie im File-Import-Dialog die Vorlage im gewünschten Format herunter oder wählen Sie aus, dass Sie bereits eine Datei haben.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_1.png" alt="File import — download template step" /></Frame>
+
+    <Tabs>
+      <Tab title="Step 1">
+        <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_template_1.png" alt="Import template into Google Sheets" /></Frame>
+      </Tab>
+      <Tab title="Step 2">
+        <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_template_2.png" alt="Template — column headers with descriptions" /></Frame>
+      </Tab>
+      <Tab title="Step 3">
+        <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_template_3.png" alt="Template — filled with example data" /></Frame>
+      </Tab>
+    </Tabs>
+
+    <Warning>
+      Wenn die Datei private keys, cookies oder social tokens enthält, speichern Sie sie lokal und laden Sie sie nicht in Cloud-Tabelleneditoren hoch.
+    </Warning>
+  </Step>
+  <Step title="Vorlage ausfüllen">
+    Die Vorlage enthält Spalten für Profilname, Tags, proxy, wallet addresses, X.com token und Discord token.
+  </Step>
+  <Step title="Datei hochladen">
+    Ziehen Sie die Datei in den Upload-Bereich oder klicken Sie auf **Select**.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_2.png" alt="File import — upload file step" /></Frame>
+  </Step>
+  <Step title="Importergebnis prüfen">
+    Prüfen Sie die erkannten Profile in der Tabelle und klicken Sie auf **Import**, um sie zu erstellen oder zu aktualisieren.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_3.png" alt="File import — review and confirm" /></Frame>
+  </Step>
+</Steps>
+
+## Dateivorlage
+
+Die CSV-Vorlage nutzt diese Spalten:
+
+```csv
+name,tags,proxy,wallet_addresses,twitter_token,discord_token
+```
+
+Beispielzeilen:
+
+```csv
+Example Profile,{{red}} tag1,hostname:port:username:password,,,
+Example with protocol,tag2,http://username:password@hostname:port,,,
+```
+
+Tags werden durch Kommas getrennt. Beim Erstellen eines Tags kann eine Farbe angegeben werden:
+
+```text
+{{red}} warmup
+```
+
+Vorhandene Tags werden ohne Beachtung der Groß-/Kleinschreibung erkannt. Wenn ein Tag nicht existiert, erstellt Oxygen Atmos ihn.
+
+Wallet addresses oder private keys können durch Kommas getrennt werden. Das erste Wallet wird als main wallet verwendet, weitere als additional wallets.
+
+Wenn das main wallet bereits mit einem existierenden Profil verknüpft ist, aktualisiert der Import dieses Profil statt ein Duplikat zu erstellen.
+
+Die Spalte `twitter_token` importiert ein X.com `auth_token` cookie. Die Spalte `discord_token` importiert einen Discord local storage token. Beide Werte werden geschützt gespeichert und beim nächsten Start des Browserprofils angewendet.
+
+## Proxy-Format
+
+Verwenden Sie bei Bulk create oder Import from file eines dieser Formate:
+
+```text
+protocol://host:port:user:pass
+protocol://user:pass@host:port
+```
+
+Unterstützt werden **HTTP** und **SOCKS5**. Ein proxy pro Zeile. Proxies werden in der Reihenfolge der Zeilen auf Profile angewendet.
+
+Wenn kein protocol angegeben ist, erkennt Oxygen Atmos automatisch, ob der proxy als HTTP oder SOCKS5 funktioniert. Proxy checks prüfen Erreichbarkeit, protocol und verfügbare Standortdaten.
+
+## Tipps
+
+- Weisen Sie [Tags](/de/additional-features/settings) beim Erstellen zu, um Profile nach Campaign oder Zweck zu gruppieren
+- Nutzen Sie File Import für große Batches mit individueller Konfiguration pro Profil
+- Halten Sie proxy country, language, timezone und geolocation innerhalb einer Profilgruppe konsistent

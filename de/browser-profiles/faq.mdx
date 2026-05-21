@@ -1,0 +1,66 @@
+---
+title: "FAQ"
+description: "Antworten auf häufige Fragen zu Browserprofilen in Oxygen Atmos"
+---
+
+## Ist [Oxidium](/de/browser-profiles/oxidium) dasselbe wie Google Chrome?
+
+Nein. [Oxidium](/de/browser-profiles/oxidium) ist das Chromium-kompatible Browser-Core für Oxygen Atmos Profile. Oxygen Atmos verwaltet Profile, Wallets, Proxies, Extensions, Cookies und Einstellungen darum herum.
+
+In der UI werden Browserversionen als Chrome major versions angezeigt, um Kompatibilität mit Websites und Extension-Tools zu erhalten.
+
+## Warum fehlen manche Chrome-Dienste?
+
+Viele Google- und Chrome-Dienste sind reduziert oder deaktiviert, um unnötige Kommunikation mit externen Cloud-Diensten zu vermeiden und Hintergrundarbeit in Browserprofilen zu reduzieren.
+
+Das kann Sync, Vorschläge, Reporting, Safe Browsing Checks und andere cloudbasierte Funktionen betreffen.
+
+## Wie bleibt eine Profilidentität konsistent?
+
+Halten Sie alle wichtigen Parameter abgestimmt:
+
+- proxy country und IP location
+- language und app language
+- timezone
+- geolocation
+- browser version
+- fingerprint
+- WebRTC policy
+- extensions
+- cookies und logged-in sessions
+
+Nur eine einzelne Einstellung zu ändern kann die Profilidentität weniger kohärent machen als eine gemeinsame Aktualisierung der gesamten Browser-Identität.
+
+## Kann ein Profil ohne proxy starten?
+
+Ja. Ein Profil kann ohne proxy starten. Nutzen Sie einen profile-specific proxy, wenn das Profil eine eigene Netzwerkposition braucht.
+
+## Welche proxy protocols werden unterstützt?
+
+Der Profileditor unterstützt **HTTP** und **SOCKS5**. Auto mode wird bei Erkennung und Import genutzt, wenn ein proxy value kein protocol enthält.
+
+## Wie werden extensions geladen?
+
+Aktivierte globale extensions laden in allen Profilen. Aktivierte tagbasierte extensions laden nur in Profilen, die mindestens einen zugewiesenen Tag mit der Extension teilen.
+
+Disabled extensions laden in keinem Profil.
+
+## Wann gelten Änderungen an extensions?
+
+Extension loading wird beim Profilstart berechnet. Starten Sie ein Profil neu, nachdem Sie extension assignment, tags oder extension files geändert haben.
+
+## Kann ein Wallet main wallet in mehreren Profilen sein?
+
+Nein. Ein Wallet kann nicht gleichzeitig main wallet in mehreren Profilen sein.
+
+Jedes Profil kann ein main wallet pro Wallet-Typ haben. Additional wallets können verknüpft werden, wenn ein main wallet desselben Typs existiert.
+
+## Was passiert beim Überschreiten des membership limit?
+
+Profile oberhalb des membership profile limit werden als excessive markiert und können nicht normal genutzt werden, bis das Limitproblem gelöst ist.
+
+## Wo werden cookies und social tokens angewendet?
+
+Importierte cookies und social tokens werden als pending profile data gespeichert. Oxygen Atmos wendet sie beim nächsten Browserprofilstart an.
+
+Wenn das Profil bereits läuft, schließen und starten Sie es erneut.

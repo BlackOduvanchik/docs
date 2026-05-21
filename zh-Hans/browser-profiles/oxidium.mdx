@@ -1,0 +1,70 @@
+---
+title: "Oxidium"
+description: "了解 Oxygen Atmos 配置文件背后的 Chromium 兼容浏览器核心"
+---
+
+## 什么是 Oxidium
+
+Oxidium 是 Oxygen Atmos 浏览器配置文件使用的 Chromium 兼容浏览器核心。Oxygen Atmos 负责管理配置文件数据、钱包、代理、扩展、cookies 和设置；Oxidium 则在应用已保存配置后运行浏览器窗口。
+
+在 Oxygen Atmos 界面中，浏览器版本会显示为 Chrome 主版本，以便兼容网站和扩展工具链。
+
+## 为什么重要
+
+Oxidium 专为隔离浏览器配置文件工作流而设计。每个启动的配置文件都会使用独立的浏览器数据目录，并应用已保存的指纹、代理、钱包集成、cookies、扩展和浏览器偏好设置。
+
+这让 Oxygen Atmos 可以让浏览器 runtime 与用户在桌面应用中管理的配置保持一致。
+
+## 反检测基础
+
+Oxidium 会与 Oxygen Atmos 的配置文件系统协同，控制浏览器身份信号，例如：
+
+| 信号 | Oxygen Atmos 控制的内容 |
+|---|---|
+| **Browser version** | 配置文件使用的 Chromium 兼容 runtime 版本 |
+| **User-Agent and Client Hints** | 浏览器、操作系统和平台身份值 |
+| **Language and app language** | 浏览器 locale 和界面语言行为 |
+| **Timezone and geolocation** | 与位置相关的浏览器设置 |
+| **WebRTC** | 网络暴露策略 |
+| **GPU and WebGL** | GPU 元数据和渲染行为 |
+| **Noise settings** | Canvas、Audio 和 DOM Rectangles 行为 |
+| **Cookies and sessions** | 配置文件专属的网站状态 |
+| **Extensions** | 全局或按标签加载的扩展 |
+
+这些设置会作为一个连贯的浏览器身份一起工作。保存配置文件前，预览会显示生成的指纹。
+
+## 移除的后台服务
+
+Oxidium 会减少或禁用许多 Oxygen Atmos 配置文件工作流不需要的 Chrome 和 Google 服务。这有助于限制不必要的后台通信，并减少配置文件运行时的后台工作。
+
+示例包括 sync、suggestions、reporting、Safe Browsing checks，以及其他依赖 Google 外部基础设施的云端浏览器功能。
+
+## 配置文件 runtime
+
+启动配置文件时，Oxygen Atmos 会应用已保存的配置，并为该配置文件打开 Oxidium 窗口。
+
+启动过程中，Oxygen Atmos 可以：
+
+- 应用配置文件代理
+- 导入待处理 cookies 和 social tokens
+- 加载匹配的扩展
+- 通过内置 Rabby 扩展暴露已绑定钱包
+- 应用浏览器偏好设置和指纹设置
+
+如果配置文件已经在运行，启动操作会聚焦现有 Oxidium 窗口，而不是再打开一个副本。
+
+## 钱包集成
+
+已绑定钱包会通过内置 Rabby 扩展在浏览器配置文件中可用。私钥保留在 Oxygen Atmos 内部，不会暴露给浏览器 runtime。
+
+每个配置文件在每种钱包类型下可以有一个 main wallet，并可以添加依赖同类型 main wallet 的 additional wallets。
+
+## 扩展加载
+
+扩展会在启动时计算：
+
+- global extensions 会加载到每个配置文件
+- tag-based extensions 只会在配置文件与扩展至少共享一个标签时加载
+- disabled extensions 不会加载
+
+修改扩展分配、标签或扩展文件后，请重新启动正在运行的配置文件。

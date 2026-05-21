@@ -1,0 +1,62 @@
+---
+title: "CEX withdrawal"
+description: "Tokens automatisch von Exchange accounts auf Ihre Wallets auszahlen"
+---
+
+## Überblick
+
+CEX withdrawal sendet Tokens automatisch von verbundenen Exchange accounts direkt an Wallets im Manager. Das ist nützlich, um Mittel ohne Handarbeit auf viele Wallets zu verteilen.
+
+## Parameter
+
+| Parameter | Beschreibung |
+|---|---|
+| **Chain** | Blockchain-Netzwerk für den withdrawal, z. B. BNB Smart Chain |
+| **Token** | Token für den withdrawal, z. B. USDT |
+| **Exchange** | Exchange account als Quelle |
+| **Wallets** | Ziel-Wallets aus der Wallet-Liste |
+| **Withdrawal amount** | Min- und Max-Bereich im gewählten Token |
+| **Withdraw only if wallet balance is less than** | Nur an Wallets mit definiert niedrigem Balance senden |
+
+<Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_cex_withdrawal_exchange_select.png" alt="CEX withdrawal setup" /></Frame>
+
+<Note>
+  Für jede ausgewählte Exchange sehen Sie aktuellen Token-Balance, withdrawal fee und minimum withdrawal amount.
+</Note>
+
+## Task config
+
+Konfigurieren Sie vor dem Start die Ausführung:
+
+| Einstellung | Beschreibung |
+|---|---|
+| **Workers** | Anzahl paralleler withdrawal threads |
+| **Max retries** | Wiederholungen für fehlgeschlagene withdrawals |
+| **Delay between withdrawals** | Min- und Max-Verzögerung in Sekunden |
+
+## Withdrawal ausführen
+
+<Steps>
+  <Step title="Exchanges verbinden">
+    Fügen Sie API keys in [CEX accounts](/de/exchange-accounts/about-exchange-accounts) hinzu.
+  </Step>
+  <Step title="Parameter setzen">
+    Wählen Sie chain, token, exchange, wallets und den Betragsbereich.
+  </Step>
+  <Step title="Preview prüfen">
+    Klicken Sie auf **Preview**. Prüfen Sie Wallets, withdrawal amounts, aktuelle Balances und Fees. Einzelne Beträge können bei Bedarf bearbeitet werden.
+
+    <Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_cex_withdrawal_preview.png" alt="CEX withdrawal preview" /></Frame>
+  </Step>
+  <Step title="Starten oder planen">
+    - Klicken Sie auf **Launch**, um sofort auszuführen
+    - Klicken Sie auf **Postpone**, um Datum und Uhrzeit zu wählen — die Aufgabe erscheint im **Scheduled** Tab des [Task manager](/de/task-manager/about-task-manager)
+  </Step>
+</Steps>
+
+## Templates
+
+Speichern Sie withdrawal-Konfigurationen für Wiederverwendung:
+
+- **Während Preview speichern** — klicken Sie oben in der Preview auf die Save-Icon neben **Templates**
+- **Aus abgeschlossener Task kopieren** — klicken Sie im Task manager auf die Copy-Icon einer abgeschlossenen Task. Optionen: use as template, copy all wallets oder copy wallets with errors

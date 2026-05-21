@@ -1,0 +1,72 @@
+---
+title: "Über Exchange accounts"
+description: "CEX accounts per API verbinden, Balances prüfen und Withdrawals automatisieren"
+---
+
+## Überblick
+
+Exchange accounts speichern API-Verbindungen zu zentralisierten Börsen. Nach dem Verbinden können Sie Balances verfolgen und Exchanges als Quellen im [Transfer-Modul](/de/transfers/about-transfers) verwenden.
+
+<Frame><img src="/images/atmos_ui/cex_accounts/atmos_cex_accounts_bitget_balances.png" alt="Exchange account with token balances" /></Frame>
+
+**Unterstützte Exchanges:** Binance, OKX, MEXC, Bitget
+
+<Note>
+  Oxygen Atmos zeigt nur Token-Balances, die **für withdrawal verfügbar** sind. Tokens in Futures, Staking oder Farming werden nicht einbezogen.
+</Note>
+
+## Account limits
+
+| Bedingung | Limit pro Exchange |
+|---|---|
+| Weniger als 500 Profile | 1 Account |
+| 500 oder mehr Profile | 5 Accounts |
+
+## Exchange account hinzufügen
+
+<Steps>
+  <Step title="API keys erstellen">
+    Erstellen Sie API keys in Ihrer Exchange. Details finden Sie unter [API key setup](/de/exchange-accounts/api-key-setup).
+  </Step>
+  <Step title="Accounts Tab öffnen">
+    Öffnen Sie **CEX accounts** in der linken Seitenleiste.
+  </Step>
+  <Step title="Account hinzufügen">
+    Klicken Sie auf **Add Account** und wählen Sie Ihre Exchange.
+
+    <Frame><img src="/images/atmos_ui/cex_accounts/atmos_cex_accounts_adding_account.png" alt="Add exchange account form" /></Frame>
+  </Step>
+  <Step title="API credentials eingeben">
+    Füllen Sie die Felder aus:
+
+    | Feld | Beschreibung |
+    |---|---|
+    | **Alias** | Anzeigename des Accounts |
+    | **API Key** | Ihr Exchange API key |
+    | **API Secret** | Ihr Exchange secret key |
+    | **Passphrase** | Nur für OKX und Bitget erforderlich |
+    | **Proxy** | Optional — proxy für API requests zuweisen |
+  </Step>
+  <Step title="Bestätigen">
+    Klicken Sie auf **Add Account**. Der Account erscheint mit aktuellen Balances in der Liste.
+  </Step>
+</Steps>
+
+## API keys bearbeiten
+
+Um credentials für einen verbundenen Account zu aktualisieren:
+
+1. Klicken Sie auf die **edit icon** neben dem Exchange account
+2. Aktualisieren Sie **alias**, **API key**, **secret key** oder **passphrase**
+3. Klicken Sie auf **Save Changes**
+
+## Schnellzugriff
+
+<CardGroup cols={2}>
+  <Card title="API key setup" icon="key" href="/de/exchange-accounts/api-key-setup">
+    Schritt-für-Schritt-Guides für Binance, OKX, MEXC und Bitget.
+  </Card>
+  <Card title="CEX withdrawal" icon="arrow-right-from-bracket" href="/de/transfers/cex-withdrawal">
+    Tokens von Exchanges auf Ihre Wallets auszahlen.
+  </Card>
+</CardGroup>

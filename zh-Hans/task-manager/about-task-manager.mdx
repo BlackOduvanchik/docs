@@ -1,0 +1,62 @@
+---
+title: "关于 Task Manager"
+description: "为提现和转账计划、监控和管理任务"
+---
+
+## 概览
+
+Task Manager 是用于监控所有计划任务和运行中任务的中心面板。任务从[转账模块](/zh-Hans/transfers/about-transfers)创建，并在这里通过三个标签页跟踪：**Scheduled**、**Processing** 和 **Archive**。
+
+<Frame><img src="/images/atmos_ui/task_manager/atmos_task_manager_tasks_dashboard.png" alt="Task Manager 面板" /></Frame>
+
+## 任务标签页
+
+### Scheduled
+
+等待在指定日期和时间执行的任务。
+
+| 列 | 说明 |
+|---|---|
+| **Wallets** | 任务中的钱包总数 |
+| **Created** | 任务创建时间 |
+| **Scheduled** | 启动日期和时间 |
+| **Cancel** | 取消任务并移入 archive |
+| **Open** | 查看并编辑任务 |
+
+### Processing
+
+当前正在执行的任务。
+
+| 列 | 说明 |
+|---|---|
+| **Wallets** | 任务中的钱包总数 |
+| **Created** | 任务创建时间 |
+| **Running since** | 执行开始时间 |
+| **Stop** | 停止执行并移入 archive |
+| **Open** | 查看实时进度和 logs |
+
+### Archive
+
+已完成、已取消或已停止的任务。
+
+| 列 | 说明 |
+|---|---|
+| **Wallets** | 任务中的钱包总数 |
+| **Created** | 任务创建时间 |
+| **Status** | Cancelled / Partially completed / Completed |
+| **Open** | 查看最终 logs |
+
+<Warning>
+  计划任务在本机执行。到达计划时间时，你的设备和 Oxygen Atmos 必须保持运行。
+</Warning>
+
+## 快速链接
+
+<CardGroup cols={2}>
+  <Card title="创建任务" icon="plus" href="/zh-Hans/task-manager/creating-tasks">
+    计划任务并配置参数。
+  </Card>
+  <Card title="进度跟踪" icon="chart-line" href="/zh-Hans/task-manager/progress-tracking">
+    监控执行、查看 logs，并从错误中恢复。
+  </Card>
+</CardGroup>

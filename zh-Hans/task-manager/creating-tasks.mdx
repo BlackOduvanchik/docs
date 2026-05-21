@@ -1,0 +1,55 @@
+---
+title: "创建任务"
+description: "在执行前计划任务并配置提现参数"
+---
+
+## 创建计划任务
+
+任务从[转账模块](/zh-Hans/transfers/about-transfers)创建，可以是 CEX withdrawal，也可以是 Wallet withdrawal。
+
+<Steps>
+  <Step title="配置转账">
+    在左侧边栏进入 **Transfers**，并设置提现参数。
+  </Step>
+  <Step title="预览">
+    点击 **Preview** 检查操作。
+  </Step>
+  <Step title="延后">
+    点击 **Postpone**，而不是 **Launch**。
+  </Step>
+  <Step title="设置计划时间">
+    选择执行的**日期和时间**。
+
+    <Warning>
+      你的设备和 Oxygen Atmos 必须保持运行，任务才能在计划时间执行。
+    </Warning>
+  </Step>
+  <Step title="确认">
+    任务会出现在 Task Manager 的 **Scheduled** 标签页。
+  </Step>
+</Steps>
+
+## 编辑计划任务
+
+在 **Scheduled** 标签页，点击任务上的 **Open** 即可查看和编辑。关闭编辑器时，修改会自动保存。
+
+<Frame><img src="/images/atmos_ui/task_manager/atmos_task_manager_tasks_edit_menu.png" alt="带编号元素的任务编辑菜单" /></Frame>
+
+## 编辑菜单说明
+
+| # | 元素 | 说明 |
+|---|---|---|
+| 1 | **Scheduled** | 任务开始执行的日期和时间 |
+| 2 | **Logs** | 任务通用 log |
+| 3 | **Config** | Workers、delays、retries。运行中的任务不可编辑 |
+| 4 | **Action row** | 某个钱包的操作信息 |
+| 5 | **Token withdrawal amount** | 要提现到钱包的金额。运行中的任务不可编辑 |
+| 6 | **Status** | 当前操作状态 |
+| 7 | **Wallets** | 已完成钱包的进度 |
+| 8 | **Withdrawal amount** | 所有钱包的总提现金额 |
+| 9 | **Fee** | 所有钱包的总手续费 |
+| 10 | **Processing time** | 总完成时间 |
+| 11 | **Use as template** | 复制菜单：use as template、copy all wallets 或 copy wallets with errors |
+| 12 | **Postpone** | 修改计划日期和时间 |
+| 13 | **Cancel** | 取消任务 |
+| 14 | **Launch** | 立即开始执行 |

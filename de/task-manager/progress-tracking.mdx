@@ -1,0 +1,58 @@
+---
+title: "Fortschritt verfolgen"
+description: "Task-Ausführung überwachen, Logs prüfen und fehlgeschlagene Operationen wiederherstellen"
+---
+
+## Fortschritt ansehen
+
+Klicken Sie im Tab **Processing** oder **Archive** auf **Open**, um Details der Ausführung zu sehen.
+
+## Task-Logs
+
+Klicken Sie auf **Logs**, um detaillierte Einträge mit Zeitstempeln für jede Wallet-Operation zu sehen. Ein Log-Eintrag zeigt:
+
+- Transaktionsstatus: success, pending oder error
+- Statusmeldungen wie `Transaction sent, waiting for confirmation` oder `Successfully transferred X to address`
+- aufklappbare Details pro Schritt
+
+<Frame><img src="/images/atmos_ui/task_manager/atmos_task_manager_tasks_logs.png" alt="Task execution logs" /></Frame>
+
+## Task-Status
+
+| Status | Beschreibung |
+|---|---|
+| **Scheduled** | Wartet auf geplante Startzeit |
+| **Processing** | Wird gerade ausgeführt |
+| **Queued** | Wallet wartet auf Verarbeitung |
+| **Completed** | Alle Operationen erfolgreich abgeschlossen |
+| **Partially completed** | Einige Wallets erfolgreich, andere fehlgeschlagen |
+| **Failed Error** | Task mit Fehlern beendet |
+| **Cancelled** | Manuell abgebrochen |
+
+## Fehlerbehebung
+
+### Restart unsuccessful
+
+Wenn eine Task **Partially completed** ist, klicken Sie auf **Restart unsuccessful**, um nur Wallets mit **Queued** oder **Error** erneut auszuführen.
+
+### Wallets für gezielte Fixes kopieren
+
+Wenn einige Wallets fehlschlagen, z. B. wegen zu wenig gas, können Sie eine separate top-up Task erstellen:
+
+<Steps>
+  <Step title="Kopiermenü öffnen">
+    Klicken Sie in der Task-Ansicht unten rechts auf die **copy icon**.
+  </Step>
+  <Step title="Option wählen">
+    Wählen Sie eine Option:
+
+    | Option | Beschreibung |
+    |---|---|
+    | **Use as template** | Alle Task-Parameter in eine neue Task kopieren |
+    | **Copy all wallets** | Alle Wallets in eine neue Task kopieren |
+    | **Copy wallets with errors** | Nur Wallets mit error status kopieren |
+  </Step>
+  <Step title="Konfigurieren und starten">
+    Setzen Sie Parameter für die neue Task, z. B. native token an fehlgeschlagene Wallets senden, und starten oder planen Sie sie.
+  </Step>
+</Steps>

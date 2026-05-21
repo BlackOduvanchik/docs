@@ -1,0 +1,125 @@
+---
+title: "导入钱包"
+description: "将钱包添加到管理器：单个添加、列表导入或文件导入"
+---
+
+## 导入方式
+
+钱包管理器支持三种导入方式：
+
+- **Single**：手动添加单个钱包
+- **Multiple**：按结构化格式粘贴多个钱包
+- **File**：上传 CSV、XLS 或 XLSX 文件
+
+<Note>
+  使用相同 private key 重新导入钱包时，会**更新现有条目**，而不是创建重复钱包。
+</Note>
+
+## 单个导入
+
+<Steps>
+  <Step title="打开导入窗口">
+    点击右上角的 **Add Wallet**。
+  </Step>
+  <Step title="选择模式">
+    选择 **Single** 标签页。
+  </Step>
+  <Step title="选择 chain 类型">
+    将 chain type 选择为 **EVM**。
+  </Step>
+  <Step title="输入钱包数据">
+    填写字段：
+
+    | 字段 | 说明 | 必填 |
+    |---|---|---|
+    | **Private key or mnemonic** | 钱包的 private key 或 mnemonic phrase | 是 |
+    | **Withdrawal address** | 默认转出地址 | 否 |
+    | **Name** | 钱包显示名称 | 否 |
+    | **Tags** | 用于整理的一个或多个标签 | 否 |
+
+    <Frame><img src="/images/atmos_ui/wallets/atmos_wallets_import_wallet_single.png" alt="单个钱包导入表单" /></Frame>
+  </Step>
+  <Step title="确认">
+    点击 **Add Wallet** 完成导入。
+  </Step>
+</Steps>
+
+## 多个导入
+
+按以下格式逐行粘贴钱包：
+
+```text
+private_key:withdrawal_address:alias
+```
+
+每个钱包占一行。示例：
+
+```text
+private_key1:0xabc...123:Farm_01
+private_key2:0xdef...456:Farm_02
+private_key3:0x789...abc:Farm_03
+```
+
+<Steps>
+  <Step title="打开导入窗口">
+    点击右上角的 **Add Wallet**。
+  </Step>
+  <Step title="选择模式">
+    选择 **Multiple** 标签页。
+  </Step>
+  <Step title="选择 chain 类型">
+    将 chain type 选择为 **EVM**。
+  </Step>
+  <Step title="分配标签（可选）">
+    选择一个或多个标签，应用到所有导入的钱包。
+  </Step>
+  <Step title="粘贴钱包数据">
+    将列表粘贴到文本框中。
+  </Step>
+  <Step title="确认">
+    点击 **Add Wallets** 导入所有条目。
+  </Step>
+</Steps>
+
+## 文件导入
+
+支持格式：**CSV**、**XLS**、**XLSX**。你可以直接在导入窗口下载模板。
+
+<Steps>
+  <Step title="打开导入窗口">
+    点击右上角的 **Add Wallet**。
+  </Step>
+  <Step title="选择模式">
+    选择 **File** 标签页。
+  </Step>
+  <Step title="选择 chain 类型">
+    将 chain type 选择为 **EVM**。
+  </Step>
+  <Step title="分配标签（可选）">
+    选择要应用到所有导入钱包的标签。
+  </Step>
+  <Step title="下载模板">
+    选择模板格式（CSV、XLS 或 XLSX）。文件会保存到桌面。
+
+    <Frame><img src="/images/atmos_ui/wallets/atmos_wallets_import_wallet_file_1.png" alt="文件导入：下载模板" /></Frame>
+
+    <Info>
+      如果没有 Excel，可以将模板导入 Google Sheets 后填写。
+    </Info>
+  </Step>
+  <Step title="填写模板">
+    打开模板并填写列：
+
+    | 列 | 说明 |
+    |---|---|
+    | `wallet_key_or_address` | Private key 或 mnemonic |
+    | `withdraw_address` | 转账目标地址 |
+    | `alias` | 钱包显示名称 |
+  </Step>
+  <Step title="上传文件">
+    点击 **Next**，然后将文件拖入导入区域，或点击 **Select**。
+  </Step>
+  <Step title="确认">
+    点击 **Import** 从文件中添加所有钱包。
+  </Step>
+</Steps>

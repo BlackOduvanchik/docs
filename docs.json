@@ -261,6 +261,243 @@
             ]
           }
         ]
+      },
+      {
+        "language": "de",
+        "tabs": [
+          {
+            "tab": "Dokumentation",
+            "groups": [
+              {
+                "group": "Erste Schritte",
+                "icon": "rocket",
+                "pages": [
+                  "de/getting-started/overview",
+                  "de/getting-started/registration",
+                  "de/getting-started/installation"
+                ]
+              },
+              {
+                "group": "Guides",
+                "pages": [
+                  {
+                    "group": "Wallet Manager",
+                    "icon": "wallet",
+                    "pages": [
+                      "de/wallet-manager/about-wallet-manager",
+                      "de/wallet-manager/import-wallets",
+                      "de/wallet-manager/edit-wallets",
+                      "de/wallet-manager/filters"
+                    ]
+                  },
+                  {
+                    "group": "Browserprofile",
+                    "icon": "user-secret",
+                    "pages": [
+                      "de/browser-profiles/about-profiles",
+                      "de/browser-profiles/oxidium",
+                      "de/browser-profiles/mass-creation",
+                      "de/browser-profiles/secure-notes",
+                      "de/browser-profiles/faq",
+                      "de/browser-profiles/troubleshooting"
+                    ]
+                  },
+                  {
+                    "group": "Exchange Accounts",
+                    "icon": "building-columns",
+                    "pages": [
+                      "de/exchange-accounts/about-exchange-accounts",
+                      "de/exchange-accounts/api-key-setup"
+                    ]
+                  },
+                  {
+                    "group": "Transfers",
+                    "icon": "arrow-right-arrow-left",
+                    "pages": [
+                      "de/transfers/about-transfers",
+                      "de/transfers/cex-withdrawal",
+                      "de/transfers/wallet-withdrawal"
+                    ]
+                  },
+                  {
+                    "group": "Task Manager",
+                    "icon": "list-check",
+                    "pages": [
+                      "de/task-manager/about-task-manager",
+                      "de/task-manager/creating-tasks",
+                      "de/task-manager/progress-tracking"
+                    ]
+                  },
+                  {
+                    "group": "Einstellungen",
+                    "icon": "gear",
+                    "pages": [
+                      "de/additional-features/settings"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "language": "fr",
+        "tabs": [
+          {
+            "tab": "Documentation",
+            "groups": [
+              {
+                "group": "Premiers pas",
+                "icon": "rocket",
+                "pages": [
+                  "fr/getting-started/overview",
+                  "fr/getting-started/registration",
+                  "fr/getting-started/installation"
+                ]
+              },
+              {
+                "group": "Guides",
+                "pages": [
+                  {
+                    "group": "Wallet manager",
+                    "icon": "wallet",
+                    "pages": [
+                      "fr/wallet-manager/about-wallet-manager",
+                      "fr/wallet-manager/import-wallets",
+                      "fr/wallet-manager/edit-wallets",
+                      "fr/wallet-manager/filters"
+                    ]
+                  },
+                  {
+                    "group": "Profils navigateur",
+                    "icon": "user-secret",
+                    "pages": [
+                      "fr/browser-profiles/about-profiles",
+                      "fr/browser-profiles/oxidium",
+                      "fr/browser-profiles/mass-creation",
+                      "fr/browser-profiles/secure-notes",
+                      "fr/browser-profiles/faq",
+                      "fr/browser-profiles/troubleshooting"
+                    ]
+                  },
+                  {
+                    "group": "Comptes d'exchange",
+                    "icon": "building-columns",
+                    "pages": [
+                      "fr/exchange-accounts/about-exchange-accounts",
+                      "fr/exchange-accounts/api-key-setup"
+                    ]
+                  },
+                  {
+                    "group": "Transfers",
+                    "icon": "arrow-right-arrow-left",
+                    "pages": [
+                      "fr/transfers/about-transfers",
+                      "fr/transfers/cex-withdrawal",
+                      "fr/transfers/wallet-withdrawal"
+                    ]
+                  },
+                  {
+                    "group": "Task Manager",
+                    "icon": "list-check",
+                    "pages": [
+                      "fr/task-manager/about-task-manager",
+                      "fr/task-manager/creating-tasks",
+                      "fr/task-manager/progress-tracking"
+                    ]
+                  },
+                  {
+                    "group": "Paramètres",
+                    "icon": "gear",
+                    "pages": [
+                      "fr/additional-features/settings"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "language": "zh-Hans",
+        "tabs": [
+          {
+            "tab": "文档",
+            "groups": [
+              {
+                "group": "开始使用",
+                "icon": "rocket",
+                "pages": [
+                  "zh-Hans/getting-started/overview",
+                  "zh-Hans/getting-started/registration",
+                  "zh-Hans/getting-started/installation"
+                ]
+              },
+              {
+                "group": "指南",
+                "pages": [
+                  {
+                    "group": "钱包管理器",
+                    "icon": "wallet",
+                    "pages": [
+                      "zh-Hans/wallet-manager/about-wallet-manager",
+                      "zh-Hans/wallet-manager/import-wallets",
+                      "zh-Hans/wallet-manager/edit-wallets",
+                      "zh-Hans/wallet-manager/filters"
+                    ]
+                  },
+                  {
+                    "group": "浏览器配置文件",
+                    "icon": "user-secret",
+                    "pages": [
+                      "zh-Hans/browser-profiles/about-profiles",
+                      "zh-Hans/browser-profiles/oxidium",
+                      "zh-Hans/browser-profiles/mass-creation",
+                      "zh-Hans/browser-profiles/secure-notes",
+                      "zh-Hans/browser-profiles/faq",
+                      "zh-Hans/browser-profiles/troubleshooting"
+                    ]
+                  },
+                  {
+                    "group": "交易所账户",
+                    "icon": "building-columns",
+                    "pages": [
+                      "zh-Hans/exchange-accounts/about-exchange-accounts",
+                      "zh-Hans/exchange-accounts/api-key-setup"
+                    ]
+                  },
+                  {
+                    "group": "转账",
+                    "icon": "arrow-right-arrow-left",
+                    "pages": [
+                      "zh-Hans/transfers/about-transfers",
+                      "zh-Hans/transfers/cex-withdrawal",
+                      "zh-Hans/transfers/wallet-withdrawal"
+                    ]
+                  },
+                  {
+                    "group": "Task Manager",
+                    "icon": "list-check",
+                    "pages": [
+                      "zh-Hans/task-manager/about-task-manager",
+                      "zh-Hans/task-manager/creating-tasks",
+                      "zh-Hans/task-manager/progress-tracking"
+                    ]
+                  },
+                  {
+                    "group": "设置",
+                    "icon": "gear",
+                    "pages": [
+                      "zh-Hans/additional-features/settings"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
     ]
   },

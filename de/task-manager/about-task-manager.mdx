@@ -1,0 +1,62 @@
+---
+title: "Task manager"
+description: "Tasks für withdrawals und transfers planen, überwachen und verwalten"
+---
+
+## Überblick
+
+Der Task manager ist das zentrale Dashboard für geplante und laufende Tasks. Tasks werden im [Transfer-Modul](/de/transfers/about-transfers) erstellt und in den Tabs **Scheduled**, **Processing** und **Archive** verfolgt.
+
+<Frame><img src="/images/atmos_ui/task_manager/atmos_task_manager_tasks_dashboard.png" alt="Task manager dashboard" /></Frame>
+
+## Task-Tabs
+
+### Scheduled
+
+Tasks, die auf ein gewähltes Datum und eine Uhrzeit warten.
+
+| Spalte | Beschreibung |
+|---|---|
+| **Wallets** | Gesamtzahl der Wallets in der Task |
+| **Created** | Erstellungszeitpunkt |
+| **Scheduled** | Startdatum und Uhrzeit |
+| **Cancel** | Task abbrechen und ins Archive verschieben |
+| **Open** | Task öffnen und bearbeiten |
+
+### Processing
+
+Tasks, die gerade ausgeführt werden.
+
+| Spalte | Beschreibung |
+|---|---|
+| **Wallets** | Gesamtzahl der Wallets in der Task |
+| **Created** | Erstellungszeitpunkt |
+| **Running since** | Beginn der Ausführung |
+| **Stop** | Ausführung stoppen und ins Archive verschieben |
+| **Open** | Live-Fortschritt und Logs öffnen |
+
+### Archive
+
+Abgeschlossene, abgebrochene oder gestoppte Tasks.
+
+| Spalte | Beschreibung |
+|---|---|
+| **Wallets** | Gesamtzahl der Wallets in der Task |
+| **Created** | Erstellungszeitpunkt |
+| **Status** | Cancelled / Partially completed / Completed |
+| **Open** | Finale Logs öffnen |
+
+<Warning>
+  Scheduled tasks werden lokal ausgeführt. Ihr Gerät und Oxygen Atmos müssen zur geplanten Zeit laufen.
+</Warning>
+
+## Schnellzugriff
+
+<CardGroup cols={2}>
+  <Card title="Tasks erstellen" icon="plus" href="/de/task-manager/creating-tasks">
+    Tasks planen und Parameter konfigurieren.
+  </Card>
+  <Card title="Fortschritt verfolgen" icon="chart-line" href="/de/task-manager/progress-tracking">
+    Ausführung überwachen, Logs prüfen und Fehler beheben.
+  </Card>
+</CardGroup>

@@ -1,0 +1,72 @@
+---
+title: "关于交易所账户"
+description: "通过 API 连接交易所账户，以跟踪余额并自动化提现"
+---
+
+## 概览
+
+交易所账户模块允许你通过 API 连接加密交易所账户。连接后，你可以跟踪实时余额，并在[转账模块](/zh-Hans/transfers/about-transfers)中将交易所作为提现来源。
+
+<Frame><img src="/images/atmos_ui/cex_accounts/atmos_cex_accounts_bitget_balances.png" alt="带有 token 余额的交易所账户" /></Frame>
+
+**支持的交易所：** Binance、OKX、MEXC、Bitget
+
+<Note>
+  Oxygen Atmos 只显示**可提现**的 token 余额。锁定在 futures positions、staking 或 farming 中的 token 不会包含在内。
+</Note>
+
+## 账户限制
+
+| 条件 | 每个交易所的限制 |
+|---|---|
+| 少于 500 个配置文件 | 1 个账户 |
+| 500 个或更多配置文件 | 5 个账户 |
+
+## 添加交易所账户
+
+<Steps>
+  <Step title="创建 API keys">
+    在你的交易所生成 API keys。请查看 [API key 设置](/zh-Hans/exchange-accounts/api-key-setup)，按交易所查看详细步骤。
+  </Step>
+  <Step title="打开账户标签页">
+    在左侧边栏进入 **CEX accounts**。
+  </Step>
+  <Step title="添加账户">
+    点击 **Add Account** 并选择交易所。
+
+    <Frame><img src="/images/atmos_ui/cex_accounts/atmos_cex_accounts_adding_account.png" alt="添加交易所账户表单" /></Frame>
+  </Step>
+  <Step title="输入 API 凭据">
+    填写字段：
+
+    | 字段 | 说明 |
+    |---|---|
+    | **Alias** | 账户显示名称 |
+    | **API Key** | 你的交易所 API key |
+    | **API Secret** | 你的交易所 secret key |
+    | **Passphrase** | 仅 OKX 和 Bitget 需要 |
+    | **Proxy** | 可选：开启后为 API 请求分配代理 |
+  </Step>
+  <Step title="确认">
+    点击 **Add Account**。账户会带着当前余额显示在列表中。
+  </Step>
+</Steps>
+
+## 编辑 API keys
+
+要更新已连接账户的凭据：
+
+1. 点击交易所账户旁边的**编辑图标**
+2. 更新 **alias**、**API key**、**secret key** 或 **passphrase**
+3. 点击 **Save Changes**
+
+## 快速链接
+
+<CardGroup cols={2}>
+  <Card title="API key 设置" icon="key" href="/zh-Hans/exchange-accounts/api-key-setup">
+    Binance、OKX、MEXC 和 Bitget 的分步指南。
+  </Card>
+  <Card title="CEX 提现" icon="arrow-right-from-bracket" href="/zh-Hans/transfers/cex-withdrawal">
+    从交易所向你的钱包提现 token。
+  </Card>
+</CardGroup>

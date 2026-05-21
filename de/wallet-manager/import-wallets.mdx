@@ -1,0 +1,106 @@
+---
+title: "Wallets importieren"
+description: "EVM-Wallets manuell, als Liste oder aus einer Datei zu Oxygen Atmos hinzufügen"
+---
+
+## Importmethoden
+
+Oxygen Atmos unterstützt drei Importmethoden:
+
+- **Single** — ein Wallet über ein Formular
+- **Multiple** — mehrere Wallets über ein Textfeld
+- **File** — Import aus CSV, XLS oder XLSX
+
+<Warning>
+  Importieren Sie private keys nur aus vertrauenswürdigen Quellen. Speichern Sie Dateien mit private keys lokal und laden Sie sie nicht in Cloud-Tabelleneditoren hoch.
+</Warning>
+
+## Single import
+
+<Steps>
+  <Step title="Importdialog öffnen">
+    Klicken Sie oben rechts auf **Add Wallet**.
+  </Step>
+  <Step title="Modus wählen">
+    Wählen Sie den Tab **Single**.
+  </Step>
+  <Step title="Chain type wählen">
+    Wählen Sie **EVM** als Chain type.
+  </Step>
+  <Step title="Wallet-Daten eingeben">
+    Geben Sie private key oder address ein. Optional können Sie alias, tags und withdrawal address hinzufügen.
+
+    <Frame><img src="/images/atmos_ui/wallets/atmos_wallets_import_wallet_single.png" alt="Single wallet import form" /></Frame>
+  </Step>
+  <Step title="Import bestätigen">
+    Klicken Sie auf **Add Wallet**.
+  </Step>
+</Steps>
+
+## Multiple import
+
+Fügen Sie Wallets zeilenweise in diesem Format ein:
+
+```text
+private_key:withdrawal_address:alias
+```
+
+Jedes Wallet steht in einer neuen Zeile.
+
+<Steps>
+  <Step title="Importdialog öffnen">
+    Klicken Sie oben rechts auf **Add Wallet**.
+  </Step>
+  <Step title="Modus wählen">
+    Wählen Sie den Tab **Multiple**.
+  </Step>
+  <Step title="Chain type wählen">
+    Wählen Sie **EVM**.
+  </Step>
+  <Step title="Tags zuweisen">
+    Wählen Sie optional Tags, die auf alle importierten Wallets angewendet werden.
+  </Step>
+  <Step title="Wallet-Daten einfügen">
+    Fügen Sie die Liste in das Textfeld ein.
+  </Step>
+  <Step title="Bestätigen">
+    Klicken Sie auf **Add Wallets**.
+  </Step>
+</Steps>
+
+## File import
+
+Unterstützte Formate: **CSV**, **XLS**, **XLSX**. Eine Vorlage kann direkt im Importdialog heruntergeladen werden.
+
+<Steps>
+  <Step title="Importdialog öffnen">
+    Klicken Sie oben rechts auf **Add Wallet**.
+  </Step>
+  <Step title="Modus wählen">
+    Wählen Sie den Tab **File**.
+  </Step>
+  <Step title="Vorlage herunterladen">
+    Wählen Sie ein Format für die Vorlage. Die Datei wird auf dem Desktop gespeichert.
+
+    <Frame><img src="/images/atmos_ui/wallets/atmos_wallets_import_wallet_file_1.png" alt="File import — template download" /></Frame>
+  </Step>
+  <Step title="Vorlage ausfüllen">
+    Füllen Sie die Spalten aus:
+
+    | Spalte | Beschreibung |
+    |---|---|
+    | `wallet_key_or_address` | Private key oder mnemonic |
+    | `withdraw_address` | Zieladresse für Transfers |
+    | `alias` | Anzeigename des Wallets |
+  </Step>
+  <Step title="Datei hochladen">
+    Klicken Sie auf **Next** und ziehen Sie die Datei in den Upload-Bereich oder klicken Sie auf **Select**.
+  </Step>
+  <Step title="Bestätigen">
+    Klicken Sie auf **Import**, um alle Wallets aus der Datei hinzuzufügen.
+  </Step>
+</Steps>
+
+## Bestehende Wallets aktualisieren
+
+Wenn ein importiertes Wallet bereits existiert, aktualisiert Oxygen Atmos den vorhandenen Eintrag, statt ein Duplikat zu erstellen.

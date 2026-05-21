@@ -1,0 +1,152 @@
+---
+title: "关于配置文件"
+description: "了解浏览器配置文件：带有指纹、代理、钱包和浏览器设置的隔离浏览器身份"
+---
+
+## 什么是浏览器配置文件
+
+浏览器配置文件是 Oxygen Atmos 中保存的浏览器身份。你可以用配置文件隔离账户、会话、代理、钱包、指纹、cookies、本地存储、扩展和浏览器设置。
+
+Oxygen Atmos 负责存储和管理配置文件数据。[Oxidium](/zh-Hans/browser-profiles/oxidium) 是兼容 Chromium 的浏览器核心，在你启动配置文件时打开对应窗口。
+
+<Frame><img src="/images/atmos_ui/browser/atmos_browser_profiles.png" alt="浏览器配置文件列表" /></Frame>
+
+## 配置文件表格
+
+Browser 页面会显示日常操作所需的信息：
+
+| 列 | 说明 |
+|---|---|
+| **Alias** | 表格和浏览器标签中显示的配置文件名称 |
+| **Fingerprint** | 浏览器版本和指纹标签 |
+| **Tags** | 用于筛选和扩展加载规则的标签 |
+| **Proxy** | 分配的代理 IP，或缺少代理的状态 |
+| **Last launch** | 上次打开配置文件的时间 |
+| **Actions** | 启动、聚焦、编辑和其他配置文件操作 |
+
+可以通过 alias、已绑定钱包地址、浏览器版本、指纹标签、代理 URL 或代理 IP 搜索配置文件。点击标签，或使用 **Tags** 筛选器，可以显示特定配置文件分组。
+
+## 配置文件操作
+
+常用操作包括：
+
+- 启动已关闭的配置文件
+- 聚焦已经运行的配置文件
+- 关闭正在运行的配置文件
+- 编辑配置文件设置
+- 编辑已绑定钱包
+- 编辑标签
+- 编辑代理
+- 编辑 secure notes
+- 删除配置文件
+
+选中的配置文件也可以进行批量操作，例如启动、关闭、编辑标签、重命名或删除。
+
+## 指纹组成
+
+每个配置文件都会使用一组一致的浏览器参数：
+
+| 参数 | 说明 |
+|---|---|
+| **Browser version** | [Oxidium](/zh-Hans/browser-profiles/oxidium) 版本，为了兼容性会显示为 Chrome 主版本 |
+| **User-Agent** | 浏览器和操作系统识别字符串 |
+| **Client Hints** | Chromium client hint headers 和 JavaScript 值 |
+| **Screen resolution** | 屏幕尺寸 |
+| **Platform** | 操作系统平台标识，例如 Windows 10.0 |
+| **Language** | 浏览器语言和 locale |
+| **Timezone** | 地理时区设置 |
+| **Geolocation** | 权限模式和位置来源 |
+| **WebRTC** | 网络暴露策略 |
+| **Canvas** | Canvas 渲染 noise |
+| **Audio** | AudioContext noise |
+| **Rectangles** | DOM rectangles noise |
+| **WebGL** | GPU 元数据和渲染行为 |
+
+<Info>
+  指纹会在保存配置文件之前生成。预览会反映所选浏览器版本和浏览器偏好设置。
+</Info>
+
+## 配置文件状态
+
+| 状态 | 说明 |
+|---|---|
+| **Running** | 浏览器窗口当前已打开，显示绿色指示 |
+| **Not used** | 浏览器已关闭，数据已保存，显示灰色指示 |
+
+## 创建配置文件
+
+<Steps>
+  <Step title="点击 New Profile">
+    点击右上角的 **New Profile** 按钮。
+  </Step>
+  <Step title="设置配置文件身份">
+    输入 alias，并选择或创建标签。标签可用于筛选配置文件，也能控制哪些扩展加载到配置文件中。
+  </Step>
+  <Step title="绑定钱包">
+    如果这个配置文件需要钱包集成，请选择钱包。内置 Rabby 扩展会提供浏览器侧的钱包界面。
+  </Step>
+  <Step title="选择浏览器版本">
+    选择浏览器版本。如果希望 Oxygen Atmos 将配置文件迁移到最新支持版本之一，请启用 **Keep up to date**。
+  </Step>
+  <Step title="检查指纹">
+    查看生成的指纹预览，其中包括 user agent、platform、language、app language、timezone、geolocation、WebRTC、WebGL 和 noise 设置等值。
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_new_profile.png" alt="创建带有指纹预览的新配置文件" /></Frame>
+  </Step>
+  <Step title="分配代理（可选）">
+    如果配置文件需要独立网络位置，请输入代理信息。支持类型：**HTTP** 和 **SOCKS5**。
+
+    代理格式：
+
+    ```text
+    protocol://host:port:user:pass
+    protocol://user:pass@host:port
+    ```
+  </Step>
+  <Step title="添加 cookies 或 social tokens">
+    如果需要在下次浏览器启动时应用 cookies、X.com tokens 或 Discord tokens，可以在这里添加。
+  </Step>
+  <Step title="检查浏览器偏好设置">
+    可以使用全局默认设置，也可以为当前配置文件单独覆盖搜索引擎、语言、时区、地理位置、WebRTC 策略、GPU spoofing 模式或 noise 设置。
+  </Step>
+  <Step title="保存">
+    点击 **Save profile**。点击配置文件所在行即可启动浏览器。
+  </Step>
+</Steps>
+
+## 编辑配置文件
+
+创建后仍然可以编辑配置文件设置。部分修改会立即应用到已保存的配置文件数据；运行时相关修改通常需要关闭并重新启动配置文件。
+
+在编辑模式下，浏览器版本不能降级。例如，如果配置文件是用 Chrome 144 创建的，只能选择 144 或更新版本。
+
+## 配置文件中的钱包
+
+每个配置文件在每种钱包类型下只能有一个 main wallet。main wallet 必须存在于 Oxygen Atmos 中，拥有 private key，并且不能已经作为另一个配置文件的 main wallet。
+
+配置文件也可以包含 additional wallets。additional wallet 需要同一钱包类型下已有 main wallet。如果 main wallet 被移除，该类型的 secondary wallets 也会从配置文件中移除。
+
+启动配置文件时，已绑定的钱包会在浏览器配置文件中用于钱包相关流程。私钥保留在 Oxygen Atmos 内部，不会暴露给浏览器 runtime。
+
+## 代理设置
+
+每个配置文件都有自己的代理。支持类型：**HTTP** 和 **SOCKS5**。
+
+要修改配置文件代理，请打开配置文件编辑器并更新代理字段。
+
+配置代理后，Oxygen Atmos 会检查代理是否可用，并在可用时保存国家和 IP 等位置数据。
+
+## Membership 限制
+
+可正常使用的配置文件数量取决于当前 membership 限制。超过限制的配置文件会被视为 excessive，在限制问题解决之前不能正常使用。
+
+## 下一步
+
+<CardGroup cols={2}>
+  <Card title="批量创建" icon="clone" href="/zh-Hans/browser-profiles/mass-creation">
+    使用批量设置一次创建多个配置文件。
+  </Card>
+  <Card title="Secure notes" icon="note-sticky" href="/zh-Hans/browser-profiles/secure-notes">
+    给配置文件添加加密备注，方便快速查看。
+  </Card>
+</CardGroup>

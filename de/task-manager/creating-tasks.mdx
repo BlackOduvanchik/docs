@@ -1,0 +1,55 @@
+---
+title: "Tasks erstellen"
+description: "Tasks planen und withdrawal-Parameter vor der Ausführung konfigurieren"
+---
+
+## Geplante Task erstellen
+
+Tasks werden im [Transfer-Modul](/de/transfers/about-transfers) erstellt: CEX withdrawal oder wallet withdrawal.
+
+<Steps>
+  <Step title="Transfer konfigurieren">
+    Öffnen Sie **Transfers** in der linken Seitenleiste und setzen Sie die withdrawal-Parameter.
+  </Step>
+  <Step title="Preview prüfen">
+    Klicken Sie auf **Preview**, um die Operation zu prüfen.
+  </Step>
+  <Step title="Start verschieben">
+    Klicken Sie auf **Postpone** statt **Launch**.
+  </Step>
+  <Step title="Zeitplan setzen">
+    Wählen Sie **date and time** für die Ausführung.
+
+    <Warning>
+      Ihr Gerät und Oxygen Atmos müssen laufen, damit die Task zur geplanten Zeit ausgeführt wird.
+    </Warning>
+  </Step>
+  <Step title="Bestätigen">
+    Die Task erscheint im **Scheduled** Tab des Task manager.
+  </Step>
+</Steps>
+
+## Geplante Task bearbeiten
+
+Klicken Sie im **Scheduled** Tab auf **Open**, um eine Task anzusehen und zu bearbeiten. Änderungen werden automatisch gespeichert, wenn Sie den Editor schließen.
+
+<Frame><img src="/images/atmos_ui/task_manager/atmos_task_manager_tasks_edit_menu.png" alt="Task editing menu with numbered elements" /></Frame>
+
+## Editiermenü
+
+| # | Element | Beschreibung |
+|---|---|---|
+| 1 | **Scheduled** | Datum und Uhrzeit des Starts |
+| 2 | **Logs** | Allgemeines Task-Log |
+| 3 | **Config** | Workers, delays, retries; bei laufenden Tasks nicht editierbar |
+| 4 | **Action row** | Aktion für ein bestimmtes Wallet |
+| 5 | **Token withdrawal amount** | Betrag pro Wallet; bei laufenden Tasks nicht editierbar |
+| 6 | **Status** | Aktueller Aktionsstatus |
+| 7 | **Wallets** | Fortschritt nach abgeschlossenen Wallets |
+| 8 | **Withdrawal amount** | Gesamtbetrag über alle Wallets |
+| 9 | **Fee** | Gesamte Fee über alle Wallets |
+| 10 | **Processing time** | Gesamtdauer |
+| 11 | **Use as template** | Kopiermenü: use as template, copy all wallets oder copy wallets with errors |
+| 12 | **Postpone** | Datum und Uhrzeit ändern |
+| 13 | **Cancel** | Task abbrechen |
+| 14 | **Launch** | Sofort starten |

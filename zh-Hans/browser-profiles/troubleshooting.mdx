@@ -1,0 +1,63 @@
+---
+title: "故障排查"
+description: "解决浏览器配置文件创建、启动、导入和扩展问题"
+---
+
+当浏览器配置文件无法创建、启动、导入或按预期使用时，请参考本页。
+
+## 没有可用指纹
+
+当所选浏览器版本、平台、架构和 GPU renderer 没有匹配指纹时，指纹生成可能失败。
+
+如果界面提供该选项，可以尝试不匹配 GPU renderer 后重试。
+
+## 代理检查失败
+
+请检查：
+
+- host 和 port 是否正确
+- username 和 password 是否正确
+- 代理服务器是否在线
+- 当前网络是否能访问该代理
+- 代理是否支持 HTTP 或 SOCKS5
+
+如果代理值没有协议，Oxygen Atmos 会在导入时尝试检测它能否作为 HTTP 或 SOCKS5 使用。
+
+## 无法绑定钱包
+
+main wallet 必须：
+
+- 已存在于 Oxygen Atmos 中
+- 拥有 private key
+- 没有作为另一个配置文件的 main wallet
+
+只读钱包不能作为浏览器配置文件的 main wallet。
+
+## Cookies 没有出现
+
+导入的 cookies 会在下次启动配置文件时应用。如果配置文件已经在运行，请关闭并重新启动。
+
+同时检查 cookie 的 domain、path、expiry 和 secure 属性是否与网站匹配。
+
+## X.com 或 Discord token 没有生效
+
+X.com tokens 会作为 `.x.com` 的 `auth_token` cookie 导入。
+
+Discord tokens 会导入到以下地址的 local storage：
+
+```text
+https://discord.com/
+```
+
+如果 token 是在配置文件已经运行时添加的，请关闭并重新启动配置文件。
+
+## 扩展没有加载
+
+请检查：
+
+- 扩展已启用
+- 扩展是 global，或与配置文件共享至少一个标签
+- 修改扩展后已重新启动配置文件
+- 扩展包有效
+
+扩展加载会在 [Oxidium](/zh-Hans/browser-profiles/oxidium) 配置文件启动时计算。
