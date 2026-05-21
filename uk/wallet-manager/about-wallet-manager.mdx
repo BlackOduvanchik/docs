@@ -1,0 +1,45 @@
+---
+title: "Про менеджер гаманців"
+description: "Імпортуйте, групуйте та відстежуйте EVM-гаманці в Oxygen Atmos"
+---
+
+## Огляд
+
+Wallet manager — центральне місце для EVM-гаманців у Oxygen Atmos. Тут можна імпортувати гаманці, призначати теги, задавати withdrawal addresses, відстежувати balances і зв'язувати гаманці з браузерними профілями.
+
+<Frame><img src="/images/atmos_ui/wallets/atmos_wallets_5wallets.png" alt="Wallet manager with imported wallets" /></Frame>
+
+## Що видно в таблиці
+
+| Колонка | Опис |
+|---|---|
+| **Address** | EVM address гаманця |
+| **Alias** | Коротка назва для швидкого пошуку |
+| **Tags** | Групи та мітки гаманця |
+| **Withdrawal address** | Адреса для виведення, яку можна використовувати в transfers |
+| **Browser profile** | Пов'язаний браузерний профіль, якщо він є |
+| **Balances** | Знайдені токени та їхні суми |
+
+## Локальне зберігання
+
+Гаманці, імпортовані в менеджер, зберігають дані локально на вашому пристрої. Чутливі дані — private keys, API keys і налаштування — шифруються і не надсилаються на зовнішні сервери.
+
+## Основні дії
+
+- імпортувати один гаманець, список гаманців або файл
+- змінити alias, tags або withdrawal address
+- перевірити баланси в підтримуваних networks
+- відфільтрувати гаманці за тегами, балансами або пов'язаними профілями
+- використати гаманці в [браузерних профілях](/uk/browser-profiles/about-profiles)
+- використати гаманці в [transfers](/uk/transfers/about-transfers)
+
+## Далі
+
+<CardGroup cols={2}>
+  <Card title="Імпорт гаманців" icon="file-import" href="/uk/wallet-manager/import-wallets">
+    Додайте гаманці вручну, списком або з файлу.
+  </Card>
+  <Card title="Фільтри" icon="filter" href="/uk/wallet-manager/filters">
+    Швидко знаходьте потрібні гаманці.
+  </Card>
+</CardGroup>

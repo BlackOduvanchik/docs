@@ -1,0 +1,48 @@
+---
+title: "Про біржові акаунти"
+description: "Підключайте CEX accounts через API keys для автоматичних withdrawals"
+---
+
+## Огляд
+
+Exchange accounts зберігають API-підключення до централізованих бірж. Вони потрібні для [CEX withdrawal](/uk/transfers/cex-withdrawal), де Oxygen Atmos автоматично виводить токени з біржі на вибрані гаманці.
+
+Підтримуються біржі:
+
+- **Binance**
+- **OKX**
+- **MEXC**
+- **Bitget**
+
+<Info>
+  Oxygen Atmos показує тільки token balances, які **доступні для withdrawal**. Токени, заблоковані у futures positions, staking або farming, не враховуються.
+</Info>
+
+## Таблиця акаунтів
+
+| Колонка | Опис |
+|---|---|
+| **Name** | Назва акаунта в Oxygen Atmos |
+| **Exchange** | Підключена біржа |
+| **Tags** | Теги для групування акаунтів |
+| **Status** | Стан API-підключення |
+| **Actions** | Редагування або видалення акаунта |
+
+## Основні дії
+
+- додати API key для біржі
+- призначити tags
+- перевірити доступні balances
+- використати акаунт у CEX withdrawal
+- видалити акаунт
+
+## Далі
+
+<CardGroup cols={2}>
+  <Card title="Налаштування API key" icon="key" href="/uk/exchange-accounts/api-key-setup">
+    Підготуйте ключі біржі для Oxygen Atmos.
+  </Card>
+  <Card title="CEX withdrawal" icon="building-columns" href="/uk/transfers/cex-withdrawal">
+    Виводьте токени з бірж на свої гаманці.
+  </Card>
+</CardGroup>

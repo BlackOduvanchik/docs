@@ -23,75 +23,239 @@
     "og:image": "/images/atmos_docs_url_banner.png"
   },
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Documentation",
-        "groups": [
+        "language": "en",
+        "default": true,
+        "tabs": [
           {
-            "group": "Getting started",
-            "icon": "rocket",
-            "pages": [
-              "getting-started/overview",
-              "getting-started/registration",
-              "getting-started/installation"
+            "tab": "Documentation",
+            "groups": [
+              {
+                "group": "Getting started",
+                "icon": "rocket",
+                "pages": [
+                  "getting-started/overview",
+                  "getting-started/registration",
+                  "getting-started/installation"
+                ]
+              },
+              {
+                "group": "Guides",
+                "pages": [
+                  {
+                    "group": "Wallet manager",
+                    "icon": "wallet",
+                    "pages": [
+                      "wallet-manager/about-wallet-manager",
+                      "wallet-manager/import-wallets",
+                      "wallet-manager/edit-wallets",
+                      "wallet-manager/filters"
+                    ]
+                  },
+                  {
+                    "group": "Browser profiles",
+                    "icon": "user-secret",
+                    "pages": [
+                      "browser-profiles/about-profiles",
+                      "browser-profiles/oxidium",
+                      "browser-profiles/mass-creation",
+                      "browser-profiles/secure-notes",
+                      "browser-profiles/faq",
+                      "browser-profiles/troubleshooting"
+                    ]
+                  },
+                  {
+                    "group": "Exchange accounts",
+                    "icon": "building-columns",
+                    "pages": [
+                      "exchange-accounts/about-exchange-accounts",
+                      "exchange-accounts/api-key-setup"
+                    ]
+                  },
+                  {
+                    "group": "Transfers",
+                    "icon": "arrow-right-arrow-left",
+                    "pages": [
+                      "transfers/about-transfers",
+                      "transfers/cex-withdrawal",
+                      "transfers/wallet-withdrawal"
+                    ]
+                  },
+                  {
+                    "group": "Task manager",
+                    "icon": "list-check",
+                    "pages": [
+                      "task-manager/about-task-manager",
+                      "task-manager/creating-tasks",
+                      "task-manager/progress-tracking"
+                    ]
+                  },
+                  {
+                    "group": "Settings",
+                    "icon": "gear",
+                    "pages": [
+                      "additional-features/settings"
+                    ]
+                  }
+                ]
+              }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "language": "ru",
+        "tabs": [
           {
-            "group": "Guides",
-            "pages": [
+            "tab": "Документация",
+            "groups": [
               {
-                "group": "Wallet manager",
-                "icon": "wallet",
+                "group": "Начало работы",
+                "icon": "rocket",
                 "pages": [
-                  "wallet-manager/about-wallet-manager",
-                  "wallet-manager/import-wallets",
-                  "wallet-manager/edit-wallets",
-                  "wallet-manager/filters"
+                  "ru/getting-started/overview",
+                  "ru/getting-started/registration",
+                  "ru/getting-started/installation"
                 ]
               },
               {
-                "group": "Browser profiles",
-                "icon": "user-secret",
+                "group": "Руководства",
                 "pages": [
-                  "browser-profiles/about-profiles",
-                  "browser-profiles/oxidium",
-                  "browser-profiles/mass-creation",
-                  "browser-profiles/secure-notes",
-                  "browser-profiles/faq",
-                  "browser-profiles/troubleshooting"
+                  {
+                    "group": "Менеджер кошельков",
+                    "icon": "wallet",
+                    "pages": [
+                      "ru/wallet-manager/about-wallet-manager",
+                      "ru/wallet-manager/import-wallets",
+                      "ru/wallet-manager/edit-wallets",
+                      "ru/wallet-manager/filters"
+                    ]
+                  },
+                  {
+                    "group": "Браузерные профили",
+                    "icon": "user-secret",
+                    "pages": [
+                      "ru/browser-profiles/about-profiles",
+                      "ru/browser-profiles/oxidium",
+                      "ru/browser-profiles/mass-creation",
+                      "ru/browser-profiles/secure-notes",
+                      "ru/browser-profiles/faq",
+                      "ru/browser-profiles/troubleshooting"
+                    ]
+                  },
+                  {
+                    "group": "Биржевые аккаунты",
+                    "icon": "building-columns",
+                    "pages": [
+                      "ru/exchange-accounts/about-exchange-accounts",
+                      "ru/exchange-accounts/api-key-setup"
+                    ]
+                  },
+                  {
+                    "group": "Переводы",
+                    "icon": "arrow-right-arrow-left",
+                    "pages": [
+                      "ru/transfers/about-transfers",
+                      "ru/transfers/cex-withdrawal",
+                      "ru/transfers/wallet-withdrawal"
+                    ]
+                  },
+                  {
+                    "group": "Task manager",
+                    "icon": "list-check",
+                    "pages": [
+                      "ru/task-manager/about-task-manager",
+                      "ru/task-manager/creating-tasks",
+                      "ru/task-manager/progress-tracking"
+                    ]
+                  },
+                  {
+                    "group": "Настройки",
+                    "icon": "gear",
+                    "pages": [
+                      "ru/additional-features/settings"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "language": "uk",
+        "tabs": [
+          {
+            "tab": "Документація",
+            "groups": [
+              {
+                "group": "Початок роботи",
+                "icon": "rocket",
+                "pages": [
+                  "uk/getting-started/overview",
+                  "uk/getting-started/registration",
+                  "uk/getting-started/installation"
                 ]
               },
               {
-                "group": "Exchange accounts",
-                "icon": "building-columns",
+                "group": "Посібники",
                 "pages": [
-                  "exchange-accounts/about-exchange-accounts",
-                  "exchange-accounts/api-key-setup"
-                ]
-              },
-              {
-                "group": "Transfers",
-                "icon": "arrow-right-arrow-left",
-                "pages": [
-                  "transfers/about-transfers",
-                  "transfers/cex-withdrawal",
-                  "transfers/wallet-withdrawal"
-                ]
-              },
-              {
-                "group": "Task manager",
-                "icon": "list-check",
-                "pages": [
-                  "task-manager/about-task-manager",
-                  "task-manager/creating-tasks",
-                  "task-manager/progress-tracking"
-                ]
-              },
-              {
-                "group": "Settings",
-                "icon": "gear",
-                "pages": [
-                  "additional-features/settings"
+                  {
+                    "group": "Менеджер гаманців",
+                    "icon": "wallet",
+                    "pages": [
+                      "uk/wallet-manager/about-wallet-manager",
+                      "uk/wallet-manager/import-wallets",
+                      "uk/wallet-manager/edit-wallets",
+                      "uk/wallet-manager/filters"
+                    ]
+                  },
+                  {
+                    "group": "Браузерні профілі",
+                    "icon": "user-secret",
+                    "pages": [
+                      "uk/browser-profiles/about-profiles",
+                      "uk/browser-profiles/oxidium",
+                      "uk/browser-profiles/mass-creation",
+                      "uk/browser-profiles/secure-notes",
+                      "uk/browser-profiles/faq",
+                      "uk/browser-profiles/troubleshooting"
+                    ]
+                  },
+                  {
+                    "group": "Біржові акаунти",
+                    "icon": "building-columns",
+                    "pages": [
+                      "uk/exchange-accounts/about-exchange-accounts",
+                      "uk/exchange-accounts/api-key-setup"
+                    ]
+                  },
+                  {
+                    "group": "Перекази",
+                    "icon": "arrow-right-arrow-left",
+                    "pages": [
+                      "uk/transfers/about-transfers",
+                      "uk/transfers/cex-withdrawal",
+                      "uk/transfers/wallet-withdrawal"
+                    ]
+                  },
+                  {
+                    "group": "Task manager",
+                    "icon": "list-check",
+                    "pages": [
+                      "uk/task-manager/about-task-manager",
+                      "uk/task-manager/creating-tasks",
+                      "uk/task-manager/progress-tracking"
+                    ]
+                  },
+                  {
+                    "group": "Налаштування",
+                    "icon": "gear",
+                    "pages": [
+                      "uk/additional-features/settings"
+                    ]
+                  }
                 ]
               }
             ]

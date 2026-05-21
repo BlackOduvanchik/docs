@@ -1,0 +1,62 @@
+---
+title: "Task manager"
+description: "Плануйте, відстежуйте та керуйте задачами для withdrawals і transfers"
+---
+
+## Огляд
+
+Task manager — центральна панель для всіх запланованих і виконуваних задач. Задачі створюються в [модулі переказів](/uk/transfers/about-transfers) і відстежуються у вкладках **Scheduled**, **Processing** і **Archive**.
+
+<Frame><img src="/images/atmos_ui/task_manager/atmos_task_manager_tasks_dashboard.png" alt="Task manager dashboard" /></Frame>
+
+## Вкладки задач
+
+### Scheduled
+
+Задачі, які чекають запуску у вибрані дату й час.
+
+| Колонка | Опис |
+|---|---|
+| **Wallets** | Загальна кількість гаманців у задачі |
+| **Created** | Коли задача була створена |
+| **Scheduled** | Дата й час запуску |
+| **Cancel** | Скасувати задачу та перенести її в archive |
+| **Open** | Відкрити й змінити задачу |
+
+### Processing
+
+Задачі, які виконуються прямо зараз.
+
+| Колонка | Опис |
+|---|---|
+| **Wallets** | Загальна кількість гаманців у задачі |
+| **Created** | Коли задача була створена |
+| **Running since** | Коли почалося виконання |
+| **Stop** | Зупинити виконання та перенести задачу в archive |
+| **Open** | Відкрити прогрес у реальному часі та логи |
+
+### Archive
+
+Завершені, скасовані або зупинені задачі.
+
+| Колонка | Опис |
+|---|---|
+| **Wallets** | Загальна кількість гаманців у задачі |
+| **Created** | Коли задача була створена |
+| **Status** | Cancelled / Partially completed / Completed |
+| **Open** | Відкрити підсумкові логи |
+
+<Warning>
+  Заплановані задачі виконуються локально. У вибраний час пристрій і Oxygen Atmos мають бути запущені.
+</Warning>
+
+## Швидкі посилання
+
+<CardGroup cols={2}>
+  <Card title="Створення задач" icon="plus" href="/uk/task-manager/creating-tasks">
+    Плануйте задачі та налаштовуйте параметри.
+  </Card>
+  <Card title="Відстеження прогресу" icon="chart-line" href="/uk/task-manager/progress-tracking">
+    Стежте за виконанням, дивіться логи та відновлюйтеся після помилок.
+  </Card>
+</CardGroup>

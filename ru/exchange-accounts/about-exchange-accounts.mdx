@@ -1,0 +1,72 @@
+---
+title: "О биржевых аккаунтах"
+description: "Подключайте биржевые аккаунты по API, отслеживайте балансы и автоматизируйте выводы"
+---
+
+## Обзор
+
+Модуль биржевых аккаунтов позволяет подключать crypto exchanges по API. После подключения можно отслеживать актуальные балансы и использовать биржи как источник вывода в [модуле переводов](/ru/transfers/about-transfers).
+
+<Frame><img src="/images/atmos_ui/cex_accounts/atmos_cex_accounts_bitget_balances.png" alt="Exchange account with token balances" /></Frame>
+
+**Поддерживаемые биржи:** Binance, OKX, MEXC, Bitget
+
+<Note>
+  Oxygen Atmos показывает только токены, которые **доступны для вывода**. Токены, заблокированные во фьючерсах, стейкинге или фарминге, не учитываются.
+</Note>
+
+## Лимиты аккаунтов
+
+| Условие | Лимит на биржу |
+|---|---|
+| Меньше 500 профилей | 1 аккаунт |
+| 500 профилей или больше | 5 аккаунтов |
+
+## Добавить биржевой аккаунт
+
+<Steps>
+  <Step title="Создайте API keys">
+    Создайте API keys на стороне биржи. Пошаговые инструкции для каждой биржи есть в разделе [API key setup](/ru/exchange-accounts/api-key-setup).
+  </Step>
+  <Step title="Откройте вкладку аккаунтов">
+    Перейдите в **CEX accounts** в левом сайдбаре.
+  </Step>
+  <Step title="Добавьте аккаунт">
+    Нажмите **Add Account** и выберите биржу.
+
+    <Frame><img src="/images/atmos_ui/cex_accounts/atmos_cex_accounts_adding_account.png" alt="Add exchange account form" /></Frame>
+  </Step>
+  <Step title="Введите API credentials">
+    Заполните поля:
+
+    | Поле | Описание |
+    |---|---|
+    | **Alias** | Отображаемое имя аккаунта |
+    | **API Key** | API key биржи |
+    | **API Secret** | Secret key биржи |
+    | **Passphrase** | Нужен только для OKX и Bitget |
+    | **Proxy** | Необязательно — proxy для API requests |
+  </Step>
+  <Step title="Подтвердите">
+    Нажмите **Add Account**. Аккаунт появится в списке с текущими балансами.
+  </Step>
+</Steps>
+
+## Редактировать API keys
+
+Чтобы обновить credentials подключённого аккаунта:
+
+1. Нажмите **edit icon** рядом с биржевым аккаунтом
+2. Обновите **alias**, **API key**, **secret key** или **passphrase**
+3. Нажмите **Save Changes**
+
+## Быстрые ссылки
+
+<CardGroup cols={2}>
+  <Card title="API key setup" icon="key" href="/ru/exchange-accounts/api-key-setup">
+    Пошаговые инструкции для Binance, OKX, MEXC и Bitget.
+  </Card>
+  <Card title="CEX withdrawal" icon="arrow-right-from-bracket" href="/ru/transfers/cex-withdrawal">
+    Выводите токены с бирж на свои кошельки.
+  </Card>
+</CardGroup>

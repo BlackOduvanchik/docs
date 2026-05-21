@@ -1,0 +1,62 @@
+---
+title: "Wallet withdrawal"
+description: "Отправляйте токены с кошельков на связанные адреса или один общий адрес"
+---
+
+## Обзор
+
+Wallet withdrawal позволяет массово отправлять токены с ваших кошельков — на связанные withdrawal addresses каждого кошелька или на один общий адрес.
+
+## Параметры
+
+| Параметр | Описание |
+|---|---|
+| **Chain** | Блокчейн-сеть, например Ethereum |
+| **Tokens** | Один или несколько токенов для отправки |
+| **Wallets** | Кошельки-источники |
+| **Single withdraw address** | Необязательно — отправить все токены на один адрес вместо связанных адресов |
+
+### Выбор токенов
+
+После выбора chain панель токенов показывает доступные токены и их суммы. Для каждого токена можно отдельно настроить **withdrawal method**.
+
+<Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_evm_withdrawal_tokens_select.png" alt="Token selection with amounts and methods" /></Frame>
+
+## Настройки задачи
+
+Перед запуском настройте исполнение:
+
+| Настройка | Описание |
+|---|---|
+| **Workers** | Количество параллельных потоков вывода |
+| **Max retries** | Сколько раз повторять неудачную операцию |
+| **Delay between withdrawals** | Min и max задержка в секундах |
+| **Wait for gas less than** | Выполнять только при gas price ниже заданного gwei |
+| **Run in random order** | Обрабатывать кошельки в случайном порядке |
+
+## Запустить вывод
+
+<Steps>
+  <Step title="Импортируйте кошельки">
+    Добавьте кошельки в [Wallet Manager](/ru/wallet-manager/about-wallet-manager).
+  </Step>
+  <Step title="Настройте параметры">
+    Выберите chain, tokens, withdrawal methods, source wallets и при необходимости single address.
+  </Step>
+  <Step title="Проверьте Preview">
+    Нажмите **Preview**. Проверьте данные по каждому кошельку: wallet address, withdraw address, текущий balance и withdrawal amount для каждого token.
+
+    <Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_evm_preview.png" alt="Wallet withdrawal preview" /></Frame>
+  </Step>
+  <Step title="Запустите или отложите">
+    - Нажмите **Launch**, чтобы выполнить задачу сразу
+    - Нажмите **Postpone**, чтобы выбрать дату и время — задача попадёт во вкладку **Scheduled** в [Task manager](/ru/task-manager/about-task-manager)
+  </Step>
+</Steps>
+
+## Шаблоны
+
+Сохраняйте конфигурацию вывода для повторного использования:
+
+- **Сохранить во время Preview** — нажмите иконку сохранения рядом с полем **Templates** вверху экрана Preview
+- **Скопировать из завершённой задачи** — в Task manager нажмите иконку копирования на завершённой задаче. Доступны три варианта: use as template, copy all wallets или copy wallets with errors

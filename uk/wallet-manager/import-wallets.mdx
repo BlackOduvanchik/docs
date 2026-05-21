@@ -1,0 +1,89 @@
+---
+title: "Імпорт гаманців"
+description: "Додайте EVM-гаманці в Oxygen Atmos вручну, списком або з файлу"
+---
+
+## Способи імпорту
+
+Oxygen Atmos підтримує три способи імпорту гаманців:
+
+- **Single import** — один гаманець через форму
+- **Multiple import** — кілька гаманців через текстове поле
+- **File import** — імпорт із CSV, XLS, XLSX або Numbers файлу
+
+<Warning>
+  Імпортуйте private keys тільки з джерел, яким довіряєте. Зберігайте файли з private keys локально й не завантажуйте їх у хмарні редактори таблиць.
+</Warning>
+
+## Single import
+
+<Steps>
+  <Step title="Відкрийте Wallet manager">
+    Перейдіть у **Wallet manager** і натисніть **Import wallet**.
+  </Step>
+  <Step title="Виберіть Single import">
+    Виберіть режим **Single import**.
+  </Step>
+  <Step title="Заповніть поля">
+    Введіть private key або address. За потреби додайте alias, tags і withdrawal address.
+
+    <Frame><img src="/images/atmos_ui/wallets/atmos_wallets_import_wallet_single.png" alt="Single wallet import form" /></Frame>
+  </Step>
+  <Step title="Імпортуйте гаманець">
+    Натисніть **Import**. Гаманець з'явиться в таблиці.
+  </Step>
+</Steps>
+
+## Multiple import
+
+Використовуйте multiple import, коли потрібно швидко додати кілька гаманців без файлу.
+
+<Steps>
+  <Step title="Виберіть Multiple import">
+    У вікні імпорту виберіть **Multiple import**.
+  </Step>
+  <Step title="Вставте дані">
+    Вставте гаманці по рядках. Можна використовувати addresses або private keys.
+  </Step>
+  <Step title="Додайте спільні параметри">
+    За потреби призначте tags, які будуть застосовані до всіх імпортованих гаманців.
+  </Step>
+  <Step title="Підтвердьте імпорт">
+    Перевірте попередній перегляд і натисніть **Import**.
+  </Step>
+</Steps>
+
+## File import
+
+File import зручний для великих списків, де кожен рядок має власний alias, tags або withdrawal address.
+
+<Steps>
+  <Step title="Відкрийте File import">
+    У вікні імпорту виберіть **File import**.
+  </Step>
+  <Step title="Скачайте шаблон">
+    Скачайте template у потрібному форматі або використайте готовий файл з такими колонками:
+
+    ```csv
+    address_or_private_key,alias,tags,withdrawal_address
+    ```
+
+    <Frame><img src="/images/atmos_ui/wallets/atmos_wallets_import_wallet_file_1.png" alt="File import — template download" /></Frame>
+  </Step>
+  <Step title="Заповніть файл">
+    Додайте один гаманець на рядок. У колонці `tags` можна вказати кілька тегів через кому.
+  </Step>
+  <Step title="Завантажте файл">
+    Перетягніть файл у вікно або натисніть **Select**.
+  </Step>
+  <Step title="Перевірте результат">
+    Oxygen Atmos покаже розпізнані рядки, помилки та дублікати.
+  </Step>
+  <Step title="Імпортуйте">
+    Натисніть **Import**, щоб додати гаманці з файлу.
+  </Step>
+</Steps>
+
+## Оновлення існуючих гаманців
+
+Якщо імпортований address уже є в Oxygen Atmos, запис буде оновлено, а не створено повторно. Це можна використовувати для масового оновлення alias, tags або withdrawal address.

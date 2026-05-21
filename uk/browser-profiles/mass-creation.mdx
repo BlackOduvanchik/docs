@@ -1,0 +1,130 @@
+---
+title: "Масове створення"
+description: "Створюйте кілька браузерних профілів за один прохід"
+---
+
+## Огляд
+
+Масове створення дозволяє створити кілька браузерних профілів за одну операцію. Кожен профіль отримує свій fingerprint, а також може отримати гаманці, proxy, social tokens, теги та перевизначення налаштувань браузера.
+
+Використовуйте **Bulk create**, якщо гаманці вже імпортовані в Oxygen Atmos і потрібно створити по одному профілю на гаманець. Використовуйте **Import from file**, якщо потрібне налаштування по рядках через таблицю.
+
+## Bulk create
+
+<Steps>
+  <Step title="Відкрийте Bulk create">
+    Натисніть **New Profile** і виберіть **Bulk create**.
+  </Step>
+  <Step title="Налаштуйте вхідні дані">
+    Виберіть потрібні групи даних:
+
+    - **Wallets** — створити профілі з вибраних гаманців
+    - **Proxies** — призначити proxy по рядках
+    - **Twitter Tokens** — призначити X.com tokens за порядком рядків
+    - **Discord Tokens** — призначити Discord tokens за порядком рядків
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_bulk_create_1.png" alt="Bulk create — step 1 configuration" /></Frame>
+  </Step>
+  <Step title="Зіставте рядки">
+    Кожен вибраний гаманець стає окремим профілем. Рядки з proxy і tokens зіставляються з гаманцями за порядком.
+  </Step>
+  <Step title="Перевірте попередній перегляд">
+    Перевірте згенеровані профілі в таблиці. Перед імпортом Oxygen Atmos перевіряє гаманці, proxy, social tokens і доступність fingerprint.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_bulk_create_2.png" alt="Bulk create — profile validation preview" /></Frame>
+  </Step>
+  <Step title="Виберіть мову">
+    Виберіть мову для створених профілів і натисніть **Import**.
+  </Step>
+</Steps>
+
+Профілі з блокувальними помилками потрібно виправити або пропустити до імпорту. Якщо немає відповідного GPU renderer fingerprint, використайте повторну генерацію без GPU matching, коли інтерфейс пропонує таку опцію.
+
+## Import from file
+
+Профілі можна імпортувати з файлів **CSV**, **XLS**, **XLSX** або **Numbers**.
+
+<Steps>
+  <Step title="Завантажте шаблон">
+    У вікні імпорту з файлу завантажте шаблон у потрібному форматі або виберіть, що файл уже готовий.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_1.png" alt="File import — download template step" /></Frame>
+
+    <Tabs>
+      <Tab title="Step 1">
+        <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_template_1.png" alt="Import template into Google Sheets" /></Frame>
+      </Tab>
+      <Tab title="Step 2">
+        <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_template_2.png" alt="Template — column headers with descriptions" /></Frame>
+      </Tab>
+      <Tab title="Step 3">
+        <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_template_3.png" alt="Template — filled with example data" /></Frame>
+      </Tab>
+    </Tabs>
+
+    <Warning>
+      Якщо файл містить private keys, cookies або social tokens, зберігайте його локально й не завантажуйте в хмарні редактори таблиць.
+    </Warning>
+  </Step>
+  <Step title="Заповніть шаблон">
+    Шаблон містить колонки для назви профілю, тегів, proxy, адрес гаманців, X.com token і Discord token.
+  </Step>
+  <Step title="Завантажте файл">
+    Перетягніть файл в область завантаження або натисніть **Select**.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_2.png" alt="File import — upload file step" /></Frame>
+  </Step>
+  <Step title="Перевірте результат імпорту">
+    Перевірте розпізнані профілі в таблиці й натисніть **Import**, щоб створити або оновити їх.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_3.png" alt="File import — review and confirm" /></Frame>
+  </Step>
+</Steps>
+
+## Шаблон файлу
+
+CSV-шаблон використовує такі колонки:
+
+```csv
+name,tags,proxy,wallet_addresses,twitter_token,discord_token
+```
+
+Приклади рядків:
+
+```csv
+Example Profile,{{red}} tag1,hostname:port:username:password,,,
+Example with protocol,tag2,http://username:password@hostname:port,,,
+```
+
+Теги перелічуються через кому. Під час створення тега можна вказати колір:
+
+```text
+{{red}} warmup
+```
+
+Існуючі теги зіставляються без урахування регістру. Якщо тега немає, Oxygen Atmos створить його.
+
+Wallet addresses або private keys можна перелічувати через кому. Перший гаманець використовується як main wallet. Решта додаються як additional wallets.
+
+Якщо main wallet уже пов'язаний з існуючим профілем, імпорт оновить цей профіль, а не створить дубль.
+
+Колонка `twitter_token` імпортує X.com cookie `auth_token`. Колонка `discord_token` імпортує Discord token у local storage. Обидва значення зберігаються захищено й застосовуються під час наступного запуску браузерного профілю.
+
+## Формат proxy
+
+Під час призначення proxy через **Bulk create** або **Import from file** використовуйте один із форматів:
+
+```text
+protocol://host:port:user:pass
+protocol://user:pass@host:port
+```
+
+Підтримуються **HTTP** і **SOCKS5**. Один proxy — один рядок. Proxy застосовуються до профілів за порядком рядків.
+
+Якщо протокол не вказаний, Oxygen Atmos автоматично визначає, працює proxy як HTTP чи SOCKS5. Перевірка proxy дивиться доступність, протокол і доступні дані про локацію.
+
+## Поради
+
+- Призначайте [теги](/uk/additional-features/settings) під час створення, щоб групувати профілі за кампанією або призначенням
+- Використовуйте імпорт із файлу для великих наборів з індивідуальним налаштуванням рядків
+- Тримайте proxy country, language, timezone і geolocation узгодженими всередині однієї групи профілів

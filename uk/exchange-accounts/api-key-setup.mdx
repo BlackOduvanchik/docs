@@ -1,0 +1,51 @@
+---
+title: "Налаштування API key"
+description: "Створіть біржовий API key з потрібними permissions для Oxygen Atmos"
+---
+
+## Permissions
+
+Для роботи CEX withdrawal API key має дозволяти:
+
+- читати balances
+- створювати withdrawals
+- читати withdrawal status
+
+Не вмикайте trading permissions, якщо вони не потрібні для ваших процесів.
+
+## Додати CEX account
+
+<Steps>
+  <Step title="Створіть API key на біржі">
+    Відкрийте налаштування API на біржі та створіть ключ для Oxygen Atmos.
+  </Step>
+  <Step title="Налаштуйте permissions">
+    Увімкніть permissions для balances і withdrawals. За потреби додайте IP whitelist, якщо біржа цього вимагає.
+  </Step>
+  <Step title="Відкрийте Exchange accounts">
+    У Oxygen Atmos перейдіть у **Exchange accounts** і натисніть **Add account**.
+  </Step>
+  <Step title="Введіть дані">
+    Виберіть exchange, задайте name, вставте API key і secret. Для деяких бірж також потрібен passphrase.
+  </Step>
+  <Step title="Збережіть акаунт">
+    Натисніть **Save**. Oxygen Atmos перевірить підключення й покаже статус.
+  </Step>
+</Steps>
+
+## Безпека
+
+<Warning>
+  Зберігайте API secrets локально й не надсилайте їх у чати, таблиці або сторонні сервіси.
+</Warning>
+
+API credentials зберігаються локально в Oxygen Atmos і шифруються master password, якщо шифрування увімкнене під час першого запуску.
+
+## Troubleshooting
+
+| Проблема | Що перевірити |
+|---|---|
+| Invalid key | API key, secret і passphrase введені без зайвих пробілів |
+| Permission denied | Увімкнені permissions для balances і withdrawals |
+| IP restricted | Поточний IP відповідає whitelist на біржі |
+| No withdrawable balance | Токен доступний для withdrawal, а не заблокований в іншому продукті біржі |

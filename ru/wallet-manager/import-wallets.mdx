@@ -1,0 +1,125 @@
+---
+title: "Импорт кошельков"
+description: "Добавляйте кошельки по одному, списком или из файла"
+---
+
+## Способы импорта
+
+В менеджере кошельков есть три способа импорта:
+
+- **Single** — ручной ввод одного кошелька
+- **Multiple** — вставка списка кошельков в структурированном формате
+- **File** — загрузка CSV, XLS или XLSX файла
+
+<Note>
+  Повторный импорт кошелька с тем же private key **обновляет существующую запись**, а не создаёт дубль.
+</Note>
+
+## Single import
+
+<Steps>
+  <Step title="Откройте окно импорта">
+    Нажмите **Add Wallet** в правом верхнем углу.
+  </Step>
+  <Step title="Выберите режим">
+    Откройте вкладку **Single**.
+  </Step>
+  <Step title="Выберите тип сети">
+    Выберите **EVM**.
+  </Step>
+  <Step title="Введите данные кошелька">
+    Заполните поля:
+
+    | Поле | Описание | Обязательно |
+    |---|---|---|
+    | **Private key or mnemonic** | Private key или mnemonic phrase кошелька | Да |
+    | **Withdrawal address** | Адрес по умолчанию для исходящих переводов | Нет |
+    | **Name** | Отображаемое имя кошелька | Нет |
+    | **Tags** | Один или несколько тегов для организации | Нет |
+
+    <Frame><img src="/images/atmos_ui/wallets/atmos_wallets_import_wallet_single.png" alt="Single wallet import form" /></Frame>
+  </Step>
+  <Step title="Подтвердите импорт">
+    Нажмите **Add Wallet**.
+  </Step>
+</Steps>
+
+## Multiple import
+
+Вставляйте кошельки построчно в таком формате:
+
+```text
+private_key:withdrawal_address:alias
+```
+
+Каждый кошелёк должен быть на новой строке. Пример:
+
+```text
+private_key1:0xabc...123:Farm_01
+private_key2:0xdef...456:Farm_02
+private_key3:0x789...abc:Farm_03
+```
+
+<Steps>
+  <Step title="Откройте окно импорта">
+    Нажмите **Add Wallet** в правом верхнем углу.
+  </Step>
+  <Step title="Выберите режим">
+    Откройте вкладку **Multiple**.
+  </Step>
+  <Step title="Выберите тип сети">
+    Выберите **EVM**.
+  </Step>
+  <Step title="Назначьте теги">
+    При необходимости выберите теги, которые нужно применить ко всем импортируемым кошелькам.
+  </Step>
+  <Step title="Вставьте список">
+    Вставьте подготовленный список в текстовое поле.
+  </Step>
+  <Step title="Подтвердите импорт">
+    Нажмите **Add Wallets**.
+  </Step>
+</Steps>
+
+## File import
+
+Поддерживаемые форматы: **CSV**, **XLS**, **XLSX**. Шаблон можно скачать прямо из окна импорта.
+
+<Steps>
+  <Step title="Откройте окно импорта">
+    Нажмите **Add Wallet** в правом верхнем углу.
+  </Step>
+  <Step title="Выберите режим">
+    Откройте вкладку **File**.
+  </Step>
+  <Step title="Выберите тип сети">
+    Выберите **EVM**.
+  </Step>
+  <Step title="Назначьте теги">
+    При необходимости выберите теги, которые нужно применить ко всем импортируемым кошелькам.
+  </Step>
+  <Step title="Скачайте шаблон">
+    Выберите формат шаблона: CSV, XLS или XLSX. Файл будет сохранён на рабочий стол.
+
+    <Frame><img src="/images/atmos_ui/wallets/atmos_wallets_import_wallet_file_1.png" alt="File import — template download" /></Frame>
+
+    <Warning>
+      Если файл содержит private keys или mnemonic phrases, не загружайте его в облачные редакторы таблиц.
+    </Warning>
+  </Step>
+  <Step title="Заполните шаблон">
+    Откройте шаблон и заполните колонки:
+
+    | Колонка | Описание |
+    |---|---|
+    | `wallet_key_or_address` | Private key или mnemonic phrase |
+    | `withdraw_address` | Адрес для переводов |
+    | `alias` | Отображаемое имя кошелька |
+  </Step>
+  <Step title="Загрузите файл">
+    Нажмите **Next**, затем перетащите файл в область импорта или нажмите **Select**.
+  </Step>
+  <Step title="Подтвердите импорт">
+    Нажмите **Import**, чтобы добавить кошельки из файла.
+  </Step>
+</Steps>

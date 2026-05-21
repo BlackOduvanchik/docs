@@ -1,0 +1,62 @@
+---
+title: "CEX withdrawal"
+description: "Автоматично виводьте токени з біржових акаунтів на свої гаманці"
+---
+
+## Огляд
+
+CEX withdrawal автоматично відправляє токени з підключених біржових акаунтів прямо на гаманці в менеджері. Це зручно для розподілу коштів по сотнях гаманців без ручної роботи.
+
+## Параметри
+
+| Параметр | Опис |
+|---|---|
+| **Chain** | Мережа для виведення, наприклад BNB Smart Chain |
+| **Token** | Токен для виведення, наприклад USDT |
+| **Exchange** | Біржовий акаунт-джерело |
+| **Wallets** | Гаманці-отримувачі, вибираються зі списку |
+| **Withdrawal amount** | Діапазон min і max суми у вибраному токені |
+| **Withdraw only if wallet balance is less than** | Відправляти тільки на гаманці з балансом нижче заданого значення |
+
+<Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_cex_withdrawal_exchange_select.png" alt="CEX withdrawal setup" /></Frame>
+
+<Note>
+  Для кожної вибраної біржі можна подивитися поточний баланс токена, withdrawal fee і minimum withdrawal amount.
+</Note>
+
+## Налаштування задачі
+
+Перед запуском налаштуйте параметри виконання:
+
+| Налаштування | Опис |
+|---|---|
+| **Workers** | Кількість паралельних потоків виведення |
+| **Max retries** | Скільки разів повторювати невдале виведення |
+| **Delay between withdrawals** | Min і max затримка в секундах між операціями |
+
+## Запустити виведення
+
+<Steps>
+  <Step title="Підключіть біржі">
+    Додайте API keys у [CEX accounts](/uk/exchange-accounts/about-exchange-accounts).
+  </Step>
+  <Step title="Налаштуйте параметри">
+    Виберіть chain, token, exchange, wallets і діапазон суми.
+  </Step>
+  <Step title="Перевірте Preview">
+    Натисніть **Preview**. Перевірте список гаманців, суми виведення, поточні баланси та комісії. За потреби можна змінити окремі суми.
+
+    <Frame><img src="/images/atmos_ui/transfer_module/atmos_transfer_module_cex_withdrawal_preview.png" alt="CEX withdrawal preview" /></Frame>
+  </Step>
+  <Step title="Запустіть або відкладіть">
+    - Натисніть **Launch**, щоб виконати задачу одразу
+    - Натисніть **Postpone**, щоб вибрати дату й час — задача потрапить у вкладку **Scheduled** в [Task manager](/uk/task-manager/about-task-manager)
+  </Step>
+</Steps>
+
+## Шаблони
+
+Зберігайте конфігурацію виведення для повторного використання:
+
+- **Зберегти під час Preview** — натисніть іконку збереження поруч із полем **Templates** угорі екрана Preview
+- **Скопіювати із завершеної задачі** — у Task manager натисніть іконку копіювання на завершеній задачі. Доступні три варіанти: use as template, copy all wallets або copy wallets with errors

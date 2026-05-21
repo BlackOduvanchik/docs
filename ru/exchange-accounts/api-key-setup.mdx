@@ -1,0 +1,130 @@
+---
+title: "Настройка API key"
+description: "Создайте API keys на Binance, OKX, MEXC и Bitget для Oxygen Atmos"
+---
+
+## Обзор
+
+Для каждой биржи нужен API key с правами, которые позволяют Oxygen Atmos читать балансы и выполнять выводы. Ниже — инструкции для поддерживаемых бирж.
+
+<Warning>
+  Если вы включаете IP restrictions, укажите IP **proxy**, назначенного биржевому аккаунту в Oxygen Atmos, или свой IP, если proxy не используется.
+</Warning>
+
+## Binance
+
+<Steps>
+  <Step title="Откройте API Management">
+    В аккаунте Binance перейдите в **Settings** → **Account** → **API Management**.
+
+  </Step>
+  <Step title="Создайте API key">
+    Нажмите **Create API** → выберите **System generated** → введите имя → пройдите verification.
+  </Step>
+  <Step title="Настройте permissions">
+    Нажмите **Edit restrictions** у созданного key и включите:
+
+    - **Enable Reading**
+    - **Enable Spot & Margin Trading**
+    - **Enable Withdrawals**
+
+    Добавьте proxy IP или личный IP в allowed list.
+  </Step>
+  <Step title="Завершите verification">
+    Подтвердите изменения. API key и secret будут доступны в деталях key.
+  </Step>
+</Steps>
+
+## OKX
+
+<Steps>
+  <Step title="Откройте API settings">
+    Наведите курсор на иконку аккаунта и выберите **API**.
+
+  </Step>
+  <Step title="Создайте API key">
+    Нажмите **Create API Key** и заполните поля:
+
+    | Поле | Значение |
+    |---|---|
+    | **Name** | Любое название key |
+    | **Account** | Аккаунт, где лежат средства, обычно **Main Account** |
+    | **Purpose** | Trading API |
+    | **IP address** | Proxy или личный IP, необязательно |
+  </Step>
+  <Step title="Настройте permissions">
+    В разделе **Access** включите:
+
+    - **Withdrawal**
+    - **Trade**
+  </Step>
+  <Step title="Задайте passphrase">
+    Создайте **passphrase**. Он понадобится при добавлении аккаунта в Oxygen Atmos.
+  </Step>
+  <Step title="Завершите verification">
+    Подтвердите создание. API credentials находятся в разделе **Info** у созданного key.
+  </Step>
+</Steps>
+
+## MEXC
+
+<Steps>
+  <Step title="Откройте API Management">
+    Наведите курсор на иконку аккаунта и выберите **API Management**.
+
+  </Step>
+  <Step title="Настройте permissions">
+    Включите:
+
+    **Spot:**
+    - View Account Details
+    - View Order Details
+    - Trade
+    - View Deposit/Withdrawal Details
+    - Withdraw
+
+    **Transfer:**
+    - Read transfer information
+    - Transfer
+
+    **Futures:**
+    - View Account Details
+  </Step>
+  <Step title="Укажите name и IP">
+    Введите **name** в поле Notes. При необходимости добавьте proxy или личный IP.
+  </Step>
+  <Step title="Завершите verification">
+    Подтвердите создание. API credentials появятся во всплывающем окне после verification.
+  </Step>
+</Steps>
+
+## Bitget
+
+<Steps>
+  <Step title="Откройте API Keys">
+    Наведите курсор на иконку аккаунта и выберите **API Keys**.
+
+  </Step>
+  <Step title="Создайте API key">
+    Нажмите **Create API Key** и заполните поля:
+
+    | Поле | Значение |
+    |---|---|
+    | **Note** | Название key |
+    | **Passphrase** | Создайте passphrase, он нужен для Oxygen Atmos |
+    | **IP address** | Proxy или личный IP, **обязательно** для withdrawal permissions |
+  </Step>
+  <Step title="Настройте permissions">
+    Включите:
+
+    **Spot:**
+    - Trade
+
+    **Wallet:**
+    - Transfer
+    - Withdraw
+  </Step>
+  <Step title="Завершите verification">
+    Подтвердите создание. API credentials будут доступны в деталях key.
+  </Step>
+</Steps>

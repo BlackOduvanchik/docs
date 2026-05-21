@@ -1,0 +1,130 @@
+---
+title: "Массовое создание"
+description: "Создавайте несколько браузерных профилей за один проход"
+---
+
+## Обзор
+
+Массовое создание позволяет создать несколько браузерных профилей за одну операцию. Каждый профиль получает свой fingerprint, а также может получить кошельки, proxy, social tokens, теги и переопределения настроек браузера.
+
+Используйте **Bulk create**, если кошельки уже импортированы в Oxygen Atmos и нужно создать по одному профилю на кошелёк. Используйте **Import from file**, если нужна построчная настройка через таблицу.
+
+## Bulk create
+
+<Steps>
+  <Step title="Откройте Bulk create">
+    Нажмите **New Profile** и выберите **Bulk create**.
+  </Step>
+  <Step title="Настройте входные данные">
+    Выберите группы данных, которые нужны:
+
+    - **Wallets** — создать профили из выбранных кошельков
+    - **Proxies** — назначить proxy построчно
+    - **Twitter Tokens** — назначить X.com tokens по порядку строк
+    - **Discord Tokens** — назначить Discord tokens по порядку строк
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_bulk_create_1.png" alt="Bulk create — step 1 configuration" /></Frame>
+  </Step>
+  <Step title="Сопоставьте строки">
+    Каждый выбранный кошелёк становится отдельным профилем. Строки с proxy и tokens сопоставляются с кошельками по порядку.
+  </Step>
+  <Step title="Проверьте предпросмотр">
+    Проверьте сгенерированные профили в таблице. Перед импортом Oxygen Atmos проверяет кошельки, proxy, social tokens и доступность fingerprint.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_bulk_create_2.png" alt="Bulk create — profile validation preview" /></Frame>
+  </Step>
+  <Step title="Выберите язык">
+    Выберите язык для созданных профилей и нажмите **Import**.
+  </Step>
+</Steps>
+
+Профили с блокирующими ошибками нужно исправить или пропустить до импорта. Если нет подходящего GPU renderer fingerprint, используйте повторную генерацию без GPU matching, когда интерфейс предлагает такую опцию.
+
+## Import from file
+
+Профили можно импортировать из файлов **CSV**, **XLS**, **XLSX** или **Numbers**.
+
+<Steps>
+  <Step title="Скачайте шаблон">
+    В окне импорта из файла скачайте шаблон в нужном формате или выберите, что файл уже готов.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_1.png" alt="File import — download template step" /></Frame>
+
+    <Tabs>
+      <Tab title="Step 1">
+        <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_template_1.png" alt="Import template into Google Sheets" /></Frame>
+      </Tab>
+      <Tab title="Step 2">
+        <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_template_2.png" alt="Template — column headers with descriptions" /></Frame>
+      </Tab>
+      <Tab title="Step 3">
+        <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_template_3.png" alt="Template — filled with example data" /></Frame>
+      </Tab>
+    </Tabs>
+
+    <Warning>
+      Если файл содержит private keys, cookies или social tokens, храните его локально и не загружайте в облачные редакторы таблиц.
+    </Warning>
+  </Step>
+  <Step title="Заполните шаблон">
+    Шаблон содержит колонки для имени профиля, тегов, proxy, адресов кошельков, X.com token и Discord token.
+  </Step>
+  <Step title="Загрузите файл">
+    Перетащите файл в область загрузки или нажмите **Select**.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_2.png" alt="File import — upload file step" /></Frame>
+  </Step>
+  <Step title="Проверьте результат импорта">
+    Проверьте распознанные профили в таблице и нажмите **Import**, чтобы создать или обновить их.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_import_from_file_3.png" alt="File import — review and confirm" /></Frame>
+  </Step>
+</Steps>
+
+## Шаблон файла
+
+CSV-шаблон использует такие колонки:
+
+```csv
+name,tags,proxy,wallet_addresses,twitter_token,discord_token
+```
+
+Примеры строк:
+
+```csv
+Example Profile,{{red}} tag1,hostname:port:username:password,,,
+Example with protocol,tag2,http://username:password@hostname:port,,,
+```
+
+Теги перечисляются через запятую. При создании тега можно указать цвет:
+
+```text
+{{red}} warmup
+```
+
+Существующие теги сопоставляются без учёта регистра. Если тега нет, Oxygen Atmos создаст его.
+
+Wallet addresses или private keys можно перечислять через запятую. Первый кошелёк используется как main wallet. Остальные добавляются как additional wallets.
+
+Если main wallet уже связан с существующим профилем, импорт обновит этот профиль, а не создаст дубль.
+
+Колонка `twitter_token` импортирует X.com cookie `auth_token`. Колонка `discord_token` импортирует Discord token в local storage. Оба значения хранятся защищённо и применяются при следующем запуске браузерного профиля.
+
+## Формат proxy
+
+При назначении proxy через **Bulk create** или **Import from file** используйте один из форматов:
+
+```text
+protocol://host:port:user:pass
+protocol://user:pass@host:port
+```
+
+Поддерживаются **HTTP** и **SOCKS5**. Один proxy — одна строка. Proxy применяются к профилям по порядку строк.
+
+Если протокол не указан, Oxygen Atmos автоматически определяет, работает ли proxy как HTTP или SOCKS5. Проверка proxy смотрит доступность, протокол и доступные данные о локации.
+
+## Советы
+
+- Назначайте [теги](/ru/additional-features/settings) при создании, чтобы группировать профили по кампании или назначению
+- Используйте импорт из файла для больших наборов с индивидуальной настройкой строк
+- Держите proxy country, language, timezone и geolocation согласованными внутри одной группы профилей
