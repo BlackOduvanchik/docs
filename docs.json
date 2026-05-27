@@ -502,17 +502,7 @@
     ]
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Get Help",
-        "href": "https://wallet.oxygen.tools/en"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Main Site",
-      "href": "https://wallet.oxygen.tools/en"
-    }
+    "links": []
   },
   "footer": {
     "socials": {
