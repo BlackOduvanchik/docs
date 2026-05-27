@@ -1,6 +1,6 @@
 ---
 title: "安装"
-description: "下载 Oxygen Atmos，通过 Telegram 获取访问权限，并完成首次设置"
+description: "在 Windows 或 macOS 上下载并安装 Oxygen Atmos 反检测浏览器"
 ---
 
 ## 可用平台
@@ -18,14 +18,9 @@ Oxygen Atmos 支持 **Windows** 和 **macOS**。
 
 ## 下载
 
-主要下载入口是 Oxygen 网站。同样的安装程序链接也可以在 Telegram 机器人中找到。
-
 <Steps>
   <Step title="下载安装程序">
-    打开[下载页面](https://wallet.oxygen.tools/en/download)，下载适合你操作系统的安装程序。
-  </Step>
-  <Step title="备选方式：Telegram 机器人">
-    你也可以打开 [Telegram 机器人](https://t.me/OduLandBot?start=r_oxygen_x)，发送 `/start`，选择 **💎 Oxygen.Atmos**，并使用 **Windows | MacOS** 下载链接。
+    前往 [wallet.oxygen.tools/en/download](https://wallet.oxygen.tools/en/download)，下载适合你操作系统的安装程序。
   </Step>
   <Step title="运行安装程序">
     打开下载好的安装程序，并按照屏幕提示完成安装。
@@ -35,36 +30,13 @@ Oxygen Atmos 支持 **Windows** 和 **macOS**。
   </Step>
 </Steps>
 
-## 通过 Telegram 获取访问权限
-
-Oxygen Atmos 的访问权限、订阅状态和 API key 都通过 [Telegram 机器人](https://t.me/OduLandBot?start=r_oxygen_x) 管理。
-
-<Note>
-  Telegram 机器人目前只有俄语界面。下面的按钮名称会按机器人中的原文显示。
-</Note>
-
-<Steps>
-  <Step title="打开机器人">
-    打开 [Telegram 机器人](https://t.me/OduLandBot?start=r_oxygen_x) 并发送 `/start`。
-  </Step>
-  <Step title="打开 Oxygen Atmos">
-    在主菜单中选择 **💎 Oxygen.Atmos**。
-  </Step>
-  <Step title="选择访问权限">
-    你可以从免费方案开始。免费方案包含 **10 个浏览器配置文件**。只有需要更高配置文件上限时，才需要在机器人中选择付费方案。
-  </Step>
-  <Step title="复制 API key">
-    复制 Oxygen.Atmos 区域中的 **Персональный API ключ**。首次启动应用时需要使用它。
-  </Step>
-</Steps>
-
 ## 首次设置
 
 第一次启动 Oxygen Atmos 时，需要完成两个设置步骤：
 
 <Steps>
   <Step title="输入 API key">
-    粘贴你从 [Telegram 机器人](https://t.me/OduLandBot?start=r_oxygen_x) 获取的 API key。这会激活应用。
+    粘贴你在 [wallet.oxygen.tools](https://wallet.oxygen.tools) 账户中获取的 API key。这会激活应用。
 
     <Frame><img src="/images/atmos_ui/onboarding/atmos_first_time_setup_1.png" alt="首次设置：输入 API key" /></Frame>
 

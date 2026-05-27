@@ -1,6 +1,6 @@
 ---
 title: "Установка"
-description: "Скачайте Oxygen Atmos, получите доступ через Telegram и пройдите первый запуск"
+description: "Скачайте и установите Oxygen Atmos на Windows или macOS"
 ---
 
 ## Доступность
@@ -18,14 +18,9 @@ Oxygen Atmos доступен для **Windows** и **macOS**.
 
 ## Скачать
 
-Основной источник загрузки — сайт Oxygen. Те же ссылки на установщики доступны в Telegram-боте.
-
 <Steps>
   <Step title="Скачайте установщик">
-    Откройте [страницу загрузки](https://wallet.oxygen.tools/en/download) и скачайте установщик для своей операционной системы.
-  </Step>
-  <Step title="Альтернатива: Telegram-бот">
-    Также можно открыть [Telegram-бот](https://t.me/OduLandBot?start=r_oxygen_x), отправить `/start`, выбрать **💎 Oxygen.Atmos** и перейти по ссылкам **Windows | MacOS**.
+    Перейдите на [wallet.oxygen.tools/en/download](https://wallet.oxygen.tools/en/download) и скачайте установщик для своей операционной системы.
   </Step>
   <Step title="Запустите установщик">
     Откройте скачанный установщик и следуйте инструкциям на экране.
@@ -35,32 +30,13 @@ Oxygen Atmos доступен для **Windows** и **macOS**.
   </Step>
 </Steps>
 
-## Доступ через Telegram
-
-Доступ к Oxygen Atmos, статус подписки и API key управляются через [Telegram-бот](https://t.me/OduLandBot?start=r_oxygen_x).
-
-<Steps>
-  <Step title="Откройте бота">
-    Откройте [Telegram-бот](https://t.me/OduLandBot?start=r_oxygen_x) и отправьте `/start`.
-  </Step>
-  <Step title="Откройте Oxygen Atmos">
-    В главном меню выберите **💎 Oxygen.Atmos**.
-  </Step>
-  <Step title="Выберите доступ">
-    Можно начать с бесплатного тарифа: он включает **10 браузерных профилей**. Платный тариф выбирайте в боте только если нужен больший лимит профилей.
-  </Step>
-  <Step title="Скопируйте API key">
-    Скопируйте **Персональный API ключ** в разделе Oxygen.Atmos. Он понадобится при первом запуске приложения.
-  </Step>
-</Steps>
-
 ## Первый запуск
 
 При первом запуске Oxygen Atmos нужно пройти два шага:
 
 <Steps>
   <Step title="Введите API key">
-    Вставьте API key из [Telegram-бота](https://t.me/OduLandBot?start=r_oxygen_x). Это активирует приложение.
+    Вставьте API key из аккаунта на [wallet.oxygen.tools](https://wallet.oxygen.tools). Это активирует приложение.
 
     <Frame><img src="/images/atmos_ui/onboarding/atmos_first_time_setup_1.png" alt="First time setup — API key entry" /></Frame>
 

@@ -1,6 +1,6 @@
 ---
 title: "Installation"
-description: "Download Oxygen Atmos, get access through Telegram, and complete first-time setup"
+description: "Download and install Oxygen Atmos antidetect browser on Windows or macOS"
 ---
 
 ## Availability
@@ -18,14 +18,9 @@ Oxygen Atmos is available for **Windows** and **macOS**.
 
 ## Download
 
-The main download source is the Oxygen website. The same installer links are also available in the Telegram bot.
-
 <Steps>
   <Step title="Download the installer">
-    Open the [download page](https://wallet.oxygen.tools/en/download) and download the installer for your operating system.
-  </Step>
-  <Step title="Alternative: Telegram bot">
-    You can also open the [Telegram bot](https://t.me/OduLandBot?start=r_oxygen_x), run `/start`, choose **💎 Oxygen.Atmos**, and use the **Windows | MacOS** download links.
+    Go to [wallet.oxygen.tools/en/download](https://wallet.oxygen.tools/en/download) and download the installer for your operating system.
   </Step>
   <Step title="Run the installer">
     Open the downloaded installer and follow the on-screen instructions.
@@ -35,36 +30,13 @@ The main download source is the Oxygen website. The same installer links are als
   </Step>
 </Steps>
 
-## Get access in Telegram
-
-Oxygen Atmos access, subscription status, and API key are managed through the [Telegram bot](https://t.me/OduLandBot?start=r_oxygen_x).
-
-<Note>
-  The Telegram bot interface is currently available in Russian. Button names below are shown exactly as they appear in the bot.
-</Note>
-
-<Steps>
-  <Step title="Open the bot">
-    Open the [Telegram bot](https://t.me/OduLandBot?start=r_oxygen_x) and run `/start`.
-  </Step>
-  <Step title="Open Oxygen Atmos">
-    Choose **💎 Oxygen.Atmos** from the main menu.
-  </Step>
-  <Step title="Choose access">
-    You can start with the free plan, which includes **10 browser profiles**. Choose a paid plan in the bot only if you need a higher profile limit.
-  </Step>
-  <Step title="Copy your API key">
-    Copy the **Персональный API ключ** shown in the Oxygen.Atmos section. You will need it on first launch.
-  </Step>
-</Steps>
-
 ## First-time setup
 
 When you launch Oxygen Atmos for the first time, you go through a two-step setup:
 
 <Steps>
   <Step title="Enter your API key">
-    Paste the API key from the [Telegram bot](https://t.me/OduLandBot?start=r_oxygen_x). This activates the application.
+    Paste the API key from your account on [wallet.oxygen.tools](https://wallet.oxygen.tools). This activates the application.
 
     <Frame><img src="/images/atmos_ui/onboarding/atmos_first_time_setup_1.png" alt="First time setup — API key entry" /></Frame>
 
