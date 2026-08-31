@@ -9,7 +9,7 @@ Un profil navigateur est une identité de navigateur enregistrée dans Oxygen At
 
 Oxygen Atmos stocke et applique la configuration du profil. [Oxidium](/fr/browser-profiles/oxidium) est le core compatible Chromium qui s'ouvre au lancement du profil.
 
-<Frame><img src="/images/atmos_ui/browser/atmos_browser_profiles.png" alt="Browser profiles list" /></Frame>
+<Frame><img src="/images/atmos_ui/browser/atmos_browser_profiles_v040.png" alt="Liste des profils navigateur" /></Frame>
 
 ## Tableau des profils
 
@@ -118,7 +118,7 @@ Chaque profil utilise un ensemble cohérent de paramètres navigateur:
 
 Après création, vous pouvez modifier les paramètres du profil. Certaines modifications s'appliquent immédiatement aux données enregistrées; les changements runtime nécessitent souvent de fermer puis relancer le profil.
 
-En mode édition, la version navigateur ne peut pas être rétrogradée. Si un profil a été créé avec Chrome 144, seules les versions 144 ou plus récentes sont disponibles.
+En mode édition, la version navigateur ne peut pas être rétrogradée. Vous pouvez conserver la version actuelle ou choisir une version plus récente.
 
 ## Wallets dans les profils
 
@@ -135,6 +135,18 @@ Chaque profil a son propre proxy. Types pris en charge: **HTTP** et **SOCKS5**.
 Pour changer le proxy, ouvrez l'éditeur du profil et mettez à jour les proxy fields.
 
 Quand un proxy est configuré, Oxygen Atmos vérifie qu'il fonctionne et stocke les données de localisation disponibles, comme le pays et l'IP.
+
+Les proxies HTTP et SOCKS5 fonctionnent avec ou sans prise en charge UDP. Si le proxy prend en charge UDP, Atmos y fait passer WebRTC, QUIC et HTTP/3. Si l'UDP ne peut pas être proxifié, **Block unproxied UDP** bloque ce trafic pour empêcher une connexion directe de révéler l'adresse IP réelle. Le trafic TCP continue d'utiliser le proxy configuré.
+
+## Corbeille et restauration
+
+La suppression d'un profil le place dans la corbeille. Dans **Browser > Trash**, vous pouvez le restaurer ou le supprimer définitivement.
+
+<Frame caption="Restaurer ou supprimer définitivement un profil">
+  <img src="/images/atmos_ui/browser/atmos_browser_trash.png" alt="Corbeille des profils navigateur" />
+</Frame>
+
+<Warning>Une suppression définitive ne peut pas être annulée.</Warning>
 
 ## Membership limit
 

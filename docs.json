@@ -58,6 +58,8 @@
                     "pages": [
                       "browser-profiles/about-profiles",
                       "browser-profiles/oxidium",
+                      "browser-profiles/global-settings",
+                      "browser-profiles/extensions",
                       "browser-profiles/mass-creation",
                       "browser-profiles/secure-notes",
                       "browser-profiles/faq",
@@ -91,12 +93,27 @@
                     ]
                   },
                   {
+                    "group": "Resources",
+                    "icon": "folder",
+                    "pages": [
+                      "resources/tags",
+                      "resources/rpc"
+                    ]
+                  },
+                  {
                     "group": "Settings",
                     "icon": "gear",
                     "pages": [
                       "additional-features/settings"
                     ]
                   }
+                ]
+              },
+              {
+                "group": "Release notes",
+                "icon": "clock-rotate-left",
+                "pages": [
+                  "release-notes/0.4.0"
                 ]
               }
             ]
@@ -136,6 +153,8 @@
                     "pages": [
                       "ru/browser-profiles/about-profiles",
                       "ru/browser-profiles/oxidium",
+                      "ru/browser-profiles/global-settings",
+                      "ru/browser-profiles/extensions",
                       "ru/browser-profiles/mass-creation",
                       "ru/browser-profiles/secure-notes",
                       "ru/browser-profiles/faq",
@@ -169,12 +188,27 @@
                     ]
                   },
                   {
+                    "group": "Ресурсы",
+                    "icon": "folder",
+                    "pages": [
+                      "ru/resources/tags",
+                      "ru/resources/rpc"
+                    ]
+                  },
+                  {
                     "group": "Настройки",
                     "icon": "gear",
                     "pages": [
                       "ru/additional-features/settings"
                     ]
                   }
+                ]
+              },
+              {
+                "group": "Обновления",
+                "icon": "clock-rotate-left",
+                "pages": [
+                  "ru/release-notes/0.4.0"
                 ]
               }
             ]
@@ -214,6 +248,8 @@
                     "pages": [
                       "uk/browser-profiles/about-profiles",
                       "uk/browser-profiles/oxidium",
+                      "uk/browser-profiles/global-settings",
+                      "uk/browser-profiles/extensions",
                       "uk/browser-profiles/mass-creation",
                       "uk/browser-profiles/secure-notes",
                       "uk/browser-profiles/faq",
@@ -247,12 +283,27 @@
                     ]
                   },
                   {
+                    "group": "Ресурси",
+                    "icon": "folder",
+                    "pages": [
+                      "uk/resources/tags",
+                      "uk/resources/rpc"
+                    ]
+                  },
+                  {
                     "group": "Налаштування",
                     "icon": "gear",
                     "pages": [
                       "uk/additional-features/settings"
                     ]
                   }
+                ]
+              },
+              {
+                "group": "Оновлення",
+                "icon": "clock-rotate-left",
+                "pages": [
+                  "uk/release-notes/0.4.0"
                 ]
               }
             ]
@@ -292,6 +343,8 @@
                     "pages": [
                       "de/browser-profiles/about-profiles",
                       "de/browser-profiles/oxidium",
+                      "de/browser-profiles/global-settings",
+                      "de/browser-profiles/extensions",
                       "de/browser-profiles/mass-creation",
                       "de/browser-profiles/secure-notes",
                       "de/browser-profiles/faq",
@@ -325,12 +378,27 @@
                     ]
                   },
                   {
+                    "group": "Ressourcen",
+                    "icon": "folder",
+                    "pages": [
+                      "de/resources/tags",
+                      "de/resources/rpc"
+                    ]
+                  },
+                  {
                     "group": "Einstellungen",
                     "icon": "gear",
                     "pages": [
                       "de/additional-features/settings"
                     ]
                   }
+                ]
+              },
+              {
+                "group": "Updates",
+                "icon": "clock-rotate-left",
+                "pages": [
+                  "de/release-notes/0.4.0"
                 ]
               }
             ]
@@ -370,6 +438,8 @@
                     "pages": [
                       "fr/browser-profiles/about-profiles",
                       "fr/browser-profiles/oxidium",
+                      "fr/browser-profiles/global-settings",
+                      "fr/browser-profiles/extensions",
                       "fr/browser-profiles/mass-creation",
                       "fr/browser-profiles/secure-notes",
                       "fr/browser-profiles/faq",
@@ -403,12 +473,27 @@
                     ]
                   },
                   {
+                    "group": "Ressources",
+                    "icon": "folder",
+                    "pages": [
+                      "fr/resources/tags",
+                      "fr/resources/rpc"
+                    ]
+                  },
+                  {
                     "group": "Paramètres",
                     "icon": "gear",
                     "pages": [
                       "fr/additional-features/settings"
                     ]
                   }
+                ]
+              },
+              {
+                "group": "Mises à jour",
+                "icon": "clock-rotate-left",
+                "pages": [
+                  "fr/release-notes/0.4.0"
                 ]
               }
             ]
@@ -448,6 +533,8 @@
                     "pages": [
                       "zh-Hans/browser-profiles/about-profiles",
                       "zh-Hans/browser-profiles/oxidium",
+                      "zh-Hans/browser-profiles/global-settings",
+                      "zh-Hans/browser-profiles/extensions",
                       "zh-Hans/browser-profiles/mass-creation",
                       "zh-Hans/browser-profiles/secure-notes",
                       "zh-Hans/browser-profiles/faq",
@@ -481,12 +568,27 @@
                     ]
                   },
                   {
+                    "group": "资源",
+                    "icon": "folder",
+                    "pages": [
+                      "zh-Hans/resources/tags",
+                      "zh-Hans/resources/rpc"
+                    ]
+                  },
+                  {
                     "group": "设置",
                     "icon": "gear",
                     "pages": [
                       "zh-Hans/additional-features/settings"
                     ]
                   }
+                ]
+              },
+              {
+                "group": "更新",
+                "icon": "clock-rotate-left",
+                "pages": [
+                  "zh-Hans/release-notes/0.4.0"
                 ]
               }
             ]

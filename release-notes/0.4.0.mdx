@@ -1,0 +1,31 @@
+---
+title: "Atmos 0.4.0"
+description: "UDP proxying, new browser cores, connection controls, profile recovery, and interface updates"
+---
+
+## Browser engine and antidetect
+
+- Added browser cores 148, 149, 150, and 151.
+- Added UDP proxying for WebRTC, QUIC, and HTTP/3.
+- UDP traffic is blocked when it cannot be sent through the profile proxy, preventing direct UDP connections from exposing the real IP address.
+- Added full CPU downscaling and upscaling on supported platforms.
+- Improved Chrome identity consistency and compatibility with modern browser fingerprint checks, including fingerprint.com scenarios.
+
+## Browser profiles
+
+- Added global startup tab controls with **New**, **Session**, and **List** modes.
+- Added a trash flow for deleted browser profiles so profiles can be restored before permanent deletion.
+- Added dedicated **Global settings** and **Extensions** sections under Browser.
+- Fixed an issue where extensions could open multiple new windows during browser launch.
+
+## Application connection
+
+- Added **Settings → Connection** for routing Oxygen API, Wallet RPC, portfolio, and CEX requests through system or custom proxies.
+- Browser profiles continue to use the proxy saved in each profile.
+
+## Resources and interface
+
+- Moved Tags and RPC management to **Resources** in the sidebar.
+- Updated the RPC screen with network grouping, response status, latency, and endpoint action menus.
+- Added an application data reset option to the locked vault screen for cases where the master password cannot be recovered.
+- Added other visual improvements, browser fixes, and stability updates.

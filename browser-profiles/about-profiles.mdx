@@ -9,7 +9,7 @@ A browser profile is a saved browser identity in Oxygen Atmos. Use profiles to s
 
 Oxygen Atmos stores and manages the profile configuration. [Oxidium](/browser-profiles/oxidium) is the Chromium-compatible browser core that opens when you launch a profile.
 
-<Frame><img src="/images/atmos_ui/browser/atmos_browser_profiles.png" alt="Browser profiles list" /></Frame>
+<Frame><img src="/images/atmos_ui/browser/atmos_browser_profiles_v040.png" alt="Browser profiles with Oxidium versions, proxies, and actions" /></Frame>
 
 ## Profile table
 
@@ -38,7 +38,7 @@ Common actions include:
 - edit tags
 - edit proxy
 - edit secure notes
-- delete a profile
+- move a profile to the trash
 
 Selected profiles can also be handled with bulk actions such as launch, close, tag editing, renaming, or deletion.
 
@@ -61,6 +61,7 @@ Every profile uses a coherent set of browser parameters:
 | **Audio** | AudioContext noise |
 | **Rectangles** | DOM rectangles noise |
 | **WebGL** | GPU metadata and rendering behavior |
+| **CPU / hardwareConcurrency** | Reported logical processor count aligned with the generated fingerprint |
 
 <Info>
   Fingerprints are generated before the profile is saved. The preview reflects the selected browser version and browser preferences.
@@ -87,6 +88,8 @@ Every profile uses a coherent set of browser parameters:
   </Step>
   <Step title="Choose browser version">
     Select the browser version. Enable **Keep up to date** when you want Oxygen Atmos to migrate the profile to one of the latest supported versions.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_create_profile_identity.png" alt="Create a profile and select the browser version" /></Frame>
   </Step>
   <Step title="Review fingerprint">
     Review the generated fingerprint preview. It includes values such as user agent, platform, language, app language, timezone, geolocation, WebRTC, WebGL, and noise settings.
@@ -102,12 +105,18 @@ Every profile uses a coherent set of browser parameters:
     protocol://host:port:user:pass
     protocol://user:pass@host:port
     ```
+
+    When the proxy supports UDP, Oxygen Atmos can proxy WebRTC, QUIC, and HTTP/3 traffic. If UDP cannot be proxied, Oxygen Atmos blocks it instead of allowing a direct connection that could expose your real IP address.
   </Step>
   <Step title="Add cookies or social tokens">
     Add cookies, X.com tokens, or Discord tokens if they should be applied on the next browser launch.
   </Step>
   <Step title="Review browser preferences">
-    Use global browser defaults or override preferences for this profile when it needs a specific search engine, language, timezone, geolocation, WebRTC policy, GPU spoofing mode, or noise settings.
+    Use [global settings](/browser-profiles/global-settings) or override startup tabs, search engine, language, timezone, geolocation, WebRTC policy, GPU spoofing mode, or noise settings for this profile.
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_create_profile_tabs.png" alt="Configure startup tabs and browser preferences while creating a profile" /></Frame>
+
+    <Frame><img src="/images/atmos_ui/browser/atmos_browser_create_profile_privacy.png" alt="Configure WebRTC, GPU spoofing, and noise for a profile" /></Frame>
   </Step>
   <Step title="Save">
     Click **Save profile**. Click the profile row to launch the browser.
@@ -118,7 +127,7 @@ Every profile uses a coherent set of browser parameters:
 
 You can edit profile settings after creation. Some changes apply to saved profile data immediately; runtime changes usually require closing and launching the profile again.
 
-In edit mode, a browser version cannot be downgraded. For example, if a profile was created with Chrome 144, only version 144 or newer can be selected.
+In edit mode, a browser version cannot be downgraded. You can keep the current version or select a newer supported version.
 
 ## Wallets in profiles
 
@@ -135,6 +144,20 @@ Each profile has its own proxy. Supported types: **HTTP** and **SOCKS5**.
 To change a profile's proxy, open the profile editor and update the proxy fields.
 
 When a proxy is configured, Oxygen Atmos checks whether it works and stores location data such as country and IP when available.
+
+HTTP and SOCKS5 proxies can be used whether or not they provide UDP support. UDP-capable proxies can carry WebRTC, QUIC, and HTTP/3 traffic. With **Block unproxied UDP**, Oxygen Atmos blocks UDP that cannot be sent through the proxy, while TCP traffic continues to use the configured proxy.
+
+## Trash and recovery
+
+Deleting a browser profile moves it to the trash instead of removing it immediately. Open the trash to restore a profile or delete it permanently.
+
+<Frame caption="Restore a profile or delete it permanently from Browser > Trash">
+  <img src="/images/atmos_ui/browser/atmos_browser_trash.png" alt="Browser profile trash with restore and permanent delete actions" />
+</Frame>
+
+<Warning>
+  Permanent deletion cannot be undone. Restore a profile before permanently deleting it if you still need its cookies, sessions, fingerprint, or other local data.
+</Warning>
 
 ## Membership limit
 

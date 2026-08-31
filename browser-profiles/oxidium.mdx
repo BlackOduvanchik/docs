@@ -27,11 +27,16 @@ Oxidium works with the Oxygen Atmos profile system to control browser identity s
 | **Timezone and geolocation** | Location-related browser settings |
 | **WebRTC** | Network exposure policy |
 | **GPU and WebGL** | GPU metadata and rendering behavior |
+| **CPU / hardwareConcurrency** | Logical processor count presented to websites |
 | **Noise settings** | Canvas, Audio, and DOM Rectangles behavior |
 | **Cookies and sessions** | Profile-specific website state |
 | **Extensions** | Global or tag-based extension loading |
 
 These settings work together as a coherent browser identity. The profile preview shows the generated fingerprint before the profile is saved.
+
+Oxygen Atmos supports CPU downscaling and upscaling on supported platforms. The reported logical processor count is aligned with the selected platform, architecture, browser version, and the rest of the fingerprint instead of being treated as an isolated value.
+
+Oxidium also keeps Chrome-facing signals such as the User-Agent, Client Hints, platform values, and browser APIs consistent with the selected Chrome major version. This improves compatibility with modern browser identity and fingerprint checks.
 
 ## Removed background services
 
@@ -50,6 +55,8 @@ During launch, Oxygen Atmos can:
 - load matching extensions
 - expose linked wallets through the built-in Rabby extension
 - apply browser preferences and fingerprint settings
+- proxy UDP traffic used by WebRTC, QUIC, and HTTP/3 when the profile proxy supports it
+- block UDP that cannot be proxied instead of allowing it to bypass the profile proxy
 
 If a profile is already running, the launch action focuses the existing Oxidium window instead of starting another copy.
 

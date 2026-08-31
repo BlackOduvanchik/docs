@@ -23,6 +23,19 @@ Check that:
 
 If a proxy value has no protocol, Oxygen Atmos attempts to detect whether it works as HTTP or SOCKS5 during import.
 
+## WebRTC, QUIC, or HTTP/3 does not work
+
+The configured proxy may not support UDP. With **Block unproxied UDP**, Oxygen Atmos blocks UDP that it cannot send through the proxy. This prevents a direct connection from exposing the device's real IP address.
+
+Check that:
+
+- the proxy provider supports UDP;
+- the proxy credentials and endpoint are correct;
+- your network can reach the proxy's UDP relay;
+- the profile is using the intended proxy.
+
+The same proxy can continue to carry TCP traffic when UDP is unavailable.
+
 ## Wallet cannot be linked
 
 The main wallet must:

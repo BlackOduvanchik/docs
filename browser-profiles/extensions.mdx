@@ -1,0 +1,50 @@
+---
+title: "Extensions"
+description: "Install and route browser extensions globally or by profile tags"
+---
+
+## Overview
+
+Open **Browser → Extensions** to manage extensions for [Oxidium](/browser-profiles/oxidium) profiles.
+
+<Frame><img src="/images/atmos_ui/browser/atmos_browser_extensions.png" alt="Extension manager and add extension dialog" /></Frame>
+
+The extension list shows each extension's name, version, enabled state, and loading mode. Use **Search** or the **Tags** filter to find an extension.
+
+## Add an extension
+
+<Steps>
+  <Step title="Open the add dialog">
+    Click **Add**.
+  </Step>
+  <Step title="Choose a source">
+    Select one of these methods:
+
+    - **Upload file** — upload a supported extension package
+    - **URL address** — paste the extension's Chrome Web Store URL
+  </Step>
+  <Step title="Load the extension">
+    Click **Load** and wait for the extension to appear in the list.
+  </Step>
+  <Step title="Choose where it loads">
+    Enable the extension globally or assign profile tags.
+  </Step>
+</Steps>
+
+## Loading modes
+
+| Mode | Behavior |
+|---|---|
+| **Global** | Load the extension in every profile |
+| **Tag-based** | Load it only in profiles that share at least one assigned tag |
+| **Disabled** | Keep the extension installed without loading it in profiles |
+
+## Update or remove extensions
+
+- Click **Update extensions** to update installed extensions.
+- Use the extension action menu to change its assignment or remove it.
+- Relaunch running profiles after changing extension files, tags, or loading mode.
+
+<Info>
+  **Rabby Wallet** is the built-in extension used for wallet integration. Private keys stay inside Oxygen Atmos and are not exposed to the browser runtime.
+</Info>

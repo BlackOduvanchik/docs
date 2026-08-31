@@ -9,7 +9,7 @@ Ein Browserprofil ist eine gespeicherte Browser-Identität in Oxygen Atmos. Prof
 
 Oxygen Atmos speichert und verwaltet die Profilkonfiguration. [Oxidium](/de/browser-profiles/oxidium) ist das Chromium-kompatible Browser-Core, das beim Start eines Profils geöffnet wird.
 
-<Frame><img src="/images/atmos_ui/browser/atmos_browser_profiles.png" alt="Browser profiles list" /></Frame>
+<Frame><img src="/images/atmos_ui/browser/atmos_browser_profiles_v040.png" alt="Liste der Browserprofile" /></Frame>
 
 ## Profiltabelle
 
@@ -118,7 +118,7 @@ Jedes Profil nutzt einen konsistenten Satz von Browserparametern:
 
 Nach dem Erstellen können profile settings geändert werden. Einige Änderungen greifen sofort in gespeicherten Profildaten; runtime-Änderungen erfordern meist einen Neustart des Profils.
 
-Im Bearbeitungsmodus kann die Browserversion nicht herabgestuft werden. Wenn ein Profil z. B. mit Chrome 144 erstellt wurde, kann nur 144 oder neuer gewählt werden.
+Im Bearbeitungsmodus kann die Browserversion nicht herabgestuft werden. Sie können die aktuelle oder eine neuere Version wählen.
 
 ## Wallets in Profilen
 
@@ -135,6 +135,18 @@ Jedes Profil hat einen eigenen proxy. Unterstützt werden **HTTP** und **SOCKS5*
 Um den proxy zu ändern, öffnen Sie den Profileditor und aktualisieren Sie die proxy fields.
 
 Wenn ein proxy konfiguriert ist, prüft Oxygen Atmos die Erreichbarkeit und speichert verfügbare Standortdaten wie Land und IP.
+
+HTTP- und SOCKS5-Proxies funktionieren mit oder ohne UDP-Unterstützung. Unterstützt der Proxy UDP, sendet Atmos WebRTC, QUIC und HTTP/3 darüber. Kann UDP nicht proxied werden, blockiert **Block unproxied UDP** den Traffic, damit keine direkte Verbindung die echte IP offenlegt. TCP-Traffic läuft weiter über den konfigurierten Proxy.
+
+## Papierkorb und Wiederherstellung
+
+Beim Löschen wird ein Profil in den Papierkorb verschoben. Unter **Browser > Trash** können Sie es wiederherstellen oder dauerhaft löschen.
+
+<Frame caption="Profile wiederherstellen oder dauerhaft löschen">
+  <img src="/images/atmos_ui/browser/atmos_browser_trash.png" alt="Papierkorb für Browserprofile" />
+</Frame>
+
+<Warning>Eine dauerhafte Löschung kann nicht rückgängig gemacht werden.</Warning>
 
 ## Membership limit
 

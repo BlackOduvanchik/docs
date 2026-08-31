@@ -1,153 +1,27 @@
 ---
 title: "Paramètres"
-description: "Configurez Oxygen Atmos : sécurité, extensions, RPC, tags, export et import de données"
+description: "Gérer l'accès, les sauvegardes, la langue et le routage des connexions"
 ---
-
-## Vue d'ensemble
-
-Ouvrez les paramètres depuis **Settings** dans la barre latérale gauche. Les paramètres sont organisés en quatre onglets : **Main**, **Tags**, **RPC** et **Browser**.
 
 ## Main
 
-<Frame><img src="/images/atmos_ui/settings/atmos_settings_main.png" alt="Paramètres — onglet Main" /></Frame>
+Ouvrez **Settings**. L'onglet **Main** contient API Key, Master Password, PIN code, Language, Export files et Import files.
 
-| Paramètre | Description |
-|---|---|
-| **API key** | Modifier la clé API liée à votre compte |
-| **Master password** | Modifier le mot de passe maître utilisé pour chiffrer toutes les données de l'application |
-| **PIN code** | Définir ou modifier le PIN utilisé pour confirmer les actions sensibles, comme les transfers ou les suppressions |
-| **Language** | Langue de l'interface |
+<Frame><img src="/images/atmos_ui/settings/atmos_settings_main_v040.png" alt="Settings Main" /></Frame>
 
-### Export
+Exportez Wallets, Accounts ou Software settings dans un ZIP. Activez **Set encryption password** pour protéger l'archive. Les imports sont traités localement et ne sont pas envoyés sur un serveur.
 
-Exportez vos données sous forme d'archives ZIP chiffrées. Trois catégories sont disponibles :
+## Connection
 
-| Catégorie | Contenu |
-|---|---|
-| **Wallets** | Données de wallets, tags et personnalisation inclus |
-| **Accounts** | Données des comptes CEX, tags et personnalisation inclus |
-| **Software settings** | Configuration RPC, extensions et autres paramètres de l'application |
+<Frame><img src="/images/atmos_ui/settings/atmos_settings_connection.png" alt="Settings Connection" /></Frame>
 
-### Import
+Choisissez **System proxy** ou **Custom proxy**. Le routage se configure séparément pour Oxygen API, Wallet RPC, Portfolio data et CEX accounts. Le proxy d'un wallet, d'un profil lié ou d'un compte CEX est prioritaire lorsqu'il existe.
 
-Glissez-déposez un fichier ou cliquez sur **Select** pour importer une archive ZIP chiffrée précédemment exportée.
+<Note>Browser profiles utilisent toujours le proxy enregistré dans le profil. Connection ne modifie pas ce trafic.</Note>
 
-## Tags
+## Sections associées
 
-Les tags dans Oxygen Atmos sont **partagés entre wallets, profils navigateur et comptes d'exchange**. Un tag créé à un endroit devient disponible partout.
-
-<Frame><img src="/images/atmos_ui/settings/atmos_settings_tags.png" alt="Table de gestion des tags" /></Frame>
-
-### Table des tags
-
-| Colonne | Description |
-|---|---|
-| **Name** | Nom du tag avec indicateur de couleur |
-| **Count** | Nombre total d'éléments qui utilisent ce tag |
-| **Browsers** | Case à cocher : le tag est utilisé sur des profils navigateur |
-| **Wallets** | Case à cocher : le tag est utilisé sur des wallets |
-| **Accounts** | Case à cocher : le tag est utilisé sur des comptes d'exchange |
-| **Extensions** | Nombre de profils avec des extensions assignées à ce tag |
-
-Vous pouvez filtrer la table avec **Colors**, **Search** et **Show only unused**.
-
-### Créer un tag
-
-Cliquez sur **Add tag**, saisissez un **nom** et choisissez une **couleur**.
-
-### Assigner des tags
-
-Vous pouvez assigner des tags à plusieurs endroits :
-
-- **Wallet manager** : pendant l'import ou la modification d'un wallet
-- **Browser profiles** : pendant la création, la création en masse ou la modification d'un profil
-- **Exchange accounts** : lors de l'ajout ou de la modification d'un compte
-
-Vous pouvez appliquer plusieurs tags à un même élément.
-
-### Modifier et supprimer des tags
-
-- Cliquez sur l'**icône de modification** pour changer le nom ou la couleur d'un tag. Les changements s'appliquent partout où le tag est utilisé.
-- Sélectionnez un ou plusieurs tags et cliquez sur **Delete** pour les supprimer.
-
-<Warning>
-  Les tags supprimés sont automatiquement retirés de tous les wallets, profils et comptes où ils étaient assignés.
-</Warning>
-
-### Filtrer par tags
-
-La liste des wallets et la liste des profils prennent en charge le filtrage par tags :
-
-1. Cliquez sur **Tags** au-dessus de la liste
-2. Sélectionnez un ou plusieurs tags. Seuls les éléments avec ces tags apparaissent
-3. Cliquez sur **Reset** pour réinitialiser le filtre
-
-## RPC
-
-Configurez les endpoints RPC pour les chains EVM.
-
-| Paramètre | Description |
-|---|---|
-| **Use global proxy for all RPCs** | Faire passer toutes les requêtes RPC par un seul proxy |
-| **Use proxy from wallet browser profile** | Utiliser le proxy de chaque profil pour ses requêtes RPC |
-| **Chain list** | Activer ou désactiver les chains et voir l'état de santé des RPC |
-
-Chaque chain affiche un indicateur de santé, par exemple **3/3** pour 3 RPC actifs sur 3 au total. Vous pouvez ajouter jusqu'à **5 endpoints RPC personnalisés** par chain. Un avertissement "Low active RPCs" apparaît quand certains endpoints ne répondent pas.
-
-## Browser
-
-Configurez les valeurs par défaut des profils navigateur et gérez les extensions.
-
-<Frame><img src="/images/atmos_ui/settings/atmos_settings_browser.png" alt="Paramètres — onglet Browser" /></Frame>
-
-### Préférences navigateur
-
-Les profils peuvent hériter des préférences navigateur globales ou les remplacer individuellement dans l'éditeur de profil.
-
-| Paramètre | Description |
-|---|---|
-| **Search engine** | Moteur de recherche par défaut des profils navigateur |
-| **Language** | Basée sur l'adresse IP du proxy ou définie manuellement, par exemple English United States |
-| **App language** | Basée sur **Language** ou définie indépendamment |
-| **Timezone** | Basée sur l'adresse IP du proxy |
-| **Geolocation** | Ask, Allow ou Block, avec source optionnelle depuis l'IP du proxy |
-| **WebRTC** | Désactiver l'UDP non proxifié ou utiliser l'interface publique |
-| **GPU spoofing** | Contrôler les métadonnées GPU et le mode de spoofing |
-| **Noise** | Activer Canvas, Audio, Rectangles et WebGL |
-
-Valeurs par défaut :
-
-| Paramètre | Valeur par défaut |
-|---|---|
-| **Search engine** | DuckDuckGo |
-| **Language** | English (United States) |
-| **App language** | Basée sur la langue sélectionnée |
-| **Timezone** | Basée sur l'adresse IP du proxy |
-| **Geolocation** | Ask, basée sur l'adresse IP du proxy |
-| **WebRTC** | Disable non-proxied UDP |
-| **GPU spoofing** | Strict |
-| **Noise** | Canvas, Audio et DOM Rectangles activés |
-
-Les overrides de profil sont utilisés pour la génération du fingerprint et le lancement du navigateur.
-
-### Extensions
-
-Oxygen Atmos gère les extensions des profils [Oxidium](/fr/browser-profiles/oxidium). Les extensions peuvent être installées globalement, assignées aux tags de profil ou désactivées.
-
-| Action | Description |
-|---|---|
-| **Add** | Installer depuis une URL Chrome Web Store ou importer un fichier CRX/ZIP |
-| **Update extensions** | Mettre à jour toutes les extensions installées |
-| **Delete** | Supprimer une extension |
-
-| Mode de chargement | Description |
-|---|---|
-| **Global** | Chargée dans tous les profils navigateur |
-| **Tag-based** | Chargée uniquement dans les profils qui partagent au moins un tag assigné avec l'extension |
-| **Disabled** | N'est chargée dans aucun profil |
-
-Le chargement des extensions est calculé au lancement du profil. Relancez un profil actif après avoir modifié l'assignation des extensions, les tags ou les fichiers d'extension.
-
-<Info>
-  **Rabby Wallet** est une extension intégrée pour l'intégration wallet. Les clés privées restent dans Oxygen Atmos et ne sont pas exposées au runtime du navigateur.
-</Info>
+- [Paramètres globaux](/fr/browser-profiles/global-settings)
+- [Extensions](/fr/browser-profiles/extensions)
+- [Tags](/fr/resources/tags)
+- [RPC](/fr/resources/rpc)

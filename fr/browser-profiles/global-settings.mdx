@@ -1,0 +1,33 @@
+---
+title: "Paramètres globaux"
+description: "Configurer les onglets de démarrage, la langue, WebRTC, le GPU spoofing et le noise"
+---
+
+## Présentation
+
+Ouvrez **Browser → Global settings** pour définir les valeurs par défaut des nouveaux profils. Chaque profil peut les remplacer.
+
+<Frame><img src="/images/atmos_ui/browser/atmos_browser_global_settings.png" alt="Paramètres globaux des profils" /></Frame>
+
+## Onglets de démarrage
+
+| Mode | Comportement |
+|---|---|
+| **New** | Ouvrir un nouvel onglet |
+| **Session** | Restaurer les onglets de la session enregistrée |
+| **List** | Ouvrir une liste d'URL configurée |
+
+## WebRTC et protection UDP
+
+**Block unproxied UDP** autorise l'UDP uniquement quand Atmos peut l'envoyer via le proxy du profil.
+
+- Un proxy compatible UDP transporte WebRTC, QUIC et HTTP/3.
+- Si l'UDP ne peut pas être proxifié, Atmos le bloque.
+- Une connexion UDP directe ne peut pas contourner le proxy et révéler l'adresse IP réelle.
+- Un proxy sans UDP continue de fonctionner pour le trafic TCP.
+
+<Warning>**Public Interface** peut exposer des informations sur l'interface réseau directe.</Warning>
+
+## Autres paramètres
+
+Configurez Search engine, Language, App language, Timezone, Geolocation, GPU spoofing (**Strict**, **Compatibility**, **Vendor**, **Disabled**) et le noise Canvas, Audio et Rectangles.

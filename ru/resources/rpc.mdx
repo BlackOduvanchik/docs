@@ -1,0 +1,19 @@
+---
+title: "RPC"
+description: "Настраивайте RPC endpoints и отслеживайте их состояние"
+---
+
+## Обзор
+
+Откройте **Resources → RPC**. Endpoints сгруппированы по сетям, а каждая группа показывает число отвечающих RPC, например **4 / 5**.
+
+<Frame><img src="/images/atmos_ui/resources/atmos_resources_rpc.png" alt="RPC endpoints по сетям" /></Frame>
+
+| Настройка | Описание |
+|---|---|
+| **Use global proxy for all RPCs** | Пропускать RPC-запросы через один прокси |
+| **Use proxy from wallet browser profile** | Сначала использовать прокси браузерного профиля кошелька |
+| **Reset defaults** | Восстановить стандартные RPC |
+| **Add RPC** | Добавить собственный endpoint |
+
+Работающий endpoint показывает задержку в миллисекундах. Ошибка проверки отображается как **Not responding**. Если активных endpoints мало, сеть получает статус **Low active RPC**.

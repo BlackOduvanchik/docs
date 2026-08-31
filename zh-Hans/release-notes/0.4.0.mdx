@@ -1,0 +1,21 @@
+---
+title: "Atmos 0.4.0"
+description: "UDP 代理、新浏览器内核、连接控制和界面更新"
+---
+
+## 浏览器与防检测
+
+- 新增 148、149、150 和 151 内核。
+- 新增 WebRTC、QUIC 和 HTTP/3 的 UDP 代理支持。
+- 当 UDP 无法通过代理发送时，Atmos 会阻止该流量。
+- 新增 CPU downscaling 和 upscaling。
+- 改进 Chrome 身份一致性和现代 fingerprint 检查兼容性。
+
+## 其他变化
+
+- 新增 **New**、**Session** 和 **List** 启动标签页模式。
+- 新增配置文件回收站和恢复功能。
+- 新增 **Settings → Connection**。
+- Global settings 和 Extensions 移至 Browser；Tags 和 RPC 移至 Resources。
+- 更新 RPC 界面，并在 vault 锁定页面新增应用数据重置入口。
+- 修复扩展打开额外窗口的问题及其他稳定性问题。

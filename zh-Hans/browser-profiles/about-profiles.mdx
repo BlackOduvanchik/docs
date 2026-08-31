@@ -9,7 +9,7 @@ description: "了解浏览器配置文件：带有指纹、代理、钱包和浏
 
 Oxygen Atmos 负责存储和管理配置文件数据。[Oxidium](/zh-Hans/browser-profiles/oxidium) 是兼容 Chromium 的浏览器核心，在你启动配置文件时打开对应窗口。
 
-<Frame><img src="/images/atmos_ui/browser/atmos_browser_profiles.png" alt="浏览器配置文件列表" /></Frame>
+<Frame><img src="/images/atmos_ui/browser/atmos_browser_profiles_v040.png" alt="浏览器配置文件列表" /></Frame>
 
 ## 配置文件表格
 
@@ -118,7 +118,7 @@ Browser 页面会显示日常操作所需的信息：
 
 创建后仍然可以编辑配置文件设置。部分修改会立即应用到已保存的配置文件数据；运行时相关修改通常需要关闭并重新启动配置文件。
 
-在编辑模式下，浏览器版本不能降级。例如，如果配置文件是用 Chrome 144 创建的，只能选择 144 或更新版本。
+在编辑模式下，浏览器版本不能降级。你可以保留当前版本或选择更新版本。
 
 ## 配置文件中的钱包
 
@@ -135,6 +135,18 @@ Browser 页面会显示日常操作所需的信息：
 要修改配置文件代理，请打开配置文件编辑器并更新代理字段。
 
 配置代理后，Oxygen Atmos 会检查代理是否可用，并在可用时保存国家和 IP 等位置数据。
+
+HTTP 和 SOCKS5 代理无论是否支持 UDP 都可使用。如果代理支持 UDP，Atmos 会通过该代理传输 WebRTC、QUIC 和 HTTP/3。如果 UDP 无法通过代理，**Block unproxied UDP** 会阻止该流量，避免直接连接暴露真实 IP。TCP 流量仍会通过配置的代理传输。
+
+## 回收站与恢复
+
+删除配置文件时，它会先移到回收站。在 **Browser > Trash** 中，你可以恢复配置文件或将其永久删除。
+
+<Frame caption="恢复或永久删除配置文件">
+  <img src="/images/atmos_ui/browser/atmos_browser_trash.png" alt="浏览器配置文件回收站" />
+</Frame>
+
+<Warning>永久删除无法撤销。</Warning>
 
 ## Membership 限制
 

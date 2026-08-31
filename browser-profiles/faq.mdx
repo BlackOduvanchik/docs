@@ -37,7 +37,17 @@ Yes. A profile can launch without a proxy. Use a profile-specific proxy when the
 
 ## Which proxy protocols are supported?
 
-The profile editor supports **HTTP** and **SOCKS5**. Auto mode is used for detection and import when a proxy value has no protocol.
+The profile editor supports **HTTP** and **SOCKS5**. Auto mode is used for detection and import when a proxy value has no protocol. A proxy may support TCP only or both TCP and UDP.
+
+## How does UDP proxying work?
+
+When the profile proxy supports UDP, Oxygen Atmos can send WebRTC, QUIC, and HTTP/3 traffic through it. If UDP cannot be proxied, Oxygen Atmos blocks that UDP traffic instead of allowing it to connect directly.
+
+The proxy remains usable for regular TCP traffic when UDP is unavailable.
+
+## Can WebRTC expose my real IP address?
+
+Use **Block unproxied UDP** in [Global settings](/browser-profiles/global-settings) or the profile editor. This policy prevents WebRTC and other UDP traffic from bypassing the profile proxy. UDP is either sent through the proxy or blocked.
 
 ## How are extensions loaded?
 

@@ -1,153 +1,85 @@
 ---
 title: "Settings"
-description: "Configure Oxygen Atmos — security, extensions, RPC, tags, and data export/import"
+description: "Manage application access, local backups, interface language, and connection routing"
 ---
 
 ## Overview
 
-Access settings from **Settings** in the left sidebar. Settings are organized into four tabs: **Main**, **Tags**, **RPC**, and **Browser**.
+Open **Settings** from the left sidebar. Settings are divided into **Main** and **Connection**.
 
 ## Main
 
-<Frame><img src="/images/atmos_ui/settings/atmos_settings_main.png" alt="Settings — Main tab" /></Frame>
+<Frame><img src="/images/atmos_ui/settings/atmos_settings_main_v040.png" alt="Settings Main tab" /></Frame>
+
+### Access and security
 
 | Setting | Description |
 |---|---|
-| **API key** | Change the API key linked to your account |
-| **Master password** | Change the master password used to encrypt all application data |
-| **PIN code** | Set or change the PIN used to confirm sensitive actions (transfers, deletions) |
-| **Language** | Interface language |
+| **API Key** | Replace the API key linked to Oxygen Atmos |
+| **Master Password** | Change the password used to unlock and encrypt local application data |
+| **PIN code** | Set or change the PIN used for sensitive actions |
+| **Language** | Change the Oxygen Atmos interface language |
 
-### Export
+### Export files
 
-Export your data as encrypted ZIP archives. Three categories available:
+Select the data to include in a ZIP export:
 
 | Category | Contents |
 |---|---|
-| **Wallets** | Wallet data including tags and personalization |
-| **Accounts** | CEX account data including tags and personalization |
-| **Software settings** | RPC configuration, extensions, and other app settings |
+| **Wallets** | Wallet data, tags, and personalization |
+| **Accounts** | Exchange account data, tags, and personalization |
+| **Software settings** | RPC configuration, extensions, and other application settings |
 
-### Import
+Enable **Set encryption password** to protect the exported archive with a password.
 
-Drag and drop or click **Select** to import a previously exported encrypted ZIP archive.
+### Import files
 
-## Tags
+Drag a supported ZIP export into the import area or click **Select**. Imported files are processed locally and are not uploaded to a server.
 
-Tags in Oxygen Atmos are **unified across wallets, browser profiles, and exchange accounts**. A tag created anywhere is available everywhere.
+## Connection
 
-<Frame><img src="/images/atmos_ui/settings/atmos_settings_tags.png" alt="Tags management table" /></Frame>
+Use **Settings → Connection** when access to Oxygen services or third-party resources is restricted on your network.
 
-### Tags table
+<Frame><img src="/images/atmos_ui/settings/atmos_settings_connection.png" alt="Settings Connection tab" /></Frame>
 
-| Column | Description |
+### Connection source
+
+| Mode | Description |
 |---|---|
-| **Name** | Tag name with color indicator |
-| **Count** | Total items using this tag |
-| **Browsers** | Checkbox — tag is used on browser profiles |
-| **Wallets** | Checkbox — tag is used on wallets |
-| **Accounts** | Checkbox — tag is used on exchange accounts |
-| **Extensions** | Number of profiles with extensions assigned to this tag |
+| **System proxy** | Use the proxy configured by the operating system |
+| **Custom proxy** | Use a proxy added directly in the Connection settings |
 
-You can filter the table with **Colors**, **Search**, and **Show only unused**.
+Click **Add proxy** to save a custom connection proxy.
 
-### Create a tag
+### Advanced routing
 
-Click **Add tag**, enter a **name** and choose a **color**.
+Choose connection behavior separately for each part of Oxygen Atmos:
 
-### Assign tags
+| Area | Traffic | Priority behavior |
+|---|---|---|
+| **Oxygen API** | Login, subscription checks, token lists, browser components, application updates, and other Oxygen service requests | Uses the selected connection route |
+| **Wallet RPC** | Blockchain network requests from wallets | A wallet or linked browser profile proxy is used first when available |
+| **Portfolio data** | Balance, portfolio, and token information | Uses the selected connection route |
+| **CEX accounts** | Exchange account requests | The proxy assigned to the exchange account always has priority |
+| **Browser profiles** | Browser profile traffic | Always uses the proxy saved in the profile |
 
-You can assign tags in several places:
+<Note>
+  Connection settings do not replace browser profile proxies. Each browser profile continues to use its own saved proxy.
+</Note>
 
-- **Wallet manager** — during import or when editing a wallet
-- **Browser profiles** — during creation, bulk creation, or when editing a profile
-- **Exchange accounts** — when adding or editing an account
+## Related resources
 
-You can apply multiple tags to a single item.
-
-### Edit and delete tags
-
-- Click the **edit icon** to change a tag's name or color. Changes apply everywhere the tag is used.
-- Select one or more tags and click **Delete** to remove them.
-
-<Warning>
-  Deleted tags are automatically removed from all wallets, profiles, and accounts where they were assigned.
-</Warning>
-
-### Filter by tags
-
-Both the wallet list and the profile list support tag filtering:
-
-1. Click **Tags** above the list
-2. Select one or more tags — only items with those tags appear
-3. Click **Reset** to clear the filter
-
-## RPC
-
-Configure RPC endpoints for EVM chains.
-
-| Setting | Description |
-|---|---|
-| **Use global proxy for all RPCs** | Route all RPC requests through a single proxy |
-| **Use proxy from wallet browser profile** | Use each profile's proxy for its RPC requests |
-| **Chain list** | Toggle chains on/off, view RPC health status |
-
-Each chain shows a health indicator (e.g. **3/3** = 3 healthy out of 3 total RPCs). You can add up to **5 custom RPC endpoints** per chain. A "Low active RPCs" warning appears when some endpoints are unresponsive.
-
-## Browser
-
-Configure browser defaults for profiles and manage extensions.
-
-<Frame><img src="/images/atmos_ui/settings/atmos_settings_browser.png" alt="Settings — Browser tab" /></Frame>
-
-### Browser preferences
-
-Profiles can inherit global browser preferences or override them individually in the profile editor.
-
-| Setting | Description |
-|---|---|
-| **Search engine** | Default search engine for browser profiles |
-| **Language** | Based on proxy IP address or set manually (e.g. English United States) |
-| **App language** | Based on **Language** or set independently |
-| **Timezone** | Based on proxy IP address |
-| **Geolocation** | Ask, Allow, or Block, with optional proxy IP source |
-| **WebRTC** | Disable non-proxied UDP or use public interface |
-| **GPU spoofing** | Control GPU metadata and spoofing mode |
-| **Noise** | Toggle Canvas, Audio, Rectangles, WebGL |
-
-Default values:
-
-| Setting | Default |
-|---|---|
-| **Search engine** | DuckDuckGo |
-| **Language** | English (United States) |
-| **App language** | Based on selected language |
-| **Timezone** | Based on proxy IP address |
-| **Geolocation** | Ask, based on proxy IP address |
-| **WebRTC** | Disable non-proxied UDP |
-| **GPU spoofing** | Strict |
-| **Noise** | Canvas, Audio, and DOM Rectangles enabled |
-
-Profile overrides are used for fingerprint generation and browser launch.
-
-### Extensions
-
-Oxygen Atmos manages extensions for [Oxidium](/browser-profiles/oxidium) profiles. Extensions can be installed globally, assigned to profile tags, or disabled.
-
-| Action | Description |
-|---|---|
-| **Add** | Install from a Chrome Web Store URL or upload a CRX/ZIP file |
-| **Update extensions** | Update all installed extensions |
-| **Delete** | Remove an extension |
-
-| Loading mode | Description |
-|---|---|
-| **Global** | Loads in every browser profile |
-| **Tag-based** | Loads only in profiles that share at least one assigned tag with the extension |
-| **Disabled** | Does not load in any profile |
-
-Extension loading is calculated when a profile launches. Relaunch a running profile after changing extension assignment, tags, or extension files.
-
-<Info>
-  **Rabby Wallet** is a built-in extension for wallet integration. Private keys stay inside Oxygen Atmos and are not exposed to the browser runtime.
-</Info>
+<CardGroup cols={2}>
+  <Card title="Global settings" icon="sliders" href="/browser-profiles/global-settings">
+    Configure browser defaults, WebRTC, GPU spoofing, and startup tabs.
+  </Card>
+  <Card title="Extensions" icon="puzzle-piece" href="/browser-profiles/extensions">
+    Install extensions globally or route them by tags.
+  </Card>
+  <Card title="Tags" icon="tags" href="/resources/tags">
+    Manage tags shared across Oxygen Atmos.
+  </Card>
+  <Card title="RPC" icon="link" href="/resources/rpc">
+    Configure RPC endpoints and monitor network health.
+  </Card>
+</CardGroup>

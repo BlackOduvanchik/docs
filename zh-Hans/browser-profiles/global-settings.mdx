@@ -1,0 +1,33 @@
+---
+title: "全局设置"
+description: "配置浏览器配置文件的启动标签页、语言、WebRTC、GPU spoofing 和 noise"
+---
+
+## 概述
+
+打开 **Browser → Global settings** 设置新配置文件的默认值。你可以在单个配置文件中覆盖这些设置。
+
+<Frame><img src="/images/atmos_ui/browser/atmos_browser_global_settings.png" alt="浏览器配置文件全局设置" /></Frame>
+
+## 启动标签页
+
+| 模式 | 行为 |
+|---|---|
+| **New** | 打开新标签页 |
+| **Session** | 恢复已保存会话的标签页 |
+| **List** | 打开配置的 URL 列表 |
+
+## WebRTC 与 UDP 保护
+
+**Block unproxied UDP** 仅在 Atmos 能通过配置文件代理发送 UDP 时允许该流量。
+
+- 支持 UDP 的代理可以传输 WebRTC、QUIC 和 HTTP/3。
+- 如果 UDP 无法通过代理，Atmos 会将其阻止。
+- UDP 不能绕过代理直接连接，因此不会暴露真实 IP。
+- 不支持 UDP 的代理仍可用于 TCP 流量。
+
+<Warning>**Public Interface** 可能暴露直接网络接口信息。</Warning>
+
+## 其他设置
+
+你还可以配置 Search engine、Language、App language、Timezone、Geolocation、GPU spoofing（**Strict**、**Compatibility**、**Vendor**、**Disabled**）以及 Canvas、Audio 和 Rectangles noise。
