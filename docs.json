@@ -59,6 +59,7 @@
                       "browser-profiles/about-profiles",
                       "browser-profiles/oxidium",
                       "browser-profiles/global-settings",
+                      "browser-profiles/bookmarks-manager",
                       "browser-profiles/extensions",
                       "browser-profiles/mass-creation",
                       "browser-profiles/secure-notes",
@@ -113,6 +114,7 @@
                 "group": "Release notes",
                 "icon": "clock-rotate-left",
                 "pages": [
+                  "release-notes/0.4.1",
                   "release-notes/0.4.0"
                 ]
               }
@@ -154,6 +156,7 @@
                       "ru/browser-profiles/about-profiles",
                       "ru/browser-profiles/oxidium",
                       "ru/browser-profiles/global-settings",
+                      "ru/browser-profiles/bookmarks-manager",
                       "ru/browser-profiles/extensions",
                       "ru/browser-profiles/mass-creation",
                       "ru/browser-profiles/secure-notes",
@@ -208,6 +211,7 @@
                 "group": "Обновления",
                 "icon": "clock-rotate-left",
                 "pages": [
+                  "ru/release-notes/0.4.1",
                   "ru/release-notes/0.4.0"
                 ]
               }
@@ -249,6 +253,7 @@
                       "uk/browser-profiles/about-profiles",
                       "uk/browser-profiles/oxidium",
                       "uk/browser-profiles/global-settings",
+                      "uk/browser-profiles/bookmarks-manager",
                       "uk/browser-profiles/extensions",
                       "uk/browser-profiles/mass-creation",
                       "uk/browser-profiles/secure-notes",
@@ -303,6 +308,7 @@
                 "group": "Оновлення",
                 "icon": "clock-rotate-left",
                 "pages": [
+                  "uk/release-notes/0.4.1",
                   "uk/release-notes/0.4.0"
                 ]
               }
@@ -344,6 +350,7 @@
                       "de/browser-profiles/about-profiles",
                       "de/browser-profiles/oxidium",
                       "de/browser-profiles/global-settings",
+                      "de/browser-profiles/bookmarks-manager",
                       "de/browser-profiles/extensions",
                       "de/browser-profiles/mass-creation",
                       "de/browser-profiles/secure-notes",
@@ -398,6 +405,7 @@
                 "group": "Updates",
                 "icon": "clock-rotate-left",
                 "pages": [
+                  "de/release-notes/0.4.1",
                   "de/release-notes/0.4.0"
                 ]
               }
@@ -439,6 +447,7 @@
                       "fr/browser-profiles/about-profiles",
                       "fr/browser-profiles/oxidium",
                       "fr/browser-profiles/global-settings",
+                      "fr/browser-profiles/bookmarks-manager",
                       "fr/browser-profiles/extensions",
                       "fr/browser-profiles/mass-creation",
                       "fr/browser-profiles/secure-notes",
@@ -493,6 +502,7 @@
                 "group": "Mises à jour",
                 "icon": "clock-rotate-left",
                 "pages": [
+                  "fr/release-notes/0.4.1",
                   "fr/release-notes/0.4.0"
                 ]
               }
@@ -534,6 +544,7 @@
                       "zh-Hans/browser-profiles/about-profiles",
                       "zh-Hans/browser-profiles/oxidium",
                       "zh-Hans/browser-profiles/global-settings",
+                      "zh-Hans/browser-profiles/bookmarks-manager",
                       "zh-Hans/browser-profiles/extensions",
                       "zh-Hans/browser-profiles/mass-creation",
                       "zh-Hans/browser-profiles/secure-notes",
@@ -588,6 +599,7 @@
                 "group": "更新",
                 "icon": "clock-rotate-left",
                 "pages": [
+                  "zh-Hans/release-notes/0.4.1",
                   "zh-Hans/release-notes/0.4.0"
                 ]
               }
